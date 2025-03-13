@@ -1,4 +1,4 @@
-QMon: Monitoring the Execution of Quantum Programs with Mid-Circuit Measurement and Reset
+**QMon: Monitoring the Execution of Quantum Programs with Mid-Circuit Measurement and Reset**
 
 The repository contains the detailed results and replication package for the paper "QMon: Monitoring the Execution of Quantum
 Programs with Mid-Circuit Measurement and Reset".
