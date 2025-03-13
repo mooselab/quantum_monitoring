@@ -107,8 +107,8 @@ def get_circuits_with_monitorable_nodes(simulator, statevector_list):
             except EOFError:
                 break
 
-    print('total circuits:', num)
-    print('total nodes:', count)
+    print('total circuits:', count)
+    print('total nodes:', num)
 
     return quantum_file
 
