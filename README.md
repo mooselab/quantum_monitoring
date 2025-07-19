@@ -30,7 +30,7 @@ The quantum circuits dataset used in our project is sourced from the MQTBench, h
 
 
 ## Methodology
-![image](https://drive.google.com/file/d/1KTj_w2x__-I1yksuJofTaWr5KWeRV-p3/view?usp=drive_link)
+![image](https://github.com/user-attachments/assets/036f817e-fb00-4d88-8eae-822b63c246ea)
 
 
 
