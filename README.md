@@ -15,7 +15,6 @@ This repository is organized into the following folders:
 
 - **reconstruction/**: Contains the code for reconstructing quantum circuits.
 - **quantum circuits/**: Contains the the quantum circuits for experiments.
-- **data/**: Contains processed data and final results.
 
 ## Dependencies
 We recommend using an Anaconda environment with Python version 3.9, and following Python requirement should be met.
