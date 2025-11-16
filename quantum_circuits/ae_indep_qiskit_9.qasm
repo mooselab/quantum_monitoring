@@ -1,50 +1,45 @@
-// Benchmark was created by MQT Bench on 2024-03-17
-// For more information about MQT Bench, please visit https://www.cda.cit.tum.de/mqtbench/
-// MQT Bench version: 1.1.0
-// Qiskit version: 1.0.2
-
 OPENQASM 2.0;
 include "qelib1.inc";
 qreg eval[8];
 qreg q[1];
 creg meas[9];
-u2(0,-pi) eval[0];
-u2(0,-pi) eval[1];
-u2(0,-pi) eval[2];
-u2(0,-pi) eval[3];
-u2(0,-pi) eval[4];
-u2(0,-pi) eval[5];
-u2(0,-pi) eval[6];
-u2(0,-pi) eval[7];
-u3(0.9272952180016122,0,0) q[0];
+u(pi/2,0,-pi) eval[0];
+u(pi/2,0,-pi) eval[1];
+u(pi/2,0,-pi) eval[2];
+u(pi/2,0,-pi) eval[3];
+u(pi/2,0,-pi) eval[4];
+u(pi/2,0,-pi) eval[5];
+u(pi/2,0,-pi) eval[6];
+u(pi/2,0,-pi) eval[7];
+u(0.9272952180016122,0,0) q[0];
 cx eval[0],q[0];
 u(-0.9272952180016122,0,0) q[0];
 cx eval[0],q[0];
-u3(0.9272952180016122,0,0) q[0];
+u(0.9272952180016122,0,0) q[0];
 cx eval[1],q[0];
 u(-1.8545904360032244,0,0) q[0];
 cx eval[1],q[0];
-u3(1.8545904360032244,0,0) q[0];
+u(1.8545904360032244,0,0) q[0];
 cx eval[2],q[0];
 u(-3.7091808720064487,0,0) q[0];
 cx eval[2],q[0];
-u3(2.574004435173138,-pi,-pi) q[0];
+u(2.574004435173138,-pi,-pi) q[0];
 cx eval[3],q[0];
 u(-7.4183617440128975,0,0) q[0];
 cx eval[3],q[0];
-u3(1.135176436833311,0,0) q[0];
+u(1.135176436833311,0,0) q[0];
 cx eval[4],q[0];
 u(-14.836723488025795,0,0) q[0];
 cx eval[4],q[0];
-u3(2.270352873666622,0,0) q[0];
+u(2.270352873666622,0,0) q[0];
 cx eval[5],q[0];
 u(-29.67344697605159,0,0) q[0];
 cx eval[5],q[0];
-u3(1.7424795598463425,-pi,-pi) q[0];
+u(1.7424795598463425,-pi,-pi) q[0];
 cx eval[6],q[0];
 u(-59.34689395210318,0,0) q[0];
 cx eval[6],q[0];
-u3(2.7982261874869017,0,0) q[0];
+u(2.7982261874869017,0,0) q[0];
 cx eval[7],q[0];
 u(-118.69378790420636,0,0) q[0];
 cx eval[7],q[0];
