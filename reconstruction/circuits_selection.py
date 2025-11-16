@@ -15,151 +15,182 @@ import copy
 import pickle
 from qiskit.quantum_info import partial_trace, Statevector
 from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister
+from qiskit.quantum_info import Statevector, partial_trace, concurrence, schmidt_decomposition
+
+from utilities import *
 
 simulator = Aer.get_backend('statevector_simulator')
 
 
-def find_probablity(file, qc, simulator):
-    res = []
+def _single_vs_rest_entangled(psi: Statevector, q: int, tol=1e-12):
+    """Treat q|rest as entangled with the rest if the second Schmidt coefficient > tol."""
+    lams = [t[0] for t in schmidt_decomposition(psi, qargs=[q])]
+    s2 = 0.0 if len(lams) < 2 else float(lams[1])
+    return (s2 > tol), s2, [float(x) for x in lams]
+
+
+def analyze_per_gate(qc, tol: float = 1e-12, swap_unlock: bool = True):
+    """
+    Evolve the circuit gate by gate (without transpiling).
+    - Single-qubit gate: if the qubit is not locked, append gate_index to its path.
+    - Two-qubit gate: perform a "double check" and record an event; for each qubit,
+    use the q|rest test to decide whether it becomes locked.
+    - If it is a SWAP and swap_unlock=True: re-evaluate a, b individually; if a qubit
+        is "not entangled with the rest" → allow unlocking, and append this gate index
+        to that qubit's path.
+    - Non-SWAP gates: can only lock qubits, never unlock them.
+    Returns:
+    res: List[[gate_index, gate_name, qubit_index, p0, p1]]
+    events: List[... information from the double checks and per-qubit results ...]
+    paths_until_first_ent: Dict[int, List[int]] (allows "reopening the path" at SWAP
+        gates and adding that step)
+    """
+    n = qc.num_qubits
     partial_circuit = QuantumCircuit()
     for reg in qc.qregs:
         new_reg = QuantumRegister(reg.size, reg.name)
         partial_circuit.add_register(new_reg)
-    transpile_qc = transpile(qc, simulator)
-    for i, gate in enumerate(qc.data):
-        # Create a new circuit and add all the previous gates to the new circuit
-        partial_circuit.data = transpile_qc.data[:i+1]  # Only include operations up to step i
-    
-        # Simulate a partial circuit and obtain the state vector
+    for reg in qc.cregs:
+        new_reg = ClassicalRegister(reg.size, reg.name)
+        partial_circuit.add_register(new_reg)
+
+    res = {}
+    events = []
+    paths_until_first_ent = {q: [] for q in range(n)}
+    locked = np.zeros(n, dtype=bool)
+
+    for i, (inst, qargs, cargs) in enumerate(qc.data):
+        if inst.name in ("measure", "barrier", "reset", "snapshot", "delay",
+                         "save_state", "save_statevector"):
+            continue
+
+        partial_circuit.data = qc.data[:i+1]
+        
         job = simulator.run(partial_circuit)
         result = job.result()
         statevector = result.get_statevector()
-        
-        # Convert the state vector into a quantum state object
+
         quantum_state = Statevector(statevector)
-    
-        # Extract the state of the qubits associated with the gate operation
-        qubits_involved = [partial_circuit.find_bit(qubit) for qubit in gate[1]]  # Get the qubits associated with the gate
-        for qubit in qubits_involved:
-            # Use `partial_trace` to extract only the state of the specific qubit
-            qubit_state = partial_trace(quantum_state, [q for q in range(qc.num_qubits) if q != qubit.index])
+        
+        qidx = [qc.find_bit(q).index if not isinstance(q, int) else q for q in qargs]
+
+        res[i] = []
+        for qi in qidx:
+            qubit_state = partial_trace(quantum_state, [q for q in range(qc.num_qubits) if q != qi])
             prob_zero = qubit_state.data[0, 0].real
             prob_one = qubit_state.data[1, 1].real
-            res.append([i, gate[0].name, qubit, prob_zero, prob_one])
-    return res
+            res[i].append([i, inst.name, qi, prob_zero, prob_one])
+
+        if len(qidx) == 1:
+            qi = qidx[0]
+            if not locked[qi]:
+                paths_until_first_ent[qi].append(i)
+
+        elif len(qidx) == 2:
+            a, b = qidx
+
+            # --- Double-check (for analysis/logging) ---
+            rest = [k for k in range(n) if k not in (a, b)]
+            rho_ab = partial_trace(quantum_state, rest)              # keep a,b
+            C = float(concurrence(rho_ab))
+            pairwise = (C > tol)
+
+            lams_ab = [t[0] for t in schmidt_decomposition(quantum_state, qargs=[a, b])]
+            # print(lams_ab)
+            s2_ab = float(lams_ab[1]) if len(lams_ab) > 1 else 0.0
+            vs_rest = (s2_ab > tol)
+
+            ent_a, s2_a, lams_a = _single_vs_rest_entangled(quantum_state, a, tol)
+            ent_b, s2_b, lams_b = _single_vs_rest_entangled(quantum_state, b, tol)
+
+            events.append({
+                'index': i, 'gate': inst.name, 'a': a, 'b': b,
+                'pairwise_C': C, 'vs_rest_s2': s2_ab,
+                'single': {
+                    'a': {'ent_vs_rest': ent_a, 's2': s2_a, 'lams': lams_a},
+                    'b': {'ent_vs_rest': ent_b, 's2': s2_b, 'lams': lams_b},
+                }
+            })
+
+            # --- Locking / unlocking rules ---
+            if inst.name.lower() == 'swap' and swap_unlock:
+                locked_a = copy.deepcopy(locked[a])
+                locked_b = copy.deepcopy(locked[b])
+                # print(a, locked_a)
+                # print(b, locked_b)
+                # After a SWAP: whichever qubit is not entangled with the rest at this step is allowed to be “unlocked”
+                if not ent_a and not locked_b:
+                    locked[a] = False
+                if not ent_b and not locked_a:
+                    locked[b] = False
+                if ent_a:
+                    locked[a] = True
+                if ent_b:
+                    locked[b] = True
+
+                # Now record this step index in the paths of all currently unlocked qubits (including those just unlocked)
+                if not locked[a]:
+                    paths_until_first_ent[a].append(i)
+                if not locked[b]:
+                    paths_until_first_ent[b].append(i)
+
+                # Note: if ent_a / ent_b is true, they remain locked as usual (do not extend their paths)
+            else:
+                # Non-SWAP gates: only “lock”; never unlock
+                if ent_a and not locked[a]:
+                    locked[a] = True
+                if ent_b and not locked[b]:
+                    locked[b] = True
+
+                # For the side that is not yet locked, continue appending this gate index
+                if not locked[a]:
+                    paths_until_first_ent[a].append(i)
+                if not locked[b]:
+                    paths_until_first_ent[b].append(i)
 
 
-def find_monitorable_nodes(simulator, folder_path):
-    f = open(folder_path + '/statevector_list.pkl', 'ab+')
+        else:
+            # > 2-qubit gates: do not check entanglement; append the index if the qubit is not locked
+            for qi in qidx:
+                if not locked[qi]:
+                    paths_until_first_ent[qi].append(i)
 
-    # Recursively traverse all files in the folder (including subfolders)
-    for file in Path(folder_path).rglob('*'):
-        if file.is_file() and file.suffix == '.qasm': # Check if the file ends with `.qasm`
-            print(file)
-            try:
-                qc = QuantumCircuit.from_qasm_file(file)
-            except Exception as e:
-                print(e)
-                continue
+        # print(paths_until_first_ent)
+        # print(locked)
 
-            pm = PassManager(passes.RemoveFinalMeasurements())
-            qc = pm.run(qc)
-
-            res = find_probablity(file, qc, simulator)
-    
-            pickle.dump([file, res], f)
-
-    f.close()
+    return res, events, paths_until_first_ent
 
 
-def get_circuits_with_monitorable_nodes(simulator, statevector_list):
-    quantum_file = {}
-    num = 0
-    count = 0
-
-    unwanted_circuit_set = set()
-    with open(statevector_list, 'rb') as f:
-        while True:
-            try:
-                item = pickle.load(f)
-                qc = QuantumCircuit.from_qasm_file(item[0])
-                
-                last_gate_index_before_measurement = [None] * qc.num_qubits
-                
-                for i, gate in enumerate(transpile(qc, simulator).data):
-                    # if gate[0].name in ['cswap', 'ccx', 'ccz']:
-                    #     unwanted_circuit_set.add(item[0])
-                    if gate[0].name not in ['measure', 'barrier']:
-                        for qubit in gate[1]:
-                            last_gate_index_before_measurement[transpile(qc, simulator).find_bit(qubit).index] = i
-
-                for l in item[1]:
-                    if l[0] == last_gate_index_before_measurement[l[2].index]:
-                        continue
-                    if l[3] >= 0.99 or l[4] >= 0.99:
-                        num += 1
-                        if item[0] not in quantum_file:
-                            quantum_file[item[0]] = 0
-                        quantum_file[item[0]] += 1
-                
-                if item[0] in quantum_file:
-                    count += 1
-            except EOFError:
-                break
-
-    print('total circuits:', count)
-    print('total nodes:', num)
-
-    return quantum_file
-
-
-def filter_circuits_with_output_num(quantum_file, output_num=10000000):
-    filetered_quantum_file = {}
-    for key, value in quantum_file.items():
-        qc = QuantumCircuit.from_qasm_file(key)
-        backend = Aer.get_backend('qasm_simulator')
-        result = execute(qc, backend, shots=8192).result()
-        counts = result.get_counts()
-        if len(counts) <= output_num:
-            filetered_quantum_file[key] = counts
-        filetered_quantum_file[key] = counts
-
-    return filetered_quantum_file
-
-
-def get_nodes_with_certain_probability(simulator, statevector_list, filetered_quantum_file):
+def filter_circuits_with_output_num(res_dict, paths_until_first_ent_dict):
     definited_node_dict = {}
     count = 0
-    with open(statevector_list, 'rb') as f:
-        while True:
-            try:
-                item = pickle.load(f)
-                if item[0] not in filetered_quantum_file:
-                    continue
-                
-                qc = QuantumCircuit.from_qasm_file(item[0])
-                
-                last_gate_index_before_measurement = [None] * qc.num_qubits
-                for i, gate in enumerate(transpile(qc, simulator).data):
-                    if gate[0].name not in ['measure', 'barrier']:
-                        for qubit in gate[1]:
-                            last_gate_index_before_measurement[transpile(qc, simulator).find_bit(qubit).index] = i
-                            
-                num = 0
-                for l in item[1]:
-                    if l[0] == last_gate_index_before_measurement[l[2].index]:
+    for key in res_dict:
+        try:
+            qc = QuantumCircuit.from_qasm_file(f"{quantum_path}/{key}")
+            
+            last_gate_index_before_measurement = [None] * qc.num_qubits
+            for i, gate in enumerate(qc.data):
+                if gate[0].name not in ['measure', 'barrier']:
+                    for qubit in gate[1]:
+                        last_gate_index_before_measurement[qc.find_bit(qubit).index] = i
+                        
+            num = 0
+            for qubit in paths_until_first_ent_dict[key]:
+                for node in paths_until_first_ent_dict[key][qubit]:
+                    if node == last_gate_index_before_measurement[qubit]:
                         continue
-                    if l[3] >= 0.99 or l[4] >= 0.99:
-                        gate = transpile(qc, simulator).data[l[0]]
-                        print(l, gate)
-                        num += 1
-                        if str(item[0]) not in definited_node_dict:
-                            definited_node_dict[str(item[0])] = []
-                        definited_node_dict[str(item[0])].append([l[0], l[1], l[2], l[3], l[4], \
-                                                                  gate[0].num_qubits, gate[0].params, l[2] == qc.find_bit(gate.qubits[0])])
-                if num > 0:
-                    count += 1
-            except EOFError:
+                    if key not in definited_node_dict:
+                        definited_node_dict[key] = []
+                    
+                    for node_with_probability in res_dict[key][node]:
+                        if node_with_probability not in definited_node_dict[key]:
+                            definited_node_dict[key].append(node_with_probability)
+
+                    num += 1
+                        
+            if num > 0:
+                count += 1
+        except EOFError:
                 break
     
     print('circuits_count:', count)
@@ -167,33 +198,37 @@ def get_nodes_with_certain_probability(simulator, statevector_list, filetered_qu
 
 
 # Function to perform Depth-First Search (DFS) on the quantum circuit
-def dfs_quantum_circuit(transpiled_qc, qubit_info, current_index, visited, path):
+def dfs_quantum_circuit(qc, qubit_info, current_index, visited, path):
+    # print(visited)
     # Iterate backward through the circuit instructions
     for index in range(current_index, -1, -1):
         if [index, qubit_info] in visited:
             continue
-        gate, qargs, cargs = transpiled_qc.data[index]
-        qubit_indices = [transpiled_qc.find_bit(qubit) for qubit in qargs]
+        gate, qargs, cargs = qc.data[index]
+        qubit_indices = [qc.find_bit(qubit).index for qubit in qargs]
         if qubit_info in qubit_indices:
             # Handle multi-qubit gates
             if len(qubit_indices) > 1:
-                if gate.name == "swap":
-                    # Special handling for swap gate
-                    path.insert(0, [index, gate.name, gate.params, qubit_indices])
-                    other_qubit = qubit_indices[0] if qubit_indices[1] == qubit_info else qubit_indices[1]
-                    dfs_quantum_circuit(transpiled_qc, other_qubit, index - 1, visited, path)
-                    # path.sort()
-                    break
-                elif gate.name == "iswap":
-                    print(gate.name)
-                elif qubit_info == qubit_indices[0]:
-                    # If the qubit is the control qubit, this gate does not affect the qubit's state
-                    continue
-                else:
-                    # Handle other multi-qubit gates (e.g., cx, cz, etc.)
-                    for q in qubit_indices:
-                        if q != qubit_info:
-                            path.insert(0, [index, gate.name, gate.params, qubit_indices, dfs_quantum_circuit(transpiled_qc, q, index - 1, visited, [])])
+                # # print(gate.name)
+                # if gate.name == "swap":
+                #     # Special handling for swap gate
+                #     path.insert(0, [index, gate.name, gate.params, qubit_indices])
+                #     other_qubit = qubit_indices[0] if qubit_indices[1] == qubit_info else qubit_indices[1]
+                #     dfs_quantum_circuit(qc, other_qubit, index - 1, visited, path)
+                #     # path.sort()
+                #     break
+                # elif gate.name == "iswap":
+                #     print(gate.name)
+                # # elif qubit_info == qubit_indices[0]:
+                # #     # If the qubit is the control qubit, this gate does not affect the qubit's state
+                # #     continue
+                # else:
+                #     # print(gate.name)
+                #     # print(gate.name)
+                #     # Handle other multi-qubit gates (e.g., cx, cz, etc.)
+                for q in qubit_indices:
+                    if q != qubit_info:
+                        path.insert(0, [index, gate.name, gate.params, qubit_indices, dfs_quantum_circuit(qc, q, index - 1, visited, [])])
             # Record the current gate if it affects the qubit
             else:
                 path.insert(0, [index, gate.name, gate.params, qubit_indices])
@@ -205,74 +240,91 @@ def dfs_quantum_circuit(transpiled_qc, qubit_info, current_index, visited, path)
 def get_final_definited_node_dict(definited_node_dict):
     final_definited_node_dict = {}
     for key, value in definited_node_dict.items():
+        if key in ["grover-noancilla_indep_qiskit_10.qasm", "grover-noancilla_indep_qiskit_7.qasm", 
+                   "grover-noancilla_indep_qiskit_9.qasm", "grover-noancilla_indep_qiskit_8.qasm",
+                    "qwalk-noancilla_indep_qiskit_9.qasm", "qwalk-noancilla_indep_qiskit_10.qasm", 
+                   "qwalk-noancilla_indep_qiskit_8.qasm", "grover-noancilla_indep_qiskit_6.qasm",
+                  "qwalk-noancilla_indep_qiskit_7.qasm", "qwalk-noancilla_indep_qiskit_6.qasm",
+                  "grover-noancilla_indep_qiskit_5.qasm"]:
+            continue
         print(key)
-        qc = QuantumCircuit.from_qasm_file(key)
-        transpiled_qc = transpile(qc, simulator)
+        qc = QuantumCircuit.from_qasm_file(f"{quantum_path}/{key}")
         for node in value:
             index = node[0]
             gate_name = node[1]
             qubit_info = node[2]
             p0 = node[3]
             p1 = node[4]
-            num_qubits = node[5]
-            parameters = node[6]
 
             dfs_path = []
             visited = list()
             path = []
             # Perform DFS on the circuit
-            dfs_path = dfs_quantum_circuit(transpiled_qc, qubit_info, index, visited, path)
+            dfs_path = dfs_quantum_circuit(qc, qubit_info, index, visited, path)
 
             if key not in final_definited_node_dict:
                 final_definited_node_dict[key] = []
             final_definited_node_dict[key].append([index, gate_name, qubit_info, p0, p1, dfs_path])
+            # print(index, "visited = ", visited)
     
     return final_definited_node_dict
 
 
-def transformation(transpiled_qc, swap_qubit_info, qubit_info, gate_list, operation_list):
+def transformation(qc, qubit_info, gate_list, operation_list):
     if not gate_list:
         return operation_list
-    for gate in gate_list:
-        if gate[1] == 'swap':
-            for qubit in gate[3]:
-                if swap_qubit_info != qubit:
-                    swap_qubit_info = qubit
-                    break
+    # for gate in gate_list:
+    #     if gate[1] == 'swap':
+    #         for qubit in gate[3]:
+    #             if qubit_info != qubit:
+    #                 swap_recorder[qubit_info] = qubit
+    #                 swap_recorder[qubit] = qubit_info
+    #                 break
     
     for gate in gate_list:
-        if not gate or gate[1] == 'swap':
-            continue
+        # print(f"gate_list = { gate_list}", '\n')
+        # if not gate or gate[1] == 'swap':
+        #     continue
         
         if len(gate) == 4:
-            flag = True
-            for qubit in gate[3]:
-               if qubit_info == qubit:
-                   flag = False
-            if flag:
-                operation_list.append([gate[0], gate[1], gate[2], [qubit_info if swap_qubit_info == qubit else qubit for qubit in gate[3]]])
-            else:
-                operation_list.append([gate[0], gate[1], gate[2], [qubit for qubit in gate[3]]])
-            
+            # flag = True
+            # for qubit in gate[3]:
+            #    if qubit_info == qubit:
+            #        flag = False
+            # if flag:
+            #     operation_list.append([gate[0], gate[1], gate[2], [qubit_info if swap_qubit_info == qubit else qubit for qubit in gate[3]]])
+            # else:
+            #     operation_list.append([gate[0], gate[1], gate[2], [swap_qubit_info if qubit_info == qubit else qubit for qubit in gate[3]]])
+            # operation_list.append([gate[0], gate[1], gate[2], [swap_recorder[qubit] if qubit in swap_recorder else qubit for qubit in gate[3]]])
+            operation_list.append(gate)
         else:
-            control_qubit_info = None
-            control_gate = []
-            flag = True
-            for qubit in gate[3]:
-                if qubit_info == qubit:
-                    flag = False
-            if flag:
-                target_gate = [gate[0], gate[1], gate[2], [qubit_info if swap_qubit_info == qubit else qubit for qubit in gate[3]]]
-            else:
-                target_gate = [gate[0], gate[1], gate[2], [qubit for qubit in gate[3]]]
+            # flag = True
+            # for qubit in gate[3]:
+            #     if qubit_info == qubit:
+            #         flag = False
+            # if flag:
+            #     target_gate = [gate[0], gate[1], gate[2], [qubit_info if swap_qubit_info == qubit else qubit for qubit in gate[3]]]
+            # else:
+            #     target_gate = [gate[0], gate[1], gate[2], [swap_qubit_info if qubit_info == qubit else qubit for qubit in gate[3]]]
+            # target_gate = [gate[0], gate[1], gate[2], [swap_recorder[qubit] if qubit in swap_recorder else qubit for qubit in gate[3]]]
+            target_gate = gate[:4]
 
-            control_qubit_info = gate[3][0]
-           
-            control_control_gate = transformation(transpiled_qc, control_qubit_info, control_qubit_info, gate[4], [])
-            control_gate.extend(control_control_gate)
             
-            target_gate.extend([control_gate])
-            operation_list.append(target_gate)
+            for qubit in gate[3]:
+                other_qubit_info = None
+                other_gate = []
+                
+                # if qubit == qubit_info or (qubit_info in swap_recorder and swap_recorder[qubit_info] == qubit):
+                if qubit == qubit_info:
+                    continue
+                
+                other_qubit_info = qubit
+                other_other_gate = transformation(qc, other_qubit_info, gate[4], [])
+                other_gate.extend(other_other_gate)
+                
+                target_gate.extend([other_gate])
+                operation_list.append(target_gate)
+    
     return operation_list
 
 
@@ -280,8 +332,7 @@ def bulid_partial_circuit(final_definited_node_dict):
     res = {}
     for key, value in final_definited_node_dict.items():
         print(key, '\n')
-        qc = QuantumCircuit.from_qasm_file(key)
-        transpiled_qc = transpile(qc, simulator)
+        qc = QuantumCircuit.from_qasm_file(f"{quantum_path}/{key}")
         for node in value:
             if not node[-1]:
                 continue
@@ -294,8 +345,17 @@ def bulid_partial_circuit(final_definited_node_dict):
 
             operation_list = []
             
-            swap_qubit_info = qubit_info = node[2]
-            operation_list = transformation(transpiled_qc, swap_qubit_info, qubit_info, node[-1], operation_list)
+            # swap_qubit_info = qubit_info = node[2]
+            if key == "vqe_indep_qiskit_8.qasm":
+               if index == 13:
+                   print(index)
+                   continue
+            if key == "vqe_indep_qiskit_9.qasm":
+               if index == 12:
+                   print(index)
+                   continue
+            swap_recorder = {}
+            operation_list = transformation(qc, qubit_info, node[-1], operation_list)
 
             if key not in res:
                 res[key] = []
@@ -304,3 +364,68 @@ def bulid_partial_circuit(final_definited_node_dict):
     return res
 
 
+def get_filtered_operation_list(operation_list, gate_length, num, unwanted_circuit_list):
+    bad_list = []
+    operation_list_new = {}
+    circuit_node_constraint = {}
+    for key, value in operation_list.items():
+        # print(key)
+        # if key != "qpeexact_indep_qiskit_4.qasm":
+        #     continue
+        extra_qubits_num, eq_container = filter_operation_list(key, operation_list, gate_length)
+        if extra_qubits_num <= num and key not in [str(i) for i in unwanted_circuit_list]:
+            operation_list_new[key] = value
+
+            circuit_node_constraint[key] = {}
+            circuit_node_constraint[key]['num_oq'] = int(key.split('.')[0].split('_')[-1])
+        
+            for node, eq in eq_container.items():
+                circuit_node_constraint.setdefault(key, {}).setdefault(node, {})
+                circuit_node_constraint[key][node]['num_eq'] = len(eq)
+                circuit_node_constraint[key][node]['qubits'] = []
+                
+                for gate in operation_list_new[key]:
+                    if gate[0] == node:
+                        circuit_node_constraint[key][node]['qubits'].append(gate[2])
+
+        # print(key)
+    
+    # print(operation_list_new)
+    
+    comparison_circuit = {}
+    unblanced_circuit_list = []
+
+    res = copy.deepcopy(operation_list_new)
+    ans_dict = {}
+    # print("operation_list_new", "\n")
+    for k, v in operation_list_new.items():
+        # print(k)
+        # if k != "qpeexact_indep_qiskit_4.qasm":
+        #     continue
+        qc = QuantumCircuit.from_qasm_file(f"{quantum_path}/{k}")
+        for l in v:
+            if l[1] != qc.data[l[0]][0].name:
+                print('unmatch:', k)
+                del res[k] # delete unmatched circuits
+                break
+
+        ans = solve_qmon_for_circuit(k, circuit_node_constraint[k], Qmax=20, two_stage=True)
+        ans_dict[k] = ans
+        
+        
+        if k in res:
+            # comparison_circuit[k] = generate_monitoring_circuit(qc, k, operation_list_new, gate_length)
+            try:
+                comparison_circuit[k] = generate_monitoring_circuit(qc, k, operation_list_new, gate_length, ans)
+                result_qc = execute(qc, backend=Aer.get_backend('qasm_simulator'), shots=8192).result()
+                if len(list(result_qc.get_counts().keys())[0]) < qc.num_qubits:
+                    print('unblanced', k)
+                    unblanced_circuit_list.append(k)
+            except Exception as e:
+                print(k, e)
+                bad_list.append(k)
+    
+    # with open('../quantum_circuits/operation_list_new.pkl', 'wb') as file:
+    #     pickle.dump(res, file)
+    # print(bad_list)
+    return res, comparison_circuit, unblanced_circuit_list, ans_dict
