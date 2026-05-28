@@ -326,7 +326,7 @@ def execute_mutated_circuits(operation_list, ans_dict, simulator, seed):
             # reconstructed_mutation_qc = transpile(reconstructed_mutation_qc, backend=simulator)
             new_qc_no_meas = pm.run(mutation_qc)
             # print(new_qc_no_meas.data[mutation_idx])
-            circuits_monitoring_node_probability = find_probablity_of_monitoring_nodes(new_qc_no_meas, simulator)
+            circuits_monitoring_node_probability = find_probability_of_monitoring_nodes(new_qc_no_meas, simulator)
 
             # new_counts = defaultdict(int)
             # for k, v in result_reconstructed_mutation_qc.items():

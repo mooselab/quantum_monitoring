@@ -158,7 +158,7 @@ def execute_circuits(shots, operation_list, comparison_circuit):
     return execution_list
 
 
-def find_probablity_of_monitoring_nodes(qc, simulator):
+def find_probability_of_monitoring_nodes(qc, simulator):
     res = []
     partial_circuit = QuantumCircuit()
     for reg in qc.qregs:
@@ -203,7 +203,7 @@ def get_circuits_monitoring_node_probability(comparison_circuit, simulator):
         #     continue
         print(key)
         new_qc_no_meas = pm.run(value)
-        result[key] = find_probablity_of_monitoring_nodes(new_qc_no_meas, simulator)
+        result[key] = find_probability_of_monitoring_nodes(new_qc_no_meas, simulator)
 
     return result
 
