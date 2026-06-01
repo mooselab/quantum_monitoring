@@ -29,6 +29,8 @@ pip install pandas==2.2.1
 pip install tqdm==4.66.2
 pip install pulp==3.3.0
 pip install numpy==1.26.4
+```
+
 
 ## Data Source
 
