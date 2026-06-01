@@ -16,11 +16,19 @@ This repository is organized into the following folders:
 - **quantum circuits/**: Contains the the quantum circuits for experiments.
 
 ## Dependencies
-We recommend using an Anaconda environment with Python version 3.9, and following Python requirement should be met.
 
-* Numpy 1.23.5
-* Pandas 2.2.2
-* Qiskit 0.44.2
+We recommend creating a clean Anaconda environment and installing the following dependencies.
+
+```bash
+conda create -n qmon python=3.10.18
+conda activate qmon
+
+pip install qiskit==0.45.0
+pip install qiskit-aer==0.12.0
+pip install pandas==2.2.1
+pip install tqdm==4.66.2
+pip install pulp==3.3.0
+pip install numpy==1.26.4
 
 ## Data Source
 
