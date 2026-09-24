@@ -1,1 +1,4 @@
 .DS_Store
+.DS_Store
+results/larger_circuits/larger_circuits_144.jsonl
+results/rq3/rq3_mutant.pkl

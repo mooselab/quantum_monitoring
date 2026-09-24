@@ -1,0 +1,133 @@
+{
+  "attempted_non_output_equivalent": 2860,
+  "attempted_records": 3570,
+  "common_complete_deployment_gap": 11,
+  "common_complete_in_scope_full": 2217,
+  "common_complete_in_scope_qmon": 2206,
+  "common_complete_non_output_equivalent": 2860,
+  "common_complete_records": 2860,
+  "completion": {
+    "denominator_rule": "paired statistics use only records complete for every method; terminal-incomplete outcomes are excluded and are not misses",
+    "false_alarm": {
+      "attempted": 238,
+      "by_method": {
+        "liu": {
+          "complete": 238,
+          "incomplete_reasons": {},
+          "terminal_incomplete": 0
+        },
+        "mqt": {
+          "complete": 238,
+          "incomplete_reasons": {},
+          "terminal_incomplete": 0
+        },
+        "proq": {
+          "complete": 238,
+          "incomplete_reasons": {},
+          "terminal_incomplete": 0
+        },
+        "qmon": {
+          "complete": 238,
+          "incomplete_reasons": {},
+          "terminal_incomplete": 0
+        },
+        "qmon_pernode": {
+          "complete": 238,
+          "incomplete_reasons": {},
+          "terminal_incomplete": 0
+        },
+        "statistical": {
+          "complete": 238,
+          "incomplete_reasons": {},
+          "terminal_incomplete": 0
+        }
+      },
+      "common_method_complete": 238,
+      "excluded_from_paired_statistics": 0
+    },
+    "mutant_non_output_equivalent": {
+      "attempted": 2860,
+      "by_method": {
+        "liu": {
+          "complete": 2860,
+          "incomplete_reasons": {},
+          "terminal_incomplete": 0
+        },
+        "mqt": {
+          "complete": 2860,
+          "incomplete_reasons": {},
+          "terminal_incomplete": 0
+        },
+        "proq": {
+          "complete": 2860,
+          "incomplete_reasons": {},
+          "terminal_incomplete": 0
+        },
+        "qmon": {
+          "complete": 2860,
+          "incomplete_reasons": {},
+          "terminal_incomplete": 0
+        },
+        "qmon_pernode": {
+          "complete": 2860,
+          "incomplete_reasons": {},
+          "terminal_incomplete": 0
+        },
+        "statistical": {
+          "complete": 2860,
+          "incomplete_reasons": {},
+          "terminal_incomplete": 0
+        }
+      },
+      "common_method_complete": 2860,
+      "excluded_from_paired_statistics": 0
+    }
+  },
+  "false_alarm_attempted": 238,
+  "false_alarm_common_complete": 238,
+  "false_alarm_method_complete": {
+    "liu": 238,
+    "mqt": 238,
+    "proq": 238,
+    "qmon": 238,
+    "qmon_pernode": 238,
+    "statistical": 238
+  },
+  "false_alarm_method_empirical": {
+    "liu": 238,
+    "mqt": 0,
+    "proq": 238,
+    "qmon": 238,
+    "qmon_pernode": 238,
+    "statistical": 238
+  },
+  "method_complete_non_output_equivalent": {
+    "liu": 2860,
+    "mqt": 2860,
+    "proq": 2860,
+    "qmon": 2860,
+    "qmon_pernode": 2860,
+    "statistical": 2860
+  },
+  "unique_circuit_plan_costs": {
+    "B": {
+      "mean": 30.01260504201681,
+      "median": 1.0,
+      "percentile_75_nearest_rank": 14,
+      "maximum": 853
+    },
+    "K": {
+      "mean": 92.1344537815126,
+      "median": 21.0,
+      "percentile_75_nearest_rank": 89,
+      "maximum": 1626
+    },
+    "K_qmon": {
+      "mean": 84.28571428571429,
+      "median": 21.0,
+      "percentile_75_nearest_rank": 80,
+      "maximum": 1626
+    },
+    "unique_circuits": 238
+  }
+}

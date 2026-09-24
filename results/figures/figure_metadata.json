@@ -1,0 +1,42 @@
+{
+  "schema": "qmon-figure-metadata-v1",
+  "rq1": {
+    "law_violation_count": 0,
+    "maximum_absolute_law_residual": 2.2359891715950653E-13,
+    "numerical_zero_count_at_1e-12": 18335,
+    "plotted_exact_evaluation_count": 45250,
+    "plotting_policy": "all exact successful evaluations; no subsampling",
+    "positive_score_count": 26915,
+    "source_artifact_file_sha256": "60a66a7d9973c41c8e3943b855f45e3184f606276eb99fa1312651a16599ce1a",
+    "source_artifact_sha256": "be9a19b827597f149af27a1aa28da1f435877d0a666d3c8d9c2732af79df9e7c",
+    "terminal_point_counts": {
+      "resource_limit": 6409,
+      "success": 45250,
+      "timeout": 4727
+    }
+  },
+  "scalability": {
+    "actual_qubit_maximum": 50,
+    "actual_qubit_minimum": 15,
+    "analysis_status_counts": {
+      "success": 139,
+      "timeout": 5
+    },
+    "observed_max_chi_maximum": 2048.0,
+    "plotted_attempt_count": 144,
+    "plotting_policy": "all extension attempts with selector_complete outcome; actual generated width on x-axis; no subsampling",
+    "requested_qubit_counts": {
+      "15": 18,
+      "18": 23,
+      "20": 22,
+      "24": 22,
+      "30": 19,
+      "40": 22,
+      "50": 18
+    },
+    "runtime_seconds_maximum": 809.24295583,
+    "runtime_seconds_minimum": 0.041499138,
+    "retained_plot_data": "../larger_circuits/larger_circuits_144_plot.csv",
+    "retained_plot_data_sha256": "f342c7984ac7c75e1b73dd23826b802e8a224ef6678f3fc2780f4f6a406fed1c"
+  }
+}

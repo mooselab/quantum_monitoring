@@ -1,0 +1,3802 @@
+{
+  "schema": "qmon-results-summary-v1",
+  "analysis_sets": {
+    "main_circuits": 310,
+    "rq3_circuits": 238,
+    "rq3_mutation_slots": 3570,
+    "larger_circuits": 144
+  },
+  "rq1": {
+    "acted_points": 56386,
+    "certificate_summary": {
+      "determinant_residual_diagnostic": {
+        "count_abs_gt_1e-12": 0,
+        "count_abs_gt_1e-9": 0,
+        "definition": "p0*p1-|<s0|s1>|^2",
+        "max_abs_difference_from_svd": 4.607425552191292E-15,
+        "max_absolute": 4.6074255521944E-15,
+        "max_raw": 4.6074255521944E-15,
+        "min_raw": -9.71445146547012E-16,
+        "selector_criterion": false
+      },
+      "max_a2_crosscheck_abs_diff": 0.0,
+      "max_independent_svd_a2": 5.574471287495291E-14,
+      "max_selector_a2": 5.574471287495291E-14,
+      "selected_identity_sha256": "0253fc962d61f4a832264d3c5dfd1d681e0f93b7c473bce161de1561c7250c11",
+      "selected_point_count": 22332,
+      "source_bound_selected_identity_sha256": "fb14fe55d95c2df6484951457a9cd3be4526ffdd8da12722d0dab879b1183fd5"
+    },
+    "selected_points": 22332,
+    "selection_rate": 0.39605575852161884
+  },
+  "rq2": {
+    "averages": {
+      "E_mean": 0.09518783707075987,
+      "E_peak": 0.1640302180935058,
+      "certificate_acted_point_coverage": 0.42051853829880126,
+      "certificate_depth_reach": 0.4880634003605262,
+      "certificate_gate_coverage": 0.45893104883901986,
+      "certificate_qubit_coverage": 0.8975133200133201,
+      "deployed_observable_acted_point_coverage": 0.40680239616141867,
+      "deployed_observable_depth_reach": 0.48573930892956313,
+      "deployed_observable_gate_coverage": 0.4453821240227919,
+      "deployed_observable_qubit_coverage": 0.8975133200133201,
+      "emitted_mid_acted_point_coverage": 0.36619159004732343,
+      "emitted_mid_depth_reach": 0.4431881806841538,
+      "emitted_mid_gate_coverage": 0.406863780113727,
+      "emitted_mid_qubit_coverage": 0.8858519706100351
+    },
+    "certificate_selected_identity_sha256": "0253fc962d61f4a832264d3c5dfd1d681e0f93b7c473bce161de1561c7250c11",
+    "certificate_selected_point_count": 22332,
+    "circuit_count": 310,
+    "family_counts": {
+      "ae": 12,
+      "bmw_quark_cardinality": 13,
+      "bmw_quark_copula": 7,
+      "bv": 13,
+      "cdkm_ripple_carry_adder": 6,
+      "dj": 12,
+      "draper_qft_adder": 7,
+      "full_adder": 6,
+      "ghz": 12,
+      "graphstate": 12,
+      "groundstate_small": 1,
+      "grover-noancilla": 5,
+      "grover-v-chain": 5,
+      "half_adder": 6,
+      "hhl": 12,
+      "hrs_cumulative_multiplier": 2,
+      "modular_adder": 6,
+      "multiplier": 3,
+      "portfolioqaoa": 8,
+      "portfoliovqe": 8,
+      "qaoa": 8,
+      "qft": 11,
+      "qftentangled": 12,
+      "qnn": 12,
+      "qpeexact": 12,
+      "qpeinexact": 12,
+      "qwalk-noancilla": 4,
+      "qwalk-v-chain": 4,
+      "random": 1,
+      "randomcircuit": 12,
+      "realamprandom": 8,
+      "rg_qft_multiplier": 3,
+      "routing": 1,
+      "su2random": 8,
+      "tsp": 2,
+      "twolocalrandom": 8,
+      "vbe_ripple_carry_adder": 4,
+      "vqe": 8,
+      "vqe_real_amp": 4,
+      "vqe_su2": 4,
+      "vqe_two_local": 4,
+      "wstate": 12
+    },
+    "ranges": {
+      "E_mean": [
+        0.0,
+        0.24193548387096728
+      ],
+      "E_peak": [
+        0.0,
+        0.2500000000000003
+      ],
+      "certificate_acted_point_coverage": [
+        0.004484304932735426,
+        1.0
+      ],
+      "certificate_depth_reach": [
+        0.010638297872340425,
+        1.0
+      ],
+      "certificate_gate_coverage": [
+        0.008403361344537815,
+        1.0
+      ],
+      "certificate_qubit_coverage": [
+        0.07142857142857142,
+        1.0
+      ],
+      "deployed_observable_acted_point_coverage": [
+        0.004484304932735426,
+        1.0
+      ],
+      "deployed_observable_depth_reach": [
+        0.010638297872340425,
+        1.0
+      ],
+      "deployed_observable_gate_coverage": [
+        0.008403361344537815,
+        1.0
+      ],
+      "deployed_observable_qubit_coverage": [
+        0.07142857142857142,
+        1.0
+      ],
+      "emitted_mid_acted_point_coverage": [
+        0.004484304932735426,
+        0.9944649446494465
+      ],
+      "emitted_mid_depth_reach": [
+        0.010638297872340425,
+        0.9990539262062441
+      ],
+      "emitted_mid_gate_coverage": [
+        0.008403361344537815,
+        0.9956822107081175
+      ],
+      "emitted_mid_qubit_coverage": [
+        0.07142857142857142,
+        1.0
+      ]
+    },
+    "source_bound_certificate_selected_identity_sha256": "fb14fe55d95c2df6484951457a9cd3be4526ffdd8da12722d0dab879b1183fd5",
+    "spearman": {
+      "E_mean": {
+        "certificate_depth_reach": -0.7769819639881902,
+        "certificate_gate_coverage": -0.8090901946637897,
+        "certificate_qubit_coverage": -0.15783534273328545,
+        "deployed_observable_depth_reach": -0.7763497295058018,
+        "deployed_observable_gate_coverage": -0.7962404824548144,
+        "deployed_observable_qubit_coverage": -0.15783534273328545,
+        "emitted_mid_depth_reach": -0.6961864934802473,
+        "emitted_mid_gate_coverage": -0.7718609841865965,
+        "emitted_mid_qubit_coverage": 0.03642833631141119
+      },
+      "E_peak": {
+        "certificate_depth_reach": -0.5682398675718262,
+        "certificate_gate_coverage": -0.6653260905960815,
+        "certificate_qubit_coverage": -0.25007227606527216,
+        "deployed_observable_depth_reach": -0.5689507233653245,
+        "deployed_observable_gate_coverage": -0.6580337143861668,
+        "deployed_observable_qubit_coverage": -0.25007227606527216,
+        "emitted_mid_depth_reach": -0.4663900148570286,
+        "emitted_mid_gate_coverage": -0.6310635700683116,
+        "emitted_mid_qubit_coverage": -0.04322284706773813
+      },
+      "depth": {
+        "certificate_depth_reach": -0.02459109599072152,
+        "certificate_gate_coverage": -0.08592491806322787,
+        "certificate_qubit_coverage": 0.2924771192327487,
+        "deployed_observable_depth_reach": -0.0311788306746034,
+        "deployed_observable_gate_coverage": -0.13137148654973096,
+        "deployed_observable_qubit_coverage": 0.2924771192327487,
+        "emitted_mid_depth_reach": 0.11551959205953528,
+        "emitted_mid_gate_coverage": -0.05214927049885269,
+        "emitted_mid_qubit_coverage": 0.21502152726476714
+      },
+      "num_qubits": {
+        "certificate_depth_reach": -0.0821228152113141,
+        "certificate_gate_coverage": -0.01856794242617862,
+        "certificate_qubit_coverage": -0.07032216817991567,
+        "deployed_observable_depth_reach": -0.0872718526046589,
+        "deployed_observable_gate_coverage": -0.07570000284363584,
+        "deployed_observable_qubit_coverage": -0.07032216817991567,
+        "emitted_mid_depth_reach": -0.0989489874455339,
+        "emitted_mid_gate_coverage": -0.06193403391048337,
+        "emitted_mid_qubit_coverage": -0.09582269596287844
+      },
+      "two_qubit_density": {
+        "certificate_depth_reach": -0.24370161544676208,
+        "certificate_gate_coverage": -0.3639403296582651,
+        "certificate_qubit_coverage": -0.2049742460939591,
+        "deployed_observable_depth_reach": -0.24122085896175102,
+        "deployed_observable_gate_coverage": -0.37497440032584345,
+        "deployed_observable_qubit_coverage": -0.2049742460939591,
+        "emitted_mid_depth_reach": -0.18748211525274247,
+        "emitted_mid_gate_coverage": -0.32530694001851684,
+        "emitted_mid_qubit_coverage": -0.2293716753886846
+      }
+    }
+  },
+  "rq2_regression": {
+    "descriptive_only_outcomes": {
+      "deployed_observable_qubit_coverage": "reported descriptively because ceiling saturation leaves too few families with within-family variation for reliable family-aware five-predictor inference"
+    },
+    "multicollinearity": {
+      "correlation_matrix": [
+        [
+          1.0,
+          0.8587907525025935,
+          -0.11161207520751848,
+          0.25238940769287344,
+          0.0021474407262829873
+        ],
+        [
+          0.8587907525025935,
+          1.0,
+          -0.05435477271411865,
+          0.17977655196754005,
+          -0.03244146953763731
+        ],
+        [
+          -0.11161207520751848,
+          -0.05435477271411865,
+          1.0,
+          0.05044872350070803,
+          0.10018200386907265
+        ],
+        [
+          0.25238940769287344,
+          0.17977655196754005,
+          0.05044872350070803,
+          1.0,
+          0.2192430286413687
+        ],
+        [
+          0.0021474407262829873,
+          -0.03244146953763731,
+          0.10018200386907265,
+          0.2192430286413687,
+          1.0
+        ]
+      ],
+      "flags": {
+        "any_vif_above_10": false,
+        "any_vif_above_5": false,
+        "condition_number_above_30": false
+      },
+      "minimum_correlation_eigenvalue": 0.1353105354903088,
+      "predictor_order": [
+        "E_mean",
+        "E_peak",
+        "depth",
+        "two_qubit_density",
+        "num_qubits"
+      ],
+      "standardized_design_condition_number": 3.8133607672946583,
+      "variance_inflation_factors": {
+        "E_mean": 4.043876076260613,
+        "E_peak": 3.8748546342914145,
+        "depth": 1.0358133077217875,
+        "num_qubits": 1.0652873778896335,
+        "two_qubit_density": 1.134796123271783
+      }
+    },
+    "multiple_testing": {
+      "family_size": 10,
+      "included_outcomes": [
+        "deployed_observable_gate_coverage",
+        "deployed_observable_depth_reach"
+      ],
+      "included_terms": [
+        "E_mean",
+        "E_peak",
+        "depth",
+        "two_qubit_density",
+        "num_qubits"
+      ],
+      "procedure": "Benjamini-Hochberg"
+    },
+    "outcome_support": {
+      "deployed_observable_depth_reach": {
+        "circuit_count": 310,
+        "exact_one_count": 106,
+        "exact_one_fraction": 0.3419354838709677,
+        "exact_zero_count": 0,
+        "families_with_any_nonunit_value": 27,
+        "families_with_within_family_variation": 24,
+        "family_count": 42,
+        "role": "modeled",
+        "unique_value_count": 95
+      },
+      "deployed_observable_gate_coverage": {
+        "circuit_count": 310,
+        "exact_one_count": 81,
+        "exact_one_fraction": 0.26129032258064516,
+        "exact_zero_count": 0,
+        "families_with_any_nonunit_value": 38,
+        "families_with_within_family_variation": 33,
+        "family_count": 42,
+        "role": "modeled",
+        "unique_value_count": 150
+      },
+      "deployed_observable_qubit_coverage": {
+        "circuit_count": 310,
+        "exact_one_count": 254,
+        "exact_one_fraction": 0.8193548387096774,
+        "exact_zero_count": 0,
+        "families_with_any_nonunit_value": 5,
+        "families_with_within_family_variation": 4,
+        "family_count": 42,
+        "reason": "reported descriptively because ceiling saturation leaves too few families with within-family variation for reliable family-aware five-predictor inference",
+        "role": "descriptive_only",
+        "unique_value_count": 31
+      }
+    },
+    "predictor_standardization": {
+      "E_mean": {
+        "mean": 0.09518783707075984,
+        "sample_sd": 0.07900029456048285
+      },
+      "E_peak": {
+        "mean": 0.16403021809350576,
+        "sample_sd": 0.11080445438894632
+      },
+      "depth": {
+        "mean": 59.21935483870968,
+        "sample_sd": 133.22607842945928
+      },
+      "num_qubits": {
+        "mean": 8.03225806451613,
+        "sample_sd": 3.444275499955681
+      },
+      "two_qubit_density": {
+        "mean": 0.5482235009690271,
+        "sample_sd": 0.17198036643244313
+      }
+    },
+    "primary_models": {
+      "deployed_observable_depth_reach": {
+        "coefficient_scale": "log-odds per predictor sample SD",
+        "coefficients": [
+          {
+            "cluster_df": 41,
+            "cluster_standard_error": 0.25863187291291195,
+            "cluster_t": 0.86441434815395,
+            "estimate": 0.22356510183585002,
+            "family_bootstrap_percentile_ci": [
+              -0.33610478594585125,
+              1.022001012478965
+            ],
+            "p_raw": 0.3923896691465892,
+            "term": "intercept",
+            "wald_ci": [
+              -0.29875256177376275,
+              0.7458827654454627
+            ]
+          },
+          {
+            "cluster_df": 41,
+            "cluster_standard_error": 0.5861946667120189,
+            "cluster_t": -2.407175615059636,
+            "estimate": -1.4110735073871825,
+            "family_bootstrap_percentile_ci": [
+              -2.632217649642401,
+              -0.03709364673913773
+            ],
+            "p_bh": 0.051658169131334954,
+            "p_raw": 0.02066326765253398,
+            "term": "E_mean",
+            "wald_ci": [
+              -2.5949176534663323,
+              -0.22722936130803295
+            ]
+          },
+          {
+            "cluster_df": 41,
+            "cluster_standard_error": 0.5159128803266412,
+            "cluster_t": -2.1565314180040365,
+            "estimate": -1.1125823353773583,
+            "family_bootstrap_percentile_ci": [
+              -2.6285955314624867,
+              -0.22309940586021706
+            ],
+            "p_bh": 0.07391597929305652,
+            "p_raw": 0.03695798964652826,
+            "term": "E_peak",
+            "wald_ci": [
+              -2.1544895343754287,
+              -0.0706751363792879
+            ]
+          },
+          {
+            "cluster_df": 41,
+            "cluster_standard_error": 0.3162470166359594,
+            "cluster_t": 4.603258696058427,
+            "estimate": 1.455766829432014,
+            "family_bootstrap_percentile_ci": [
+              0.692261120431938,
+              4.0510079250977675
+            ],
+            "p_bh": 0.0001989173195200834,
+            "p_raw": 0.000039783463904016684,
+            "term": "depth",
+            "wald_ci": [
+              0.8170930225558387,
+              2.0944406363081893
+            ]
+          },
+          {
+            "cluster_df": 41,
+            "cluster_standard_error": 0.2773006618750165,
+            "cluster_t": 1.0327554921203508,
+            "estimate": 0.2863837815200317,
+            "family_bootstrap_percentile_ci": [
+              -0.2673176045938052,
+              0.9720951140653599
+            ],
+            "p_bh": 0.384715034556351,
+            "p_raw": 0.30777202764508077,
+            "term": "two_qubit_density",
+            "wald_ci": [
+              -0.273636266267075,
+              0.8464038293071383
+            ]
+          },
+          {
+            "cluster_df": 41,
+            "cluster_standard_error": 0.1757383324054244,
+            "cluster_t": -2.017754542456611,
+            "estimate": -0.3545968184947949,
+            "family_bootstrap_percentile_ci": [
+              -0.8231002951686316,
+              -0.028659333912450385
+            ],
+            "p_bh": 0.08365614524215365,
+            "p_raw": 0.05019368714529219,
+            "term": "num_qubits",
+            "wald_ci": [
+              -0.7095075808645948,
+              0.0003139438750049961
+            ]
+          }
+        ],
+        "fit": {
+          "bernoulli_quasi_negative_log_likelihood": 102.9145263409934,
+          "bootstrap_failed": 0,
+          "bootstrap_requested": 2000,
+          "bootstrap_successful": 2000,
+          "family_clusters": 42,
+          "gradient_inf_norm": 3.1086244689504383E-15,
+          "iterations": 23,
+          "optimizer": {
+            "bfgs": {
+              "gradient_inf_norm": 4.3580914849128405E-8,
+              "message": "Optimization terminated successfully.",
+              "status": 0,
+              "success": true,
+              "termination": "normal_convergence"
+            },
+            "method": "BFGS with deterministic exact-Hessian Newton polishing",
+            "newton_polish": {
+              "acceptance_score_tolerance": 1E-7,
+              "backtracking_steps": 0,
+              "gradient_inf_norm": 3.1086244689504383E-15,
+              "iterations": 1,
+              "objective_roundoff_tolerance": 1.462503381915687E-12,
+              "roundoff_stationary_steps": 0,
+              "success": true,
+              "target_reached": true,
+              "target_score_tolerance": 1E-10,
+              "termination": "target_reached"
+            }
+          }
+        },
+        "influence": {
+          "counts_above_threshold": {
+            "absolute_pearson_residual_above_2": 5,
+            "cook": 5,
+            "leverage": 32
+          },
+          "leave_one_family_out": {
+            "failed": [],
+            "ranked": [
+              {
+                "circuit_count": 12,
+                "coefficient_changes": {
+                  "E_mean": 0.6607920923543662,
+                  "E_peak": -0.6690416736054003,
+                  "depth": 0.10729903814467479,
+                  "num_qubits": -0.10810907260243463,
+                  "two_qubit_density": -0.26126215507494877
+                },
+                "family": "hhl",
+                "max_abs_coefficient_change": 0.6690416736054003
+              },
+              {
+                "circuit_count": 12,
+                "coefficient_changes": {
+                  "E_mean": 0.20901467970663168,
+                  "E_peak": -0.19860882943576907,
+                  "depth": 0.4935492013720306,
+                  "num_qubits": 0.09087742057684173,
+                  "two_qubit_density": -0.031412198240121536
+                },
+                "family": "randomcircuit",
+                "max_abs_coefficient_change": 0.4935492013720306
+              },
+              {
+                "circuit_count": 12,
+                "coefficient_changes": {
+                  "E_mean": -0.294285258418471,
+                  "E_peak": 0.04539414032954525,
+                  "depth": -0.04233711977178678,
+                  "num_qubits": 0.036027671552887275,
+                  "two_qubit_density": 0.18478736342829688
+                },
+                "family": "qpeinexact",
+                "max_abs_coefficient_change": 0.294285258418471
+              },
+              {
+                "circuit_count": 12,
+                "coefficient_changes": {
+                  "E_mean": -0.20124313064388244,
+                  "E_peak": 0.1339695328217302,
+                  "depth": 0.016577474539255066,
+                  "num_qubits": 0.027309971851872505,
+                  "two_qubit_density": -0.07892203564662492
+                },
+                "family": "ghz",
+                "max_abs_coefficient_change": 0.20124313064388244
+              },
+              {
+                "circuit_count": 4,
+                "coefficient_changes": {
+                  "E_mean": -0.07874268273080642,
+                  "E_peak": 0.047170921353935524,
+                  "depth": -0.1478074573607635,
+                  "num_qubits": 0.07952086423291904,
+                  "two_qubit_density": -0.019762786336013194
+                },
+                "family": "qwalk-noancilla",
+                "max_abs_coefficient_change": 0.1478074573607635
+              },
+              {
+                "circuit_count": 13,
+                "coefficient_changes": {
+                  "E_mean": -0.03505565079270201,
+                  "E_peak": 0.13676286446058106,
+                  "depth": 0.05193505266360687,
+                  "num_qubits": -0.04900792661563552,
+                  "two_qubit_density": 0.06810872159463044
+                },
+                "family": "bv",
+                "max_abs_coefficient_change": 0.13676286446058106
+              },
+              {
+                "circuit_count": 5,
+                "coefficient_changes": {
+                  "E_mean": 0.05260021666468706,
+                  "E_peak": -0.07866373894789946,
+                  "depth": 0.13473802063427232,
+                  "num_qubits": 0.006205436694231237,
+                  "two_qubit_density": 0.025741122612446987
+                },
+                "family": "grover-noancilla",
+                "max_abs_coefficient_change": 0.13473802063427232
+              },
+              {
+                "circuit_count": 4,
+                "coefficient_changes": {
+                  "E_mean": -0.06457459096517115,
+                  "E_peak": 0.026294516205955798,
+                  "depth": -0.1337707923960345,
+                  "num_qubits": 0.06689835351700213,
+                  "two_qubit_density": 0.00023841204712043984
+                },
+                "family": "qwalk-v-chain",
+                "max_abs_coefficient_change": 0.1337707923960345
+              },
+              {
+                "circuit_count": 12,
+                "coefficient_changes": {
+                  "E_mean": -0.033384310841998444,
+                  "E_peak": 0.12003554483455103,
+                  "depth": 0.0410015549779581,
+                  "num_qubits": -0.04414517416779906,
+                  "two_qubit_density": 0.0681797103792754
+                },
+                "family": "dj",
+                "max_abs_coefficient_change": 0.12003554483455103
+              },
+              {
+                "circuit_count": 12,
+                "coefficient_changes": {
+                  "E_mean": -0.1142857595346567,
+                  "E_peak": 0.008464523249363198,
+                  "depth": 0.10186426431221629,
+                  "num_qubits": -0.04257079608156339,
+                  "two_qubit_density": 0.056801313806520815
+                },
+                "family": "graphstate",
+                "max_abs_coefficient_change": 0.1142857595346567
+              },
+              {
+                "circuit_count": 7,
+                "coefficient_changes": {
+                  "E_mean": -0.09978962281560122,
+                  "E_peak": 0.04536969637301924,
+                  "depth": 0.024233993988977964,
+                  "num_qubits": 0.0007764561325883657,
+                  "two_qubit_density": 0.035806072463891614
+                },
+                "family": "bmw_quark_copula",
+                "max_abs_coefficient_change": 0.09978962281560122
+              },
+              {
+                "circuit_count": 13,
+                "coefficient_changes": {
+                  "E_mean": -0.02141476724742586,
+                  "E_peak": -0.0161024030824366,
+                  "depth": -0.09932294404616715,
+                  "num_qubits": -0.028952389695812764,
+                  "two_qubit_density": -0.08022635056689584
+                },
+                "family": "bmw_quark_cardinality",
+                "max_abs_coefficient_change": 0.09932294404616715
+              },
+              {
+                "circuit_count": 8,
+                "coefficient_changes": {
+                  "E_mean": 0.04124240243488164,
+                  "E_peak": -0.07750212474169405,
+                  "depth": 0.005176909056614498,
+                  "num_qubits": -0.042073276557171024,
+                  "two_qubit_density": 0.01658527658560932
+                },
+                "family": "portfolioqaoa",
+                "max_abs_coefficient_change": 0.07750212474169405
+              },
+              {
+                "circuit_count": 8,
+                "coefficient_changes": {
+                  "E_mean": -0.05036340312182541,
+                  "E_peak": 0.021693677401874112,
+                  "depth": -0.05777263059404203,
+                  "num_qubits": -0.0345099140647781,
+                  "two_qubit_density": -0.0690129762616361
+                },
+                "family": "vqe",
+                "max_abs_coefficient_change": 0.0690129762616361
+              },
+              {
+                "circuit_count": 12,
+                "coefficient_changes": {
+                  "E_mean": -0.002925819345797054,
+                  "E_peak": 0.06463122994628878,
+                  "depth": -0.010344930139575936,
+                  "num_qubits": 0.0035396903114953693,
+                  "two_qubit_density": -0.025422149645563497
+                },
+                "family": "qpeexact",
+                "max_abs_coefficient_change": 0.06463122994628878
+              },
+              {
+                "circuit_count": 8,
+                "coefficient_changes": {
+                  "E_mean": -0.06421549805242122,
+                  "E_peak": 0.023653068786940512,
+                  "depth": 0.024325792165744486,
+                  "num_qubits": -0.005375884642261797,
+                  "two_qubit_density": 0.028559882005310733
+                },
+                "family": "qaoa",
+                "max_abs_coefficient_change": 0.06421549805242122
+              },
+              {
+                "circuit_count": 5,
+                "coefficient_changes": {
+                  "E_mean": 0.059234145905855184,
+                  "E_peak": -0.053856025455582435,
+                  "depth": 0.0024105530618825366,
+                  "num_qubits": 0.03600531609160085,
+                  "two_qubit_density": -0.008355163729647397
+                },
+                "family": "grover-v-chain",
+                "max_abs_coefficient_change": 0.059234145905855184
+              },
+              {
+                "circuit_count": 12,
+                "coefficient_changes": {
+                  "E_mean": 0.057437041292726976,
+                  "E_peak": -0.019435436195982314,
+                  "depth": -0.006433137309732828,
+                  "num_qubits": 0.01252954241202181,
+                  "two_qubit_density": -0.020473041684763937
+                },
+                "family": "ae",
+                "max_abs_coefficient_change": 0.057437041292726976
+              },
+              {
+                "circuit_count": 8,
+                "coefficient_changes": {
+                  "E_mean": -0.03625456900631163,
+                  "E_peak": 0.05552950593993744,
+                  "depth": -0.025913732624820218,
+                  "num_qubits": -0.04080237116123886,
+                  "two_qubit_density": 0.036137749696861954
+                },
+                "family": "portfoliovqe",
+                "max_abs_coefficient_change": 0.05552950593993744
+              },
+              {
+                "circuit_count": 1,
+                "coefficient_changes": {
+                  "E_mean": -0.05539085622252604,
+                  "E_peak": 0.035365221768829835,
+                  "depth": -0.025338904771478044,
+                  "num_qubits": -0.002763550172692142,
+                  "two_qubit_density": -0.017946428628746902
+                },
+                "family": "routing",
+                "max_abs_coefficient_change": 0.05539085622252604
+              },
+              {
+                "circuit_count": 11,
+                "coefficient_changes": {
+                  "E_mean": 0.0010119393570875435,
+                  "E_peak": 0.054491057304971724,
+                  "depth": -0.01096565812536432,
+                  "num_qubits": 0.00470322622818975,
+                  "two_qubit_density": -0.03551605503899086
+                },
+                "family": "qft",
+                "max_abs_coefficient_change": 0.054491057304971724
+              },
+              {
+                "circuit_count": 12,
+                "coefficient_changes": {
+                  "E_mean": 0.0334843544735699,
+                  "E_peak": -0.015194978727509856,
+                  "depth": -0.016054810101927774,
+                  "num_qubits": 0.005152459096224582,
+                  "two_qubit_density": 0.05109882467240462
+                },
+                "family": "qftentangled",
+                "max_abs_coefficient_change": 0.05109882467240462
+              },
+              {
+                "circuit_count": 12,
+                "coefficient_changes": {
+                  "E_mean": -0.014305084199056406,
+                  "E_peak": 0.03385146625944713,
+                  "depth": 0.038763299705644405,
+                  "num_qubits": -0.04415489549877205,
+                  "two_qubit_density": -0.0037030431621609128
+                },
+                "family": "qnn",
+                "max_abs_coefficient_change": 0.04415489549877205
+              },
+              {
+                "circuit_count": 8,
+                "coefficient_changes": {
+                  "E_mean": 0.03769818163939331,
+                  "E_peak": -0.018780679304990278,
+                  "depth": -0.0029142409072040465,
+                  "num_qubits": -0.0068099839379482385,
+                  "two_qubit_density": 0.006973639010479427
+                },
+                "family": "su2random",
+                "max_abs_coefficient_change": 0.03769818163939331
+              },
+              {
+                "circuit_count": 8,
+                "coefficient_changes": {
+                  "E_mean": 0.034958115732973916,
+                  "E_peak": -0.014735736614825523,
+                  "depth": -0.003582184464040683,
+                  "num_qubits": -0.006206331692333922,
+                  "two_qubit_density": 0.016872500181635663
+                },
+                "family": "realamprandom",
+                "max_abs_coefficient_change": 0.034958115732973916
+              },
+              {
+                "circuit_count": 8,
+                "coefficient_changes": {
+                  "E_mean": 0.034958115732973916,
+                  "E_peak": -0.014735736614825523,
+                  "depth": -0.003582184464040683,
+                  "num_qubits": -0.006206331692333866,
+                  "two_qubit_density": 0.016872500181635663
+                },
+                "family": "twolocalrandom",
+                "max_abs_coefficient_change": 0.034958115732973916
+              },
+              {
+                "circuit_count": 7,
+                "coefficient_changes": {
+                  "E_mean": -0.0009515393251848803,
+                  "E_peak": 0.03443218720915664,
+                  "depth": -0.006220425887526471,
+                  "num_qubits": 0.0038572311518062508,
+                  "two_qubit_density": -0.015771961622583597
+                },
+                "family": "draper_qft_adder",
+                "max_abs_coefficient_change": 0.03443218720915664
+              },
+              {
+                "circuit_count": 6,
+                "coefficient_changes": {
+                  "E_mean": -0.003511245575951172,
+                  "E_peak": 0.023737768951667793,
+                  "depth": -0.01020414403867953,
+                  "num_qubits": 0.001912731875215401,
+                  "two_qubit_density": -0.0015246406409122892
+                },
+                "family": "half_adder",
+                "max_abs_coefficient_change": 0.023737768951667793
+              },
+              {
+                "circuit_count": 1,
+                "coefficient_changes": {
+                  "E_mean": 0.019422177691622355,
+                  "E_peak": -0.023130356343572522,
+                  "depth": 0.006065035019477083,
+                  "num_qubits": 0.014417479945211475,
+                  "two_qubit_density": -0.0024968787802283066
+                },
+                "family": "random",
+                "max_abs_coefficient_change": 0.023130356343572522
+              },
+              {
+                "circuit_count": 6,
+                "coefficient_changes": {
+                  "E_mean": -0.0032188363187239943,
+                  "E_peak": 0.021731229026085153,
+                  "depth": -0.011327660479559798,
+                  "num_qubits": 0.000571762444621704,
+                  "two_qubit_density": -0.0018930037469458427
+                },
+                "family": "full_adder",
+                "max_abs_coefficient_change": 0.021731229026085153
+              },
+              {
+                "circuit_count": 6,
+                "coefficient_changes": {
+                  "E_mean": -0.0031784350039445464,
+                  "E_peak": 0.021619585825629173,
+                  "depth": -0.011361080433086368,
+                  "num_qubits": 0.0005639824273110938,
+                  "two_qubit_density": -0.001994998015749816
+                },
+                "family": "cdkm_ripple_carry_adder",
+                "max_abs_coefficient_change": 0.021619585825629173
+              },
+              {
+                "circuit_count": 4,
+                "coefficient_changes": {
+                  "E_mean": 0.017224727246103244,
+                  "E_peak": -0.006241666190663242,
+                  "depth": -0.002086803100072032,
+                  "num_qubits": 0.017576946804322757,
+                  "two_qubit_density": 0.02104898579891984
+                },
+                "family": "vqe_two_local",
+                "max_abs_coefficient_change": 0.02104898579891984
+              },
+              {
+                "circuit_count": 6,
+                "coefficient_changes": {
+                  "E_mean": -0.0011544891250780953,
+                  "E_peak": 0.01987465550544698,
+                  "depth": -0.009549634796638173,
+                  "num_qubits": 0.002699466956587626,
+                  "two_qubit_density": -0.008197154857790712
+                },
+                "family": "modular_adder",
+                "max_abs_coefficient_change": 0.01987465550544698
+              },
+              {
+                "circuit_count": 12,
+                "coefficient_changes": {
+                  "E_mean": 0.00903410254258108,
+                  "E_peak": -0.01904622997791927,
+                  "depth": 0.015120630348615549,
+                  "num_qubits": 0.010882755077619877,
+                  "two_qubit_density": 0.006758240391883774
+                },
+                "family": "wstate",
+                "max_abs_coefficient_change": 0.01904622997791927
+              },
+              {
+                "circuit_count": 4,
+                "coefficient_changes": {
+                  "E_mean": -0.0024942777139420613,
+                  "E_peak": 0.016052867660681702,
+                  "depth": -0.007030808453282633,
+                  "num_qubits": 0.0003036492155673587,
+                  "two_qubit_density": -0.0006358080622667628
+                },
+                "family": "vbe_ripple_carry_adder",
+                "max_abs_coefficient_change": 0.016052867660681702
+              },
+              {
+                "circuit_count": 2,
+                "coefficient_changes": {
+                  "E_mean": -0.010987756501413815,
+                  "E_peak": 0.012695605851773983,
+                  "depth": -0.01327055750411521,
+                  "num_qubits": -0.009663591919764347,
+                  "two_qubit_density": -0.014953725613170266
+                },
+                "family": "tsp",
+                "max_abs_coefficient_change": 0.014953725613170266
+              },
+              {
+                "circuit_count": 3,
+                "coefficient_changes": {
+                  "E_mean": -0.0008008867974336198,
+                  "E_peak": 0.006539764624475586,
+                  "depth": -0.0033011136272933506,
+                  "num_qubits": 0.0017796070599703229,
+                  "two_qubit_density": -0.0011254223471287572
+                },
+                "family": "rg_qft_multiplier",
+                "max_abs_coefficient_change": 0.006539764624475586
+              },
+              {
+                "circuit_count": 3,
+                "coefficient_changes": {
+                  "E_mean": -0.0008744692555662237,
+                  "E_peak": 0.005358969061989516,
+                  "depth": -0.002909953016765554,
+                  "num_qubits": 0.001490318286045511,
+                  "two_qubit_density": -0.00015766799084571126
+                },
+                "family": "multiplier",
+                "max_abs_coefficient_change": 0.005358969061989516
+              },
+              {
+                "circuit_count": 4,
+                "coefficient_changes": {
+                  "E_mean": -0.004810534356603613,
+                  "E_peak": 0.0003406635380849288,
+                  "depth": 0.004139269512263066,
+                  "num_qubits": -0.004208126088228681,
+                  "two_qubit_density": 0.004022606056275635
+                },
+                "family": "vqe_su2",
+                "max_abs_coefficient_change": 0.004810534356603613
+              },
+              {
+                "circuit_count": 1,
+                "coefficient_changes": {
+                  "E_mean": -0.0037213335579491247,
+                  "E_peak": 0.001877717179296079,
+                  "depth": 0.000516748985687876,
+                  "num_qubits": 0.0007641796097820897,
+                  "two_qubit_density": 0.0005510044376245138
+                },
+                "family": "groundstate_small",
+                "max_abs_coefficient_change": 0.0037213335579491247
+              },
+              {
+                "circuit_count": 2,
+                "coefficient_changes": {
+                  "E_mean": -0.0001626571516601949,
+                  "E_peak": 0.0008849654145570707,
+                  "depth": -0.0011694454164741241,
+                  "num_qubits": 0.0003134823058048575,
+                  "two_qubit_density": -0.00012416850258706313
+                },
+                "family": "hrs_cumulative_multiplier",
+                "max_abs_coefficient_change": 0.0011694454164741241
+              },
+              {
+                "circuit_count": 4,
+                "coefficient_changes": {
+                  "E_mean": -0.0006891333719016846,
+                  "E_peak": 0.0002995843899216144,
+                  "depth": 0.0003150210698088518,
+                  "num_qubits": -0.000556261460916696,
+                  "two_qubit_density": 0.00033458777052136623
+                },
+                "family": "vqe_real_amp",
+                "max_abs_coefficient_change": 0.0006891333719016846
+              }
+            ]
+          },
+          "maxima": {
+            "absolute_deviance_residual": 1.8106752538031943,
+            "absolute_pearson_residual": 43.97656711589362,
+            "cook_distance": 0.08557453250913345,
+            "leverage": 0.13637029584935095
+          },
+          "thresholds": {
+            "cook_4_over_n": 0.012903225806451613,
+            "leverage_2p_over_n": 0.03870967741935484
+          },
+          "top_circuits_by_cook": [
+            {
+              "circuit": "randomcircuit_indep_qiskit_14.qasm",
+              "cook_distance": 0.08557453250913345,
+              "deviance_residual": -1.4917538943352364,
+              "family": "randomcircuit",
+              "leverage": 0.13637029584935095,
+              "pearson_residual": -1.675774481580882
+            },
+            {
+              "circuit": "bmw_quark_cardinality_indep_qiskit_2.qasm",
+              "cook_distance": 0.01828406919288402,
+              "deviance_residual": -1.6835021290758536,
+              "family": "bmw_quark_cardinality",
+              "leverage": 0.019483793080072996,
+              "pearson_residual": -2.3266447419367027
+            },
+            {
+              "circuit": "portfolioqaoa_indep_qiskit_3.qasm",
+              "cook_distance": 0.01615920961361117,
+              "deviance_residual": -1.6882872450915143,
+              "family": "portfolioqaoa",
+              "leverage": 0.021672429974848986,
+              "pearson_residual": -2.0692652795148705
+            },
+            {
+              "circuit": "qwalk-v-chain_indep_qiskit_3.qasm",
+              "cook_distance": 0.01433728929183784,
+              "deviance_residual": 1.8106752538031943,
+              "family": "qwalk-v-chain",
+              "leverage": 0.019904813838511237,
+              "pearson_residual": 2.0375034153691507
+            },
+            {
+              "circuit": "qwalk-noancilla_indep_qiskit_3.qasm",
+              "cook_distance": 0.01433728929183784,
+              "deviance_residual": 1.8106752538031943,
+              "family": "qwalk-noancilla",
+              "leverage": 0.019904813838511237,
+              "pearson_residual": 2.0375034153691507
+            },
+            {
+              "circuit": "hhl_indep_qiskit_14.qasm",
+              "cook_distance": 0.01186633385106398,
+              "deviance_residual": 0.993934162616438,
+              "family": "hhl",
+              "leverage": 0.08441650988927746,
+              "pearson_residual": 0.8408492923598483
+            },
+            {
+              "circuit": "qwalk-noancilla_indep_qiskit_4.qasm",
+              "cook_distance": 0.011410960812713394,
+              "deviance_residual": 1.084636355407044,
+              "family": "qwalk-noancilla",
+              "leverage": 0.07340738653761897,
+              "pearson_residual": 0.8948612136962661
+            },
+            {
+              "circuit": "hhl_indep_qiskit_13.qasm",
+              "cook_distance": 0.010638691349938056,
+              "deviance_residual": 1.0140050848371394,
+              "family": "hhl",
+              "leverage": 0.0733410965722627,
+              "pearson_residual": 0.8645018622406644
+            },
+            {
+              "circuit": "grover-v-chain_indep_qiskit_3.qasm",
+              "cook_distance": 0.010227243338545763,
+              "deviance_residual": 1.3025931109691198,
+              "family": "grover-v-chain",
+              "leverage": 0.04214559979961908,
+              "pearson_residual": 1.155788313905234
+            },
+            {
+              "circuit": "grover-noancilla_indep_qiskit_3.qasm",
+              "cook_distance": 0.010227243338545763,
+              "deviance_residual": 1.3025931109691198,
+              "family": "grover-noancilla",
+              "leverage": 0.04214559979961908,
+              "pearson_residual": 1.155788313905234
+            }
+          ]
+        },
+        "model": "fractional logit QMLE"
+      },
+      "deployed_observable_gate_coverage": {
+        "coefficient_scale": "log-odds per predictor sample SD",
+        "coefficients": [
+          {
+            "cluster_df": 41,
+            "cluster_standard_error": 0.16567982364451794,
+            "cluster_t": -0.8970973630906282,
+            "estimate": -0.14863093290881735,
+            "family_bootstrap_percentile_ci": [
+              -0.4863583246303915,
+              0.17895082217173883
+            ],
+            "p_raw": 0.3749046326538249,
+            "term": "intercept",
+            "wald_ci": [
+              -0.4832281247344231,
+              0.18596625891678842
+            ]
+          },
+          {
+            "cluster_df": 41,
+            "cluster_standard_error": 0.28312952790889495,
+            "cluster_t": -1.5565300337449273,
+            "estimate": -0.4406996136302176,
+            "family_bootstrap_percentile_ci": [
+              -0.9994105272822832,
+              0.2053991604884276
+            ],
+            "p_bh": 0.18181206400830513,
+            "p_raw": 0.1272684448058136,
+            "term": "E_mean",
+            "wald_ci": [
+              -1.0124912951839558,
+              0.13109206792352068
+            ]
+          },
+          {
+            "cluster_df": 41,
+            "cluster_standard_error": 0.28374905708132653,
+            "cluster_t": -4.867114909127315,
+            "estimate": -1.3810392661713418,
+            "family_bootstrap_percentile_ci": [
+              -2.1297900702018775,
+              -0.8909822844298794
+            ],
+            "p_bh": 0.00017181362553899787,
+            "p_raw": 0.000017181362553899788,
+            "term": "E_peak",
+            "wald_ci": [
+              -1.9540821122711893,
+              -0.8079964200714942
+            ]
+          },
+          {
+            "cluster_df": 41,
+            "cluster_standard_error": 0.1111542804606396,
+            "cluster_t": -0.1158142329978021,
+            "estimate": -0.012873247735971555,
+            "family_bootstrap_percentile_ci": [
+              -0.2580989133987962,
+              0.2550214347570576
+            ],
+            "p_bh": 0.9083651676177041,
+            "p_raw": 0.908365167617704,
+            "term": "depth",
+            "wald_ci": [
+              -0.23735387116616452,
+              0.2116073756942214
+            ]
+          },
+          {
+            "cluster_df": 41,
+            "cluster_standard_error": 0.14187878380619018,
+            "cluster_t": -2.471525786566359,
+            "estimate": -0.3506570727436726,
+            "family_bootstrap_percentile_ci": [
+              -0.6509276935060448,
+              -0.05972654672406345
+            ],
+            "p_bh": 0.051658169131334954,
+            "p_raw": 0.01769721984619281,
+            "term": "two_qubit_density",
+            "wald_ci": [
+              -0.637187089476668,
+              -0.06412705601067709
+            ]
+          },
+          {
+            "cluster_df": 41,
+            "cluster_standard_error": 0.09983032540408862,
+            "cluster_t": -0.8117007533874192,
+            "estimate": -0.08103235034140994,
+            "family_bootstrap_percentile_ci": [
+              -0.3263473898307184,
+              0.10513893468012749
+            ],
+            "p_bh": 0.46850108116644307,
+            "p_raw": 0.42165097304979876,
+            "term": "num_qubits",
+            "wald_ci": [
+              -0.2826437825874614,
+              0.12057908190464152
+            ]
+          }
+        ],
+        "fit": {
+          "bernoulli_quasi_negative_log_likelihood": 132.7459980512773,
+          "bootstrap_failed": 0,
+          "bootstrap_requested": 2000,
+          "bootstrap_successful": 2000,
+          "family_clusters": 42,
+          "gradient_inf_norm": 5.773159728050814E-15,
+          "iterations": 18,
+          "optimizer": {
+            "bfgs": {
+              "gradient_inf_norm": 4.46608074966548E-8,
+              "message": "Optimization terminated successfully.",
+              "status": 0,
+              "success": true,
+              "termination": "normal_convergence"
+            },
+            "method": "BFGS with deterministic exact-Hessian Newton polishing",
+            "newton_polish": {
+              "acceptance_score_tolerance": 1E-7,
+              "backtracking_steps": 0,
+              "gradient_inf_norm": 5.773159728050814E-15,
+              "iterations": 1,
+              "objective_roundoff_tolerance": 1.8864340923311904E-12,
+              "roundoff_stationary_steps": 0,
+              "success": true,
+              "target_reached": true,
+              "target_score_tolerance": 1E-10,
+              "termination": "target_reached"
+            }
+          }
+        },
+        "influence": {
+          "counts_above_threshold": {
+            "absolute_pearson_residual_above_2": 1,
+            "cook": 2,
+            "leverage": 17
+          },
+          "leave_one_family_out": {
+            "failed": [],
+            "ranked": [
+              {
+                "circuit_count": 12,
+                "coefficient_changes": {
+                  "E_mean": 0.25796800944753373,
+                  "E_peak": -0.27695707667010794,
+                  "depth": -0.04166571712883703,
+                  "num_qubits": 0.018686798274410915,
+                  "two_qubit_density": 0.061985781528346495
+                },
+                "family": "randomcircuit",
+                "max_abs_coefficient_change": 0.27695707667010794
+              },
+              {
+                "circuit_count": 12,
+                "coefficient_changes": {
+                  "E_mean": -0.15479346379687042,
+                  "E_peak": 0.04248001217754949,
+                  "depth": 0.02782620753233791,
+                  "num_qubits": -0.04212605132454651,
+                  "two_qubit_density": 0.03824969462521677
+                },
+                "family": "graphstate",
+                "max_abs_coefficient_change": 0.15479346379687042
+              },
+              {
+                "circuit_count": 5,
+                "coefficient_changes": {
+                  "E_mean": 0.050016405505188655,
+                  "E_peak": -0.08452990211031697,
+                  "depth": 0.10696498684110681,
+                  "num_qubits": -0.0035038855009897757,
+                  "two_qubit_density": 0.014576189627736602
+                },
+                "family": "grover-v-chain",
+                "max_abs_coefficient_change": 0.10696498684110681
+              },
+              {
+                "circuit_count": 12,
+                "coefficient_changes": {
+                  "E_mean": -0.09294949696173715,
+                  "E_peak": 0.051937054882482014,
+                  "depth": 0.0071169841854004465,
+                  "num_qubits": 0.020222287616055476,
+                  "two_qubit_density": -0.0513061646938906
+                },
+                "family": "ghz",
+                "max_abs_coefficient_change": 0.09294949696173715
+              },
+              {
+                "circuit_count": 11,
+                "coefficient_changes": {
+                  "E_mean": -0.0027486395998166935,
+                  "E_peak": 0.09271038016012811,
+                  "depth": 0.022367012200191685,
+                  "num_qubits": 0.0012239837278624627,
+                  "two_qubit_density": -0.06665225696711236
+                },
+                "family": "qft",
+                "max_abs_coefficient_change": 0.09271038016012811
+              },
+              {
+                "circuit_count": 8,
+                "coefficient_changes": {
+                  "E_mean": -0.06351022075232071,
+                  "E_peak": 0.034412927808803895,
+                  "depth": -0.01465688259829677,
+                  "num_qubits": -0.02380583495000925,
+                  "two_qubit_density": -0.06314075794411494
+                },
+                "family": "vqe",
+                "max_abs_coefficient_change": 0.06351022075232071
+              },
+              {
+                "circuit_count": 13,
+                "coefficient_changes": {
+                  "E_mean": -0.014413428068834888,
+                  "E_peak": 0.05989151145657412,
+                  "depth": 0.005982984189519587,
+                  "num_qubits": -0.012945454888897798,
+                  "two_qubit_density": 0.03776493239250772
+                },
+                "family": "bv",
+                "max_abs_coefficient_change": 0.05989151145657412
+              },
+              {
+                "circuit_count": 12,
+                "coefficient_changes": {
+                  "E_mean": 0.03941286166724639,
+                  "E_peak": -0.05936203069022339,
+                  "depth": 0.012017456658437481,
+                  "num_qubits": -0.00662461369292805,
+                  "two_qubit_density": 0.012773488196235028
+                },
+                "family": "wstate",
+                "max_abs_coefficient_change": 0.05936203069022339
+              },
+              {
+                "circuit_count": 12,
+                "coefficient_changes": {
+                  "E_mean": 0.03242074646121351,
+                  "E_peak": -0.05894967536075435,
+                  "depth": 0.0014806396183907559,
+                  "num_qubits": -0.015147007015373248,
+                  "two_qubit_density": -0.02231338237482161
+                },
+                "family": "hhl",
+                "max_abs_coefficient_change": 0.05894967536075435
+              },
+              {
+                "circuit_count": 12,
+                "coefficient_changes": {
+                  "E_mean": -0.05804096000041076,
+                  "E_peak": 0.03337865183737687,
+                  "depth": -0.014274624259939375,
+                  "num_qubits": 0.025408561980554516,
+                  "two_qubit_density": 0.03485402353550865
+                },
+                "family": "qpeinexact",
+                "max_abs_coefficient_change": 0.05804096000041076
+              },
+              {
+                "circuit_count": 12,
+                "coefficient_changes": {
+                  "E_mean": -0.012441529947807117,
+                  "E_peak": 0.050365924567566056,
+                  "depth": 0.0041757533395044896,
+                  "num_qubits": -0.006917734084310581,
+                  "two_qubit_density": 0.031656780526358064
+                },
+                "family": "dj",
+                "max_abs_coefficient_change": 0.050365924567566056
+              },
+              {
+                "circuit_count": 12,
+                "coefficient_changes": {
+                  "E_mean": 0.01814174699952681,
+                  "E_peak": 0.008909695527584471,
+                  "depth": -0.010161571009419543,
+                  "num_qubits": -0.0021176179262532013,
+                  "two_qubit_density": 0.04943342340714252
+                },
+                "family": "qftentangled",
+                "max_abs_coefficient_change": 0.04943342340714252
+              },
+              {
+                "circuit_count": 13,
+                "coefficient_changes": {
+                  "E_mean": -0.028604784884612933,
+                  "E_peak": -0.010234345427406533,
+                  "depth": -0.018857864436343772,
+                  "num_qubits": -0.03276998738154829,
+                  "two_qubit_density": -0.04907658224771422
+                },
+                "family": "bmw_quark_cardinality",
+                "max_abs_coefficient_change": 0.04907658224771422
+              },
+              {
+                "circuit_count": 7,
+                "coefficient_changes": {
+                  "E_mean": -0.0035601608071739177,
+                  "E_peak": 0.04533194181037148,
+                  "depth": 0.008702668511615419,
+                  "num_qubits": 0.0009269440181721711,
+                  "two_qubit_density": -0.01880992546211413
+                },
+                "family": "draper_qft_adder",
+                "max_abs_coefficient_change": 0.04533194181037148
+              },
+              {
+                "circuit_count": 5,
+                "coefficient_changes": {
+                  "E_mean": 0.03932589085171173,
+                  "E_peak": -0.04349658692653646,
+                  "depth": -0.0013682701355420199,
+                  "num_qubits": 0.013643129682686023,
+                  "two_qubit_density": -0.0036943071298499164
+                },
+                "family": "grover-noancilla",
+                "max_abs_coefficient_change": 0.04349658692653646
+              },
+              {
+                "circuit_count": 4,
+                "coefficient_changes": {
+                  "E_mean": -0.020711602833863085,
+                  "E_peak": 0.0005163737361069121,
+                  "depth": -0.040610256148971804,
+                  "num_qubits": 0.02072828050385462,
+                  "two_qubit_density": -0.008329551645284816
+                },
+                "family": "qwalk-noancilla",
+                "max_abs_coefficient_change": 0.040610256148971804
+              },
+              {
+                "circuit_count": 12,
+                "coefficient_changes": {
+                  "E_mean": -0.006894004060421677,
+                  "E_peak": 0.04060094125275593,
+                  "depth": 0.004606712019394258,
+                  "num_qubits": 0.018447352822923216,
+                  "two_qubit_density": -0.0018416707071713945
+                },
+                "family": "qpeexact",
+                "max_abs_coefficient_change": 0.04060094125275593
+              },
+              {
+                "circuit_count": 8,
+                "coefficient_changes": {
+                  "E_mean": 0.02503758906207243,
+                  "E_peak": -0.03985788426194126,
+                  "depth": -0.0052424488407137905,
+                  "num_qubits": -0.02794016264869084,
+                  "two_qubit_density": -0.00046344744797188753
+                },
+                "family": "portfolioqaoa",
+                "max_abs_coefficient_change": 0.03985788426194126
+              },
+              {
+                "circuit_count": 12,
+                "coefficient_changes": {
+                  "E_mean": -0.030318355907547334,
+                  "E_peak": 0.03808218967944743,
+                  "depth": -0.0016175898552256984,
+                  "num_qubits": -0.03170865828738513,
+                  "two_qubit_density": 0.010766296373132367
+                },
+                "family": "qnn",
+                "max_abs_coefficient_change": 0.03808218967944743
+              },
+              {
+                "circuit_count": 7,
+                "coefficient_changes": {
+                  "E_mean": 0.0353212873129945,
+                  "E_peak": -0.023988040181202486,
+                  "depth": 0.00041481488009050514,
+                  "num_qubits": -0.0037230084401635166,
+                  "two_qubit_density": -0.009049601844995092
+                },
+                "family": "bmw_quark_copula",
+                "max_abs_coefficient_change": 0.0353212873129945
+              },
+              {
+                "circuit_count": 1,
+                "coefficient_changes": {
+                  "E_mean": -0.035152837101030565,
+                  "E_peak": 0.02224626440210109,
+                  "depth": -0.004965893856013301,
+                  "num_qubits": -0.00336409736167069,
+                  "two_qubit_density": -0.010540289360659594
+                },
+                "family": "routing",
+                "max_abs_coefficient_change": 0.035152837101030565
+              },
+              {
+                "circuit_count": 8,
+                "coefficient_changes": {
+                  "E_mean": -0.025051106134995837,
+                  "E_peak": 0.034475219797452716,
+                  "depth": -0.007163614902517785,
+                  "num_qubits": -0.01843522221051326,
+                  "two_qubit_density": 0.01628825157478525
+                },
+                "family": "portfoliovqe",
+                "max_abs_coefficient_change": 0.034475219797452716
+              },
+              {
+                "circuit_count": 6,
+                "coefficient_changes": {
+                  "E_mean": 0.006506493275438563,
+                  "E_peak": -0.021735660631096776,
+                  "depth": 0.011236507040387127,
+                  "num_qubits": 0.034320867675058146,
+                  "two_qubit_density": -0.01651824634842808
+                },
+                "family": "modular_adder",
+                "max_abs_coefficient_change": 0.034320867675058146
+              },
+              {
+                "circuit_count": 4,
+                "coefficient_changes": {
+                  "E_mean": -0.008041995236713118,
+                  "E_peak": -0.008932139819746387,
+                  "depth": -0.03351598549505755,
+                  "num_qubits": 0.00896709527620497,
+                  "two_qubit_density": 0.01316714068003072
+                },
+                "family": "qwalk-v-chain",
+                "max_abs_coefficient_change": 0.03351598549505755
+              },
+              {
+                "circuit_count": 8,
+                "coefficient_changes": {
+                  "E_mean": 0.019255555625037057,
+                  "E_peak": -0.007834880341058392,
+                  "depth": -0.001303369665864352,
+                  "num_qubits": -0.007434370097645873,
+                  "two_qubit_density": 0.006053451162644663
+                },
+                "family": "su2random",
+                "max_abs_coefficient_change": 0.019255555625037057
+              },
+              {
+                "circuit_count": 6,
+                "coefficient_changes": {
+                  "E_mean": 0.0018310773105916778,
+                  "E_peak": -0.005762146707757099,
+                  "depth": 0.004072803932870732,
+                  "num_qubits": 0.01904441663897964,
+                  "two_qubit_density": -0.007082045129027104
+                },
+                "family": "cdkm_ripple_carry_adder",
+                "max_abs_coefficient_change": 0.01904441663897964
+              },
+              {
+                "circuit_count": 6,
+                "coefficient_changes": {
+                  "E_mean": 0.001828734104160623,
+                  "E_peak": -0.005874165798040343,
+                  "depth": 0.0040574539824760406,
+                  "num_qubits": 0.018955728958711462,
+                  "two_qubit_density": -0.006919980616079235
+                },
+                "family": "full_adder",
+                "max_abs_coefficient_change": 0.018955728958711462
+              },
+              {
+                "circuit_count": 3,
+                "coefficient_changes": {
+                  "E_mean": -0.004592506036876609,
+                  "E_peak": 0.017670394980177306,
+                  "depth": -0.0050962168694630335,
+                  "num_qubits": -0.0004766865304918211,
+                  "two_qubit_density": 0.003792172484073153
+                },
+                "family": "rg_qft_multiplier",
+                "max_abs_coefficient_change": 0.017670394980177306
+              },
+              {
+                "circuit_count": 12,
+                "coefficient_changes": {
+                  "E_mean": 0.01752320805512292,
+                  "E_peak": -0.007694788258945318,
+                  "depth": 0.00026180892637706586,
+                  "num_qubits": -0.0011274402465897698,
+                  "two_qubit_density": -0.005336389848762335
+                },
+                "family": "ae",
+                "max_abs_coefficient_change": 0.01752320805512292
+              },
+              {
+                "circuit_count": 3,
+                "coefficient_changes": {
+                  "E_mean": -0.005383925616421592,
+                  "E_peak": 0.01620185245283312,
+                  "depth": -0.008021185557426126,
+                  "num_qubits": -0.0007720863750064061,
+                  "two_qubit_density": 0.007172159685167656
+                },
+                "family": "multiplier",
+                "max_abs_coefficient_change": 0.01620185245283312
+              },
+              {
+                "circuit_count": 8,
+                "coefficient_changes": {
+                  "E_mean": 0.01580178714220265,
+                  "E_peak": -0.0037633532928880165,
+                  "depth": -0.001854372060321758,
+                  "num_qubits": -0.006599659233934449,
+                  "two_qubit_density": 0.009045654824321292
+                },
+                "family": "twolocalrandom",
+                "max_abs_coefficient_change": 0.01580178714220265
+              },
+              {
+                "circuit_count": 8,
+                "coefficient_changes": {
+                  "E_mean": 0.01580178714220254,
+                  "E_peak": -0.0037633532928880165,
+                  "depth": -0.0018543720603217476,
+                  "num_qubits": -0.006599659233934435,
+                  "two_qubit_density": 0.009045654824321347
+                },
+                "family": "realamprandom",
+                "max_abs_coefficient_change": 0.01580178714220254
+              },
+              {
+                "circuit_count": 6,
+                "coefficient_changes": {
+                  "E_mean": 0.0007133533984212126,
+                  "E_peak": -0.0011864104983463353,
+                  "depth": 0.00326722426870338,
+                  "num_qubits": 0.01505546860969538,
+                  "two_qubit_density": -0.004488591159272914
+                },
+                "family": "half_adder",
+                "max_abs_coefficient_change": 0.01505546860969538
+              },
+              {
+                "circuit_count": 2,
+                "coefficient_changes": {
+                  "E_mean": -0.00482612673191174,
+                  "E_peak": 0.011685165515979534,
+                  "depth": -0.010383325828784654,
+                  "num_qubits": 0.0010097730213255024,
+                  "two_qubit_density": 0.0050991813384678175
+                },
+                "family": "hrs_cumulative_multiplier",
+                "max_abs_coefficient_change": 0.011685165515979534
+              },
+              {
+                "circuit_count": 2,
+                "coefficient_changes": {
+                  "E_mean": -0.009874557770075343,
+                  "E_peak": 0.008720259560524024,
+                  "depth": -0.0027178661206218764,
+                  "num_qubits": -0.007160059340488759,
+                  "two_qubit_density": -0.01068867005146451
+                },
+                "family": "tsp",
+                "max_abs_coefficient_change": 0.01068867005146451
+              },
+              {
+                "circuit_count": 4,
+                "coefficient_changes": {
+                  "E_mean": 0.0027046486558941485,
+                  "E_peak": 0.0030981580191453695,
+                  "depth": -0.0013541637830368075,
+                  "num_qubits": 0.005588403560216698,
+                  "two_qubit_density": 0.008901165207584494
+                },
+                "family": "vqe_two_local",
+                "max_abs_coefficient_change": 0.008901165207584494
+              },
+              {
+                "circuit_count": 4,
+                "coefficient_changes": {
+                  "E_mean": 0.006053626558572889,
+                  "E_peak": -0.000972318304639952,
+                  "depth": -0.0010028399600527458,
+                  "num_qubits": 0.008447680799964163,
+                  "two_qubit_density": -0.006861343941032494
+                },
+                "family": "vqe_real_amp",
+                "max_abs_coefficient_change": 0.008447680799964163
+              },
+              {
+                "circuit_count": 4,
+                "coefficient_changes": {
+                  "E_mean": -0.00019780359014870408,
+                  "E_peak": 0.00208405146316748,
+                  "depth": 0.0013760068771727987,
+                  "num_qubits": 0.00786423134683567,
+                  "two_qubit_density": -0.002055219890591764
+                },
+                "family": "vbe_ripple_carry_adder",
+                "max_abs_coefficient_change": 0.00786423134683567
+              },
+              {
+                "circuit_count": 4,
+                "coefficient_changes": {
+                  "E_mean": 0.007247493085697554,
+                  "E_peak": -0.003036569317934834,
+                  "depth": -0.0005650391482495357,
+                  "num_qubits": 0.0061804852766556145,
+                  "two_qubit_density": -0.005220010281202392
+                },
+                "family": "vqe_su2",
+                "max_abs_coefficient_change": 0.007247493085697554
+              },
+              {
+                "circuit_count": 8,
+                "coefficient_changes": {
+                  "E_mean": -0.0012901400965666943,
+                  "E_peak": 0.0015091558147686257,
+                  "depth": -0.0006044603824177097,
+                  "num_qubits": 0.0008985297893133598,
+                  "two_qubit_density": -0.0019671255477963223
+                },
+                "family": "qaoa",
+                "max_abs_coefficient_change": 0.0019671255477963223
+              },
+              {
+                "circuit_count": 1,
+                "coefficient_changes": {
+                  "E_mean": -0.0015496502020757585,
+                  "E_peak": 0.0017740562919292824,
+                  "depth": -0.00021773021678700953,
+                  "num_qubits": -0.0009570585929215975,
+                  "two_qubit_density": 0.0003158929385764231
+                },
+                "family": "random",
+                "max_abs_coefficient_change": 0.0017740562919292824
+              },
+              {
+                "circuit_count": 1,
+                "coefficient_changes": {
+                  "E_mean": -0.000549245993288705,
+                  "E_peak": 0.0003433969066797271,
+                  "depth": 0.0000028594360896826154,
+                  "num_qubits": 0.00017488860720417387,
+                  "two_qubit_density": 0.000027570588598757606
+                },
+                "family": "groundstate_small",
+                "max_abs_coefficient_change": 0.000549245993288705
+              }
+            ]
+          },
+          "maxima": {
+            "absolute_deviance_residual": 1.790041240241694,
+            "absolute_pearson_residual": 2.561671951603982,
+            "cook_distance": 0.04881335007091458,
+            "leverage": 0.32737454070657696
+          },
+          "thresholds": {
+            "cook_4_over_n": 0.012903225806451613,
+            "leverage_2p_over_n": 0.03870967741935484
+          },
+          "top_circuits_by_cook": [
+            {
+              "circuit": "grover-v-chain_indep_qiskit_9.qasm",
+              "cook_distance": 0.04881335007091458,
+              "deviance_residual": -0.8191141487607728,
+              "family": "grover-v-chain",
+              "leverage": 0.21438217576685534,
+              "pearson_residual": -0.918252085769757
+            },
+            {
+              "circuit": "modular_adder_indep_qiskit_14.qasm",
+              "cook_distance": 0.02059680380707643,
+              "deviance_residual": -1.790041240241694,
+              "family": "modular_adder",
+              "leverage": 0.01815474477424367,
+              "pearson_residual": -2.561671951603982
+            },
+            {
+              "circuit": "bmw_quark_cardinality_indep_qiskit_2.qasm",
+              "cook_distance": 0.011434942762085138,
+              "deviance_residual": -1.4481706830259853,
+              "family": "bmw_quark_cardinality",
+              "leverage": 0.01902719163805367,
+              "pearson_residual": -1.862782914341826
+            },
+            {
+              "circuit": "qpeexact_indep_qiskit_14.qasm",
+              "cook_distance": 0.00994581190588691,
+              "deviance_residual": -1.1438748249140718,
+              "family": "qpeexact",
+              "leverage": 0.027379143422622224,
+              "pearson_residual": -1.4359171938522983
+            },
+            {
+              "circuit": "portfolioqaoa_indep_qiskit_3.qasm",
+              "cook_distance": 0.008776823169098903,
+              "deviance_residual": -1.4371809405537297,
+              "family": "portfolioqaoa",
+              "leverage": 0.017872875074895253,
+              "pearson_residual": -1.6858339490092638
+            },
+            {
+              "circuit": "full_adder_indep_qiskit_14.qasm",
+              "cook_distance": 0.007465572037371678,
+              "deviance_residual": -1.1390820040207559,
+              "family": "full_adder",
+              "leverage": 0.016902814757029774,
+              "pearson_residual": -1.6003836546287165
+            },
+            {
+              "circuit": "cdkm_ripple_carry_adder_indep_qiskit_14.qasm",
+              "cook_distance": 0.007465572037371678,
+              "deviance_residual": -1.1390820040207559,
+              "family": "cdkm_ripple_carry_adder",
+              "leverage": 0.016902814757029774,
+              "pearson_residual": -1.6003836546287165
+            },
+            {
+              "circuit": "qwalk-noancilla_indep_qiskit_6.qasm",
+              "cook_distance": 0.006372866372310652,
+              "deviance_residual": 0.5425172836856721,
+              "family": "qwalk-noancilla",
+              "leverage": 0.08081414601235604,
+              "pearson_residual": 0.6322701361267902
+            },
+            {
+              "circuit": "randomcircuit_indep_qiskit_3.qasm",
+              "cook_distance": 0.005416268906025656,
+              "deviance_residual": 0.8937553335671092,
+              "family": "randomcircuit",
+              "leverage": 0.03663876851131051,
+              "pearson_residual": 0.9072865343599594
+            },
+            {
+              "circuit": "randomcircuit_indep_qiskit_5.qasm",
+              "cook_distance": 0.005281727490242998,
+              "deviance_residual": 0.8353997564795321,
+              "family": "randomcircuit",
+              "leverage": 0.0401026541740111,
+              "pearson_residual": 0.8533002099796432
+            }
+          ]
+        },
+        "model": "fractional logit QMLE"
+      }
+    },
+    "sample": {
+      "analysis_rows_sha256": "114512ca5cda23fee30ef23c9ec4cabcf2b8ff7348319640fba730c4ded9b5e3",
+      "circuit_count": 310,
+      "family_count": 42,
+      "family_counts": {
+        "ae": 12,
+        "bmw_quark_cardinality": 13,
+        "bmw_quark_copula": 7,
+        "bv": 13,
+        "cdkm_ripple_carry_adder": 6,
+        "dj": 12,
+        "draper_qft_adder": 7,
+        "full_adder": 6,
+        "ghz": 12,
+        "graphstate": 12,
+        "groundstate_small": 1,
+        "grover-noancilla": 5,
+        "grover-v-chain": 5,
+        "half_adder": 6,
+        "hhl": 12,
+        "hrs_cumulative_multiplier": 2,
+        "modular_adder": 6,
+        "multiplier": 3,
+        "portfolioqaoa": 8,
+        "portfoliovqe": 8,
+        "qaoa": 8,
+        "qft": 11,
+        "qftentangled": 12,
+        "qnn": 12,
+        "qpeexact": 12,
+        "qpeinexact": 12,
+        "qwalk-noancilla": 4,
+        "qwalk-v-chain": 4,
+        "random": 1,
+        "randomcircuit": 12,
+        "realamprandom": 8,
+        "rg_qft_multiplier": 3,
+        "routing": 1,
+        "su2random": 8,
+        "tsp": 2,
+        "twolocalrandom": 8,
+        "vbe_ripple_carry_adder": 4,
+        "vqe": 8,
+        "vqe_real_amp": 4,
+        "vqe_su2": 4,
+        "vqe_two_local": 4,
+        "wstate": 12
+      }
+    },
+    "sensitivity_models": {
+      "deployed_observable_depth_reach": {
+        "coefficient_scale": "radian change in asin(sqrt(coverage)) per predictor sample SD",
+        "coefficients": [
+          {
+            "cluster_df": 41,
+            "cluster_standard_error": 0.0464433702620485,
+            "cluster_t": 17.830506710503062,
+            "estimate": 0.8281088251158341,
+            "p_raw": 6.344398176182462E-21,
+            "term": "intercept",
+            "wald_ci": [
+              0.7343145360662485,
+              0.9219031141654196
+            ]
+          },
+          {
+            "cluster_df": 41,
+            "cluster_standard_error": 0.12505520204451476,
+            "cluster_t": -2.322179459777165,
+            "estimate": -0.2904006215260555,
+            "p_raw": 0.02526770927941154,
+            "term": "E_mean",
+            "wald_ci": [
+              -0.5429547256217772,
+              -0.03784651743033385
+            ]
+          },
+          {
+            "cluster_df": 41,
+            "cluster_standard_error": 0.12262500667845436,
+            "cluster_t": -1.9179126418115082,
+            "estimate": -0.23518405051082825,
+            "p_raw": 0.06210552982868701,
+            "term": "E_peak",
+            "wald_ci": [
+              -0.4828302754986141,
+              0.01246217447695766
+            ]
+          },
+          {
+            "cluster_df": 41,
+            "cluster_standard_error": 0.04109019297788522,
+            "cluster_t": 2.8071479833132726,
+            "estimate": 0.11534625235182369,
+            "p_raw": 0.007615886887841487,
+            "term": "depth",
+            "wald_ci": [
+              0.03236292414964197,
+              0.1983295805540054
+            ]
+          },
+          {
+            "cluster_df": 41,
+            "cluster_standard_error": 0.03981456820750003,
+            "cluster_t": 0.5666357736973128,
+            "estimate": 0.022560358660681214,
+            "p_raw": 0.574050728135984,
+            "term": "two_qubit_density",
+            "wald_ci": [
+              -0.05784679305479775,
+              0.10296751037616017
+            ]
+          },
+          {
+            "cluster_df": 41,
+            "cluster_standard_error": 0.024604145856807785,
+            "cluster_t": -1.9120358594749642,
+            "estimate": -0.047044009169968856,
+            "p_raw": 0.06287669256689886,
+            "term": "num_qubits",
+            "wald_ci": [
+              -0.09673308977050761,
+              0.002645071430569898
+            ]
+          }
+        ],
+        "fit": {
+          "family_clusters": 42,
+          "r_squared": 0.7379677623981874
+        },
+        "model": "arcsine-square-root OLS"
+      },
+      "deployed_observable_gate_coverage": {
+        "coefficient_scale": "radian change in asin(sqrt(coverage)) per predictor sample SD",
+        "coefficients": [
+          {
+            "cluster_df": 41,
+            "cluster_standard_error": 0.027895677651159332,
+            "cluster_t": 27.847492333493165,
+            "estimate": 0.7768246695282561,
+            "p_raw": 2.956035683726363E-28,
+            "term": "intercept",
+            "wald_ci": [
+              0.720488205613514,
+              0.8331611334429982
+            ]
+          },
+          {
+            "cluster_df": 41,
+            "cluster_standard_error": 0.054114878460225495,
+            "cluster_t": -1.4188917631576983,
+            "estimate": -0.0767831553114939,
+            "p_raw": 0.16348830569139053,
+            "term": "E_mean",
+            "wald_ci": [
+              -0.18607036947237482,
+              0.032504058849386994
+            ]
+          },
+          {
+            "cluster_df": 41,
+            "cluster_standard_error": 0.05527982198935322,
+            "cluster_t": -7.00249981248033,
+            "estimate": -0.38709694311439197,
+            "p_raw": 1.6345643597038252E-8,
+            "term": "E_peak",
+            "wald_ci": [
+              -0.49873680846059687,
+              -0.27545707776818706
+            ]
+          },
+          {
+            "cluster_df": 41,
+            "cluster_standard_error": 0.021517693200139548,
+            "cluster_t": -0.2534985452944431,
+            "estimate": -0.005454703924327505,
+            "p_raw": 0.8011498678221576,
+            "term": "depth",
+            "wald_ci": [
+              -0.04891056693139713,
+              0.03800115908274211
+            ]
+          },
+          {
+            "cluster_df": 41,
+            "cluster_standard_error": 0.023941567849283335,
+            "cluster_t": -2.4507336932583024,
+            "estimate": -0.05867440699766838,
+            "p_raw": 0.018610373916570434,
+            "term": "two_qubit_density",
+            "wald_ci": [
+              -0.10702538416589809,
+              -0.010323429829438666
+            ]
+          },
+          {
+            "cluster_df": 41,
+            "cluster_standard_error": 0.017686206870214865,
+            "cluster_t": -1.2680087940193834,
+            "estimate": -0.022426265844278485,
+            "p_raw": 0.2119483711408348,
+            "term": "num_qubits",
+            "wald_ci": [
+              -0.058144285230379136,
+              0.01329175354182217
+            ]
+          }
+        ],
+        "fit": {
+          "family_clusters": 42,
+          "r_squared": 0.8231901757868303
+        },
+        "model": "arcsine-square-root OLS"
+      }
+    }
+  },
+  "qmax": {
+    "batch_count_monotonicity_assumed": false,
+    "capacity_lower_bound_used_as_plan": false,
+    "headline_qmax_reference": 24,
+    "observed_nonmonotone_batch_count_circuit_count": 55,
+    "question": "How do achieved deployable coverage/fraction and actual batch/run cost change with Qmax?",
+    "rows": [
+      {
+        "actual_emitted_executable_operation_executions": 3922189,
+        "certificate_candidate_group_count": 16367,
+        "certificate_candidate_point_count": 22332,
+        "complete_circuit_denominator": 310,
+        "cumulative_extra_ancilla_allocations": 29987,
+        "denominators": {
+          "certificate_candidate_group_count": 16367,
+          "certificate_candidate_point_count": 22332,
+          "circuit_count": 310,
+          "gate_node_count": 36255,
+          "gate_qubit_event_count": 56386,
+          "mid_candidate_group_count": 16038,
+          "mid_candidate_point_count": 21589,
+          "normalized_depth_layer_count": 18358,
+          "qubit_count": 2490
+        },
+        "deployable_candidate_fraction": 0.5644814615797958,
+        "deployed_observable_acted_point_coverage": 0.22356613343737808,
+        "deployed_observable_point_count": 12606,
+        "deployment_run_count": 4725,
+        "final_read_point_count": 743,
+        "fully_deployable_circuit_count": 251,
+        "fully_deployable_circuit_fraction": 0.8096774193548387,
+        "individually_feasible_mid_group_count": 8881,
+        "individually_feasible_mid_group_fraction": 0.5537473500436464,
+        "individually_feasible_mid_point_count": 11863,
+        "individually_feasible_mid_point_fraction": 0.5494927972578628,
+        "individually_infeasible_mid_group_count": 7157,
+        "individually_infeasible_mid_point_count": 9726,
+        "instrumented_batch_count": 4725,
+        "max_deployment_runs_per_circuit": 916,
+        "max_instrumented_batches_per_circuit": 916,
+        "mean_deployed_observable_depth_reach": 0.4750427407067505,
+        "mean_deployed_observable_gate_coverage": 0.3800558782719582,
+        "mean_deployed_observable_qubit_coverage": 0.89751332001332,
+        "mean_deployment_runs_per_circuit": 15.241935483870968,
+        "mean_instrumented_batches_per_circuit": 15.241935483870968,
+        "median_deployment_runs_per_circuit": 1.0,
+        "median_instrumented_batches_per_circuit": 1.0,
+        "peak_deployment_run_ancilla_count": 13,
+        "peak_deployment_run_depth": 2355,
+        "peak_deployment_run_width": 16,
+        "peak_depth_increase": 1567,
+        "peak_depth_inflation_ratio": 6.938775510204081,
+        "per_batch_depth_increase": {
+          "batch_denominator": 4725,
+          "max": 1567,
+          "mean": 177.63597883597885,
+          "median": 78.0,
+          "min": 0
+        },
+        "per_batch_depth_inflation_ratio": {
+          "batch_denominator": 4725,
+          "max": 6.938775510204081,
+          "mean": 1.5339829262390992,
+          "median": 1.4185022026431717,
+          "min": 1.0
+        },
+        "per_batch_monitor_groups": {
+          "batch_denominator": 4725,
+          "max": 28,
+          "mean": 1.8795767195767197,
+          "median": 1.0,
+          "min": 1,
+          "total": 8881
+        },
+        "per_batch_monitor_points": {
+          "batch_denominator": 4725,
+          "max": 28,
+          "mean": 2.510687830687831,
+          "median": 2.0,
+          "min": 1,
+          "total": 11863
+        },
+        "per_batch_replay_gates": {
+          "batch_denominator": 4725,
+          "max": 1724,
+          "mean": 242.6042328042328,
+          "median": 126.0,
+          "min": 1,
+          "total": 1146305
+        },
+        "planned_monitor_measurement_operations": 11863,
+        "planned_monitor_reset_operations": 11863,
+        "planned_original_gate_executions": 2714127,
+        "planned_replay_gate_executions": 1146305,
+        "planned_total_counted_operations": 3884158,
+        "planned_work_Bm_plus_replay": 3860432,
+        "qmax": 16,
+        "solver": {
+          "backend": "gurobi",
+          "backend_package": "gurobipy",
+          "backend_version": "13.0.2",
+          "modeling_api": "pulp",
+          "pulp_version": "3.3.2",
+          "relative_mip_gap": 0.0,
+          "seed": 0,
+          "threads": 1,
+          "transient_license_retry_delays_seconds": [
+            15,
+            30,
+            60,
+            120,
+            240,
+            480
+          ]
+        },
+        "source_only_final_read_run_count": 0
+      },
+      {
+        "actual_emitted_executable_operation_executions": 5569217,
+        "certificate_candidate_group_count": 16367,
+        "certificate_candidate_point_count": 22332,
+        "complete_circuit_denominator": 310,
+        "cumulative_extra_ancilla_allocations": 52965,
+        "denominators": {
+          "certificate_candidate_group_count": 16367,
+          "certificate_candidate_point_count": 22332,
+          "circuit_count": 310,
+          "gate_node_count": 36255,
+          "gate_qubit_event_count": 56386,
+          "mid_candidate_group_count": 16038,
+          "mid_candidate_point_count": 21589,
+          "normalized_depth_layer_count": 18358,
+          "qubit_count": 2490
+        },
+        "deployable_candidate_fraction": 0.7418054809242343,
+        "deployed_observable_acted_point_coverage": 0.29379633242294184,
+        "deployed_observable_point_count": 16566,
+        "deployment_run_count": 5872,
+        "final_read_point_count": 743,
+        "fully_deployable_circuit_count": 273,
+        "fully_deployable_circuit_fraction": 0.8806451612903226,
+        "individually_feasible_mid_group_count": 11872,
+        "individually_feasible_mid_group_fraction": 0.7402419254271106,
+        "individually_feasible_mid_point_count": 15823,
+        "individually_feasible_mid_point_fraction": 0.7329195423595349,
+        "individually_infeasible_mid_group_count": 4166,
+        "individually_infeasible_mid_point_count": 5766,
+        "instrumented_batch_count": 5872,
+        "max_deployment_runs_per_circuit": 782,
+        "max_instrumented_batches_per_circuit": 782,
+        "mean_deployed_observable_depth_reach": 0.48064393329365873,
+        "mean_deployed_observable_gate_coverage": 0.4174172623294344,
+        "mean_deployed_observable_qubit_coverage": 0.89751332001332,
+        "mean_deployment_runs_per_circuit": 18.941935483870967,
+        "mean_instrumented_batches_per_circuit": 18.941935483870967,
+        "median_deployment_runs_per_circuit": 1.0,
+        "median_instrumented_batches_per_circuit": 1.0,
+        "peak_deployment_run_ancilla_count": 17,
+        "peak_deployment_run_depth": 3234,
+        "peak_deployment_run_width": 20,
+        "peak_depth_increase": 2110,
+        "peak_depth_inflation_ratio": 7.714285714285714,
+        "per_batch_depth_increase": {
+          "batch_denominator": 5872,
+          "max": 2110,
+          "mean": 233.13606948228883,
+          "median": 92.0,
+          "min": 0
+        },
+        "per_batch_depth_inflation_ratio": {
+          "batch_denominator": 5872,
+          "max": 7.714285714285714,
+          "mean": 1.6224614200042762,
+          "median": 1.496390479515222,
+          "min": 1.0
+        },
+        "per_batch_monitor_groups": {
+          "batch_denominator": 5872,
+          "max": 28,
+          "mean": 2.0217983651226157,
+          "median": 1.0,
+          "min": 1,
+          "total": 11872
+        },
+        "per_batch_monitor_points": {
+          "batch_denominator": 5872,
+          "max": 28,
+          "mean": 2.6946525885558583,
+          "median": 2.0,
+          "min": 1,
+          "total": 15823
+        },
+        "per_batch_replay_gates": {
+          "batch_denominator": 5872,
+          "max": 2238,
+          "mean": 331.62857629427793,
+          "median": 164.0,
+          "min": 1,
+          "total": 1947323
+        },
+        "planned_monitor_measurement_operations": 15823,
+        "planned_monitor_reset_operations": 15823,
+        "planned_original_gate_executions": 3537306,
+        "planned_replay_gate_executions": 1947323,
+        "planned_total_counted_operations": 5516275,
+        "planned_work_Bm_plus_replay": 5484629,
+        "qmax": 20,
+        "solver": {
+          "backend": "gurobi",
+          "backend_package": "gurobipy",
+          "backend_version": "13.0.2",
+          "modeling_api": "pulp",
+          "pulp_version": "3.3.2",
+          "relative_mip_gap": 0.0,
+          "seed": 0,
+          "threads": 1,
+          "transient_license_retry_delays_seconds": [
+            15,
+            30,
+            60,
+            120,
+            240,
+            480
+          ]
+        },
+        "source_only_final_read_run_count": 0
+      },
+      {
+        "actual_emitted_executable_operation_executions": 7256118,
+        "certificate_candidate_group_count": 16367,
+        "certificate_candidate_point_count": 22332,
+        "complete_circuit_denominator": 310,
+        "cumulative_extra_ancilla_allocations": 79992,
+        "denominators": {
+          "certificate_candidate_group_count": 16367,
+          "certificate_candidate_point_count": 22332,
+          "circuit_count": 310,
+          "gate_node_count": 36255,
+          "gate_qubit_event_count": 56386,
+          "mid_candidate_group_count": 16038,
+          "mid_candidate_point_count": 21589,
+          "normalized_depth_layer_count": 18358,
+          "qubit_count": 2490
+        },
+        "deployable_candidate_fraction": 0.9163532151173205,
+        "deployed_observable_acted_point_coverage": 0.3629269676870145,
+        "deployed_observable_point_count": 20464,
+        "deployment_run_count": 7215,
+        "final_read_point_count": 743,
+        "fully_deployable_circuit_count": 293,
+        "fully_deployable_circuit_fraction": 0.9451612903225807,
+        "individually_feasible_mid_group_count": 14549,
+        "individually_feasible_mid_group_fraction": 0.9071579997505923,
+        "individually_feasible_mid_point_count": 19721,
+        "individually_feasible_mid_point_fraction": 0.9134744545833526,
+        "individually_infeasible_mid_group_count": 1489,
+        "individually_infeasible_mid_point_count": 1868,
+        "instrumented_batch_count": 7215,
+        "max_deployment_runs_per_circuit": 853,
+        "max_instrumented_batches_per_circuit": 853,
+        "mean_deployed_observable_depth_reach": 0.4857393089295631,
+        "mean_deployed_observable_gate_coverage": 0.445382124022792,
+        "mean_deployed_observable_qubit_coverage": 0.89751332001332,
+        "mean_deployment_runs_per_circuit": 23.274193548387096,
+        "mean_instrumented_batches_per_circuit": 23.274193548387096,
+        "median_deployment_runs_per_circuit": 1.0,
+        "median_instrumented_batches_per_circuit": 1.0,
+        "peak_deployment_run_ancilla_count": 21,
+        "peak_deployment_run_depth": 3234,
+        "peak_deployment_run_width": 24,
+        "peak_depth_increase": 2349,
+        "peak_depth_inflation_ratio": 8.682926829268293,
+        "per_batch_depth_increase": {
+          "batch_denominator": 7215,
+          "max": 2349,
+          "mean": 239.73388773388774,
+          "median": 101.0,
+          "min": 0
+        },
+        "per_batch_depth_inflation_ratio": {
+          "batch_denominator": 7215,
+          "max": 8.682926829268293,
+          "mean": 1.6635463492061267,
+          "median": 1.5113636363636365,
+          "min": 1.0
+        },
+        "per_batch_monitor_groups": {
+          "batch_denominator": 7215,
+          "max": 28,
+          "mean": 2.0164934164934163,
+          "median": 1.0,
+          "min": 1,
+          "total": 14549
+        },
+        "per_batch_monitor_points": {
+          "batch_denominator": 7215,
+          "max": 28,
+          "mean": 2.7333333333333334,
+          "median": 2.0,
+          "min": 1,
+          "total": 19721
+        },
+        "per_batch_replay_gates": {
+          "batch_denominator": 7215,
+          "max": 2584,
+          "mean": 371.5689535689536,
+          "median": 206.0,
+          "min": 1,
+          "total": 2680870
+        },
+        "planned_monitor_measurement_operations": 19721,
+        "planned_monitor_reset_operations": 19721,
+        "planned_original_gate_executions": 4462951,
+        "planned_replay_gate_executions": 2680870,
+        "planned_total_counted_operations": 7183263,
+        "planned_work_Bm_plus_replay": 7143821,
+        "qmax": 24,
+        "solver": {
+          "backend": "gurobi",
+          "backend_package": "gurobipy",
+          "backend_version": "13.0.2",
+          "modeling_api": "pulp",
+          "pulp_version": "3.3.2",
+          "relative_mip_gap": 0.0,
+          "seed": 0,
+          "threads": 1,
+          "transient_license_retry_delays_seconds": [
+            15,
+            30,
+            60,
+            120,
+            240,
+            480
+          ]
+        },
+        "source_only_final_read_run_count": 0
+      },
+      {
+        "actual_emitted_executable_operation_executions": 7748036,
+        "certificate_candidate_group_count": 16367,
+        "certificate_candidate_point_count": 22332,
+        "complete_circuit_denominator": 310,
+        "cumulative_extra_ancilla_allocations": 98297,
+        "denominators": {
+          "certificate_candidate_group_count": 16367,
+          "certificate_candidate_point_count": 22332,
+          "circuit_count": 310,
+          "gate_node_count": 36255,
+          "gate_qubit_event_count": 56386,
+          "mid_candidate_group_count": 16038,
+          "mid_candidate_point_count": 21589,
+          "normalized_depth_layer_count": 18358,
+          "qubit_count": 2490
+        },
+        "deployable_candidate_fraction": 1.0,
+        "deployed_observable_acted_point_coverage": 0.39605575852161884,
+        "deployed_observable_point_count": 22332,
+        "deployment_run_count": 7068,
+        "final_read_point_count": 743,
+        "fully_deployable_circuit_count": 310,
+        "fully_deployable_circuit_fraction": 1.0,
+        "individually_feasible_mid_group_count": 16038,
+        "individually_feasible_mid_group_fraction": 1.0,
+        "individually_feasible_mid_point_count": 21589,
+        "individually_feasible_mid_point_fraction": 1.0,
+        "individually_infeasible_mid_group_count": 0,
+        "individually_infeasible_mid_point_count": 0,
+        "instrumented_batch_count": 7068,
+        "max_deployment_runs_per_circuit": 655,
+        "max_instrumented_batches_per_circuit": 655,
+        "mean_deployed_observable_depth_reach": 0.4880634003605261,
+        "mean_deployed_observable_gate_coverage": 0.45893104883902,
+        "mean_deployed_observable_qubit_coverage": 0.89751332001332,
+        "mean_deployment_runs_per_circuit": 22.8,
+        "mean_instrumented_batches_per_circuit": 22.8,
+        "median_deployment_runs_per_circuit": 1.0,
+        "median_instrumented_batches_per_circuit": 1.0,
+        "peak_deployment_run_ancilla_count": 25,
+        "peak_deployment_run_depth": 4292,
+        "peak_deployment_run_width": 28,
+        "peak_depth_increase": 3168,
+        "peak_depth_inflation_ratio": 9.285714285714286,
+        "per_batch_depth_increase": {
+          "batch_denominator": 7068,
+          "max": 3168,
+          "mean": 255.0268817204301,
+          "median": 98.0,
+          "min": 0
+        },
+        "per_batch_depth_inflation_ratio": {
+          "batch_denominator": 7068,
+          "max": 9.285714285714286,
+          "mean": 1.747376202014096,
+          "median": 1.5702896585622157,
+          "min": 1.0
+        },
+        "per_batch_monitor_groups": {
+          "batch_denominator": 7068,
+          "max": 28,
+          "mean": 2.269100169779287,
+          "median": 2.0,
+          "min": 1,
+          "total": 16038
+        },
+        "per_batch_monitor_points": {
+          "batch_denominator": 7068,
+          "max": 28,
+          "mean": 3.054470854555744,
+          "median": 2.0,
+          "min": 1,
+          "total": 21589
+        },
+        "per_batch_replay_gates": {
+          "batch_denominator": 7068,
+          "max": 3348,
+          "mean": 428.219298245614,
+          "median": 228.0,
+          "min": 1,
+          "total": 3026654
+        },
+        "planned_monitor_measurement_operations": 21589,
+        "planned_monitor_reset_operations": 21589,
+        "planned_original_gate_executions": 4601592,
+        "planned_replay_gate_executions": 3026654,
+        "planned_total_counted_operations": 7671424,
+        "planned_work_Bm_plus_replay": 7628246,
+        "qmax": 28,
+        "solver": {
+          "backend": "gurobi",
+          "backend_package": "gurobipy",
+          "backend_version": "13.0.2",
+          "modeling_api": "pulp",
+          "pulp_version": "3.3.2",
+          "relative_mip_gap": 0.0,
+          "seed": 0,
+          "threads": 1,
+          "transient_license_retry_delays_seconds": [
+            15,
+            30,
+            60,
+            120,
+            240,
+            480
+          ]
+        },
+        "source_only_final_read_run_count": 0
+      },
+      {
+        "actual_emitted_executable_operation_executions": 6921637,
+        "certificate_candidate_group_count": 16367,
+        "certificate_candidate_point_count": 22332,
+        "complete_circuit_denominator": 310,
+        "cumulative_extra_ancilla_allocations": 98297,
+        "denominators": {
+          "certificate_candidate_group_count": 16367,
+          "certificate_candidate_point_count": 22332,
+          "circuit_count": 310,
+          "gate_node_count": 36255,
+          "gate_qubit_event_count": 56386,
+          "mid_candidate_group_count": 16038,
+          "mid_candidate_point_count": 21589,
+          "normalized_depth_layer_count": 18358,
+          "qubit_count": 2490
+        },
+        "deployable_candidate_fraction": 1.0,
+        "deployed_observable_acted_point_coverage": 0.39605575852161884,
+        "deployed_observable_point_count": 22332,
+        "deployment_run_count": 5742,
+        "final_read_point_count": 743,
+        "fully_deployable_circuit_count": 310,
+        "fully_deployable_circuit_fraction": 1.0,
+        "individually_feasible_mid_group_count": 16038,
+        "individually_feasible_mid_group_fraction": 1.0,
+        "individually_feasible_mid_point_count": 21589,
+        "individually_feasible_mid_point_fraction": 1.0,
+        "individually_infeasible_mid_group_count": 0,
+        "individually_infeasible_mid_point_count": 0,
+        "instrumented_batch_count": 5742,
+        "max_deployment_runs_per_circuit": 449,
+        "max_instrumented_batches_per_circuit": 449,
+        "mean_deployed_observable_depth_reach": 0.4880634003605261,
+        "mean_deployed_observable_gate_coverage": 0.45893104883902,
+        "mean_deployed_observable_qubit_coverage": 0.89751332001332,
+        "mean_deployment_runs_per_circuit": 18.52258064516129,
+        "mean_instrumented_batches_per_circuit": 18.52258064516129,
+        "median_deployment_runs_per_circuit": 1.0,
+        "median_instrumented_batches_per_circuit": 1.0,
+        "peak_deployment_run_ancilla_count": 29,
+        "peak_deployment_run_depth": 5336,
+        "peak_deployment_run_width": 32,
+        "peak_depth_increase": 4212,
+        "peak_depth_inflation_ratio": 11.5,
+        "per_batch_depth_increase": {
+          "batch_denominator": 5742,
+          "max": 4212,
+          "mean": 311.894113549286,
+          "median": 108.0,
+          "min": 0
+        },
+        "per_batch_depth_inflation_ratio": {
+          "batch_denominator": 5742,
+          "max": 11.5,
+          "mean": 1.9094069166891667,
+          "median": 1.6519162179173368,
+          "min": 1.0
+        },
+        "per_batch_monitor_groups": {
+          "batch_denominator": 5742,
+          "max": 28,
+          "mean": 2.793103448275862,
+          "median": 2.0,
+          "min": 1,
+          "total": 16038
+        },
+        "per_batch_monitor_points": {
+          "batch_denominator": 5742,
+          "max": 31,
+          "mean": 3.7598397770811562,
+          "median": 3.0,
+          "min": 1,
+          "total": 21589
+        },
+        "per_batch_replay_gates": {
+          "batch_denominator": 5742,
+          "max": 4452,
+          "mean": 527.1079763148729,
+          "median": 254.0,
+          "min": 1,
+          "total": 3026654
+        },
+        "planned_monitor_measurement_operations": 21589,
+        "planned_monitor_reset_operations": 21589,
+        "planned_original_gate_executions": 3789471,
+        "planned_replay_gate_executions": 3026654,
+        "planned_total_counted_operations": 6859303,
+        "planned_work_Bm_plus_replay": 6816125,
+        "qmax": 32,
+        "solver": {
+          "backend": "gurobi",
+          "backend_package": "gurobipy",
+          "backend_version": "13.0.2",
+          "modeling_api": "pulp",
+          "pulp_version": "3.3.2",
+          "relative_mip_gap": 0.0,
+          "seed": 0,
+          "threads": 1,
+          "transient_license_retry_delays_seconds": [
+            15,
+            30,
+            60,
+            120,
+            240,
+            480
+          ]
+        },
+        "source_only_final_read_run_count": 0
+      },
+      {
+        "actual_emitted_executable_operation_executions": 6196878,
+        "certificate_candidate_group_count": 16367,
+        "certificate_candidate_point_count": 22332,
+        "complete_circuit_denominator": 310,
+        "cumulative_extra_ancilla_allocations": 98297,
+        "denominators": {
+          "certificate_candidate_group_count": 16367,
+          "certificate_candidate_point_count": 22332,
+          "circuit_count": 310,
+          "gate_node_count": 36255,
+          "gate_qubit_event_count": 56386,
+          "mid_candidate_group_count": 16038,
+          "mid_candidate_point_count": 21589,
+          "normalized_depth_layer_count": 18358,
+          "qubit_count": 2490
+        },
+        "deployable_candidate_fraction": 1.0,
+        "deployed_observable_acted_point_coverage": 0.39605575852161884,
+        "deployed_observable_point_count": 22332,
+        "deployment_run_count": 4701,
+        "final_read_point_count": 743,
+        "fully_deployable_circuit_count": 310,
+        "fully_deployable_circuit_fraction": 1.0,
+        "individually_feasible_mid_group_count": 16038,
+        "individually_feasible_mid_group_fraction": 1.0,
+        "individually_feasible_mid_point_count": 21589,
+        "individually_feasible_mid_point_fraction": 1.0,
+        "individually_infeasible_mid_group_count": 0,
+        "individually_infeasible_mid_point_count": 0,
+        "instrumented_batch_count": 4701,
+        "max_deployment_runs_per_circuit": 416,
+        "max_instrumented_batches_per_circuit": 416,
+        "mean_deployed_observable_depth_reach": 0.4880634003605261,
+        "mean_deployed_observable_gate_coverage": 0.45893104883902,
+        "mean_deployed_observable_qubit_coverage": 0.89751332001332,
+        "mean_deployment_runs_per_circuit": 15.164516129032258,
+        "mean_instrumented_batches_per_circuit": 15.164516129032258,
+        "median_deployment_runs_per_circuit": 1.0,
+        "median_instrumented_batches_per_circuit": 1.0,
+        "peak_deployment_run_ancilla_count": 33,
+        "peak_deployment_run_depth": 5354,
+        "peak_deployment_run_width": 36,
+        "peak_depth_increase": 4566,
+        "peak_depth_inflation_ratio": 12.238095238095237,
+        "per_batch_depth_increase": {
+          "batch_denominator": 4701,
+          "max": 4566,
+          "mean": 370.4292703680068,
+          "median": 134.0,
+          "min": 0
+        },
+        "per_batch_depth_inflation_ratio": {
+          "batch_denominator": 4701,
+          "max": 12.238095238095237,
+          "mean": 2.083922903035859,
+          "median": 1.8088779284833538,
+          "min": 1.0
+        },
+        "per_batch_monitor_groups": {
+          "batch_denominator": 4701,
+          "max": 28,
+          "mean": 3.4116145500957242,
+          "median": 3.0,
+          "min": 1,
+          "total": 16038
+        },
+        "per_batch_monitor_points": {
+          "batch_denominator": 4701,
+          "max": 43,
+          "mean": 4.5924271431610295,
+          "median": 4.0,
+          "min": 1,
+          "total": 21589
+        },
+        "per_batch_replay_gates": {
+          "batch_denominator": 4701,
+          "max": 5051,
+          "mean": 643.8319506487982,
+          "median": 340.0,
+          "min": 1,
+          "total": 3026654
+        },
+        "planned_monitor_measurement_operations": 21589,
+        "planned_monitor_reset_operations": 21589,
+        "planned_original_gate_executions": 3076348,
+        "planned_replay_gate_executions": 3026654,
+        "planned_total_counted_operations": 6146180,
+        "planned_work_Bm_plus_replay": 6103002,
+        "qmax": 36,
+        "solver": {
+          "backend": "gurobi",
+          "backend_package": "gurobipy",
+          "backend_version": "13.0.2",
+          "modeling_api": "pulp",
+          "pulp_version": "3.3.2",
+          "relative_mip_gap": 0.0,
+          "seed": 0,
+          "threads": 1,
+          "transient_license_retry_delays_seconds": [
+            15,
+            30,
+            60,
+            120,
+            240,
+            480
+          ]
+        },
+        "source_only_final_read_run_count": 0
+      },
+      {
+        "actual_emitted_executable_operation_executions": 5511119,
+        "certificate_candidate_group_count": 16367,
+        "certificate_candidate_point_count": 22332,
+        "complete_circuit_denominator": 310,
+        "cumulative_extra_ancilla_allocations": 98297,
+        "denominators": {
+          "certificate_candidate_group_count": 16367,
+          "certificate_candidate_point_count": 22332,
+          "circuit_count": 310,
+          "gate_node_count": 36255,
+          "gate_qubit_event_count": 56386,
+          "mid_candidate_group_count": 16038,
+          "mid_candidate_point_count": 21589,
+          "normalized_depth_layer_count": 18358,
+          "qubit_count": 2490
+        },
+        "deployable_candidate_fraction": 1.0,
+        "deployed_observable_acted_point_coverage": 0.39605575852161884,
+        "deployed_observable_point_count": 22332,
+        "deployment_run_count": 3817,
+        "final_read_point_count": 743,
+        "fully_deployable_circuit_count": 310,
+        "fully_deployable_circuit_fraction": 1.0,
+        "individually_feasible_mid_group_count": 16038,
+        "individually_feasible_mid_group_fraction": 1.0,
+        "individually_feasible_mid_point_count": 21589,
+        "individually_feasible_mid_point_fraction": 1.0,
+        "individually_infeasible_mid_group_count": 0,
+        "individually_infeasible_mid_point_count": 0,
+        "instrumented_batch_count": 3817,
+        "max_deployment_runs_per_circuit": 300,
+        "max_instrumented_batches_per_circuit": 300,
+        "mean_deployed_observable_depth_reach": 0.4880634003605261,
+        "mean_deployed_observable_gate_coverage": 0.45893104883902,
+        "mean_deployed_observable_qubit_coverage": 0.89751332001332,
+        "mean_deployment_runs_per_circuit": 12.312903225806451,
+        "mean_instrumented_batches_per_circuit": 12.312903225806451,
+        "median_deployment_runs_per_circuit": 1.0,
+        "median_instrumented_batches_per_circuit": 1.0,
+        "peak_deployment_run_ancilla_count": 37,
+        "peak_deployment_run_depth": 6394,
+        "peak_deployment_run_width": 40,
+        "peak_depth_increase": 5270,
+        "peak_depth_inflation_ratio": 14.107142857142858,
+        "per_batch_depth_increase": {
+          "batch_denominator": 3817,
+          "max": 5270,
+          "mean": 452.77652606759233,
+          "median": 178.0,
+          "min": 0
+        },
+        "per_batch_depth_inflation_ratio": {
+          "batch_denominator": 3817,
+          "max": 14.107142857142858,
+          "mean": 2.3163610805015282,
+          "median": 2.0377358490566038,
+          "min": 1.0
+        },
+        "per_batch_monitor_groups": {
+          "batch_denominator": 3817,
+          "max": 28,
+          "mean": 4.2017291066282425,
+          "median": 3.0,
+          "min": 1,
+          "total": 16038
+        },
+        "per_batch_monitor_points": {
+          "batch_denominator": 3817,
+          "max": 37,
+          "mean": 5.656012575320933,
+          "median": 5.0,
+          "min": 1,
+          "total": 21589
+        },
+        "per_batch_replay_gates": {
+          "batch_denominator": 3817,
+          "max": 5570,
+          "mean": 792.9405292114226,
+          "median": 424.0,
+          "min": 1,
+          "total": 3026654
+        },
+        "planned_monitor_measurement_operations": 21589,
+        "planned_monitor_reset_operations": 21589,
+        "planned_original_gate_executions": 2401115,
+        "planned_replay_gate_executions": 3026654,
+        "planned_total_counted_operations": 5470947,
+        "planned_work_Bm_plus_replay": 5427769,
+        "qmax": 40,
+        "solver": {
+          "backend": "gurobi",
+          "backend_package": "gurobipy",
+          "backend_version": "13.0.2",
+          "modeling_api": "pulp",
+          "pulp_version": "3.3.2",
+          "relative_mip_gap": 0.0,
+          "seed": 0,
+          "threads": 1,
+          "transient_license_retry_delays_seconds": [
+            15,
+            30,
+            60,
+            120,
+            240,
+            480
+          ]
+        },
+        "source_only_final_read_run_count": 0
+      }
+    ]
+  },
+  "multiple_fault": {
+    "circuits": 238,
+    "modes": [
+      "m1",
+      "m2",
+      "m3"
+    ],
+    "records": 3570,
+    "seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "strata": {
+      "m1": {
+        "applicable": 1190,
+        "attempted": 1190,
+        "common_complete": 1112,
+        "common_complete_non_output_equivalent": 913,
+        "executed": 1190,
+        "masked": 0,
+        "masking_errors": 0,
+        "methods": {
+          "liu": {
+            "all_faults_scope_failures": {
+              "denominator": 913,
+              "numerator": 187,
+              "rate": 0.20481927710843373
+            },
+            "incomplete_records_excluded": 0,
+            "loc_all": {
+              "denominator": 671,
+              "numerator": 671,
+              "rate": 1.0
+            },
+            "loc_all_seed_percent": {
+              "count": 5,
+              "maximum": 100.0,
+              "mean": 100.0,
+              "median": 100.0,
+              "minimum": 100.0,
+              "sample_sd": 0.0
+            },
+            "loc_any": {
+              "denominator": 671,
+              "numerator": 671,
+              "rate": 1.0
+            },
+            "loc_any_seed_percent": {
+              "count": 5,
+              "maximum": 100.0,
+              "mean": 100.0,
+              "median": 100.0,
+              "minimum": 100.0,
+              "sample_sd": 0.0
+            },
+            "paired_detection": {
+              "denominator": 913,
+              "numerator": 671,
+              "rate": 0.7349397590361446
+            },
+            "paired_detection_seed_percent": {
+              "count": 5,
+              "maximum": 79.79274611398964,
+              "mean": 73.53471887254616,
+              "median": 75.14792899408283,
+              "minimum": 62.5,
+              "sample_sd": 6.995270166526096
+            },
+            "paired_in_scope_detection": {
+              "denominator": 726,
+              "numerator": 671,
+              "rate": 0.9242424242424242
+            },
+            "paired_in_scope_detection_seed_percent": {
+              "count": 5,
+              "maximum": 96.15384615384616,
+              "mean": 92.66081677313562,
+              "median": 93.75,
+              "minimum": 86.30952380952381,
+              "sample_sd": 3.869434197355918
+            }
+          },
+          "mqt": {
+            "all_faults_scope_failures": {
+              "denominator": 913,
+              "numerator": 187,
+              "rate": 0.20481927710843373
+            },
+            "incomplete_records_excluded": 78,
+            "loc_all": {
+              "denominator": 540,
+              "numerator": 540,
+              "rate": 1.0
+            },
+            "loc_all_seed_percent": {
+              "count": 5,
+              "maximum": 100.0,
+              "mean": 100.0,
+              "median": 100.0,
+              "minimum": 100.0,
+              "sample_sd": 0.0
+            },
+            "loc_any": {
+              "denominator": 540,
+              "numerator": 540,
+              "rate": 1.0
+            },
+            "loc_any_seed_percent": {
+              "count": 5,
+              "maximum": 100.0,
+              "mean": 100.0,
+              "median": 100.0,
+              "minimum": 100.0,
+              "sample_sd": 0.0
+            },
+            "paired_detection": {
+              "denominator": 913,
+              "numerator": 540,
+              "rate": 0.5914567360350493
+            },
+            "paired_detection_seed_percent": {
+              "count": 5,
+              "maximum": 67.35751295336787,
+              "mean": 59.35400562275855,
+              "median": 62.28571428571429,
+              "minimum": 40.625,
+              "sample_sd": 10.730257588813208
+            },
+            "paired_in_scope_detection": {
+              "denominator": 726,
+              "numerator": 540,
+              "rate": 0.743801652892562
+            },
+            "paired_in_scope_detection_seed_percent": {
+              "count": 5,
+              "maximum": 83.84615384615385,
+              "mean": 74.40052342316835,
+              "median": 79.71014492753623,
+              "minimum": 60.9375,
+              "sample_sd": 9.795473043194244
+            }
+          },
+          "proq": {
+            "all_faults_scope_failures": {
+              "denominator": 913,
+              "numerator": 187,
+              "rate": 0.20481927710843373
+            },
+            "incomplete_records_excluded": 0,
+            "loc_all": {
+              "denominator": 667,
+              "numerator": 667,
+              "rate": 1.0
+            },
+            "loc_all_seed_percent": {
+              "count": 5,
+              "maximum": 100.0,
+              "mean": 100.0,
+              "median": 100.0,
+              "minimum": 100.0,
+              "sample_sd": 0.0
+            },
+            "loc_any": {
+              "denominator": 667,
+              "numerator": 667,
+              "rate": 1.0
+            },
+            "loc_any_seed_percent": {
+              "count": 5,
+              "maximum": 100.0,
+              "mean": 100.0,
+              "median": 100.0,
+              "minimum": 100.0,
+              "sample_sd": 0.0
+            },
+            "paired_detection": {
+              "denominator": 913,
+              "numerator": 667,
+              "rate": 0.7305585980284776
+            },
+            "paired_detection_seed_percent": {
+              "count": 5,
+              "maximum": 79.79274611398964,
+              "mean": 73.09993626385052,
+              "median": 75.14792899408283,
+              "minimum": 62.5,
+              "sample_sd": 6.6446314215774605
+            },
+            "paired_in_scope_detection": {
+              "denominator": 726,
+              "numerator": 667,
+              "rate": 0.918732782369146
+            },
+            "paired_in_scope_detection_seed_percent": {
+              "count": 5,
+              "maximum": 96.15384615384616,
+              "mean": 92.18462629694514,
+              "median": 93.75,
+              "minimum": 83.92857142857143,
+              "sample_sd": 4.864912219933553
+            }
+          },
+          "qmon": {
+            "all_faults_scope_failures": {
+              "denominator": 913,
+              "numerator": 187,
+              "rate": 0.20481927710843373
+            },
+            "incomplete_records_excluded": 0,
+            "loc_all": {
+              "denominator": 618,
+              "numerator": 617,
+              "rate": 0.9983818770226537
+            },
+            "loc_all_seed_percent": {
+              "count": 5,
+              "maximum": 100.0,
+              "mean": 99.84375,
+              "median": 100.0,
+              "minimum": 99.21875,
+              "sample_sd": 0.34938562148434216
+            },
+            "loc_any": {
+              "denominator": 618,
+              "numerator": 614,
+              "rate": 0.9935275080906149
+            },
+            "loc_any_seed_percent": {
+              "count": 5,
+              "maximum": 100.0,
+              "mean": 99.3537958843159,
+              "median": 99.19354838709677,
+              "minimum": 98.4375,
+              "sample_sd": 0.6608771745995763
+            },
+            "paired_detection": {
+              "denominator": 913,
+              "numerator": 622,
+              "rate": 0.6812705366922235
+            },
+            "paired_detection_seed_percent": {
+              "count": 5,
+              "maximum": 76.16580310880829,
+              "mean": 68.2115147509101,
+              "median": 69.56521739130434,
+              "minimum": 54.6875,
+              "sample_sd": 8.101506013646622
+            },
+            "paired_in_scope_detection": {
+              "denominator": 726,
+              "numerator": 618,
+              "rate": 0.8512396694214877
+            },
+            "paired_in_scope_detection_seed_percent": {
+              "count": 5,
+              "maximum": 95.38461538461539,
+              "mean": 85.40130387594155,
+              "median": 84.05797101449275,
+              "minimum": 76.19047619047619,
+              "sample_sd": 7.5140277235735375
+            }
+          },
+          "statistical": {
+            "all_faults_scope_failures": {
+              "denominator": 913,
+              "numerator": 187,
+              "rate": 0.20481927710843373
+            },
+            "incomplete_records_excluded": 0,
+            "loc_all": {
+              "denominator": 642,
+              "numerator": 642,
+              "rate": 1.0
+            },
+            "loc_all_seed_percent": {
+              "count": 5,
+              "maximum": 100.0,
+              "mean": 100.0,
+              "median": 100.0,
+              "minimum": 100.0,
+              "sample_sd": 0.0
+            },
+            "loc_any": {
+              "denominator": 642,
+              "numerator": 637,
+              "rate": 0.9922118380062306
+            },
+            "loc_any_seed_percent": {
+              "count": 5,
+              "maximum": 100.0,
+              "mean": 99.16620223529314,
+              "median": 99.2,
+              "minimum": 98.1981981981982,
+              "sample_sd": 0.6407235111933393
+            },
+            "paired_detection": {
+              "denominator": 913,
+              "numerator": 643,
+              "rate": 0.7042716319824753
+            },
+            "paired_detection_seed_percent": {
+              "count": 5,
+              "maximum": 77.720207253886,
+              "mean": 70.4943910593626,
+              "median": 71.59763313609467,
+              "minimum": 57.8125,
+              "sample_sd": 7.53026893480412
+            },
+            "paired_in_scope_detection": {
+              "denominator": 726,
+              "numerator": 642,
+              "rate": 0.8842975206611571
+            },
+            "paired_in_scope_detection_seed_percent": {
+              "count": 5,
+              "maximum": 96.15384615384616,
+              "mean": 88.7006982047743,
+              "median": 87.68115942028986,
+              "minimum": 80.35714285714286,
+              "sample_sd": 6.026581745383341
+            }
+          }
+        },
+        "non_output_equivalent": 964,
+        "output_classified": 1190,
+        "output_equivalent": 226,
+        "record_errors": 0
+      },
+      "m2": {
+        "applicable": 1190,
+        "attempted": 1190,
+        "common_complete": 1124,
+        "common_complete_non_output_equivalent": 1015,
+        "executed": 1190,
+        "masked": 1,
+        "masking_errors": 0,
+        "methods": {
+          "liu": {
+            "all_faults_scope_failures": {
+              "denominator": 1015,
+              "numerator": 313,
+              "rate": 0.3083743842364532
+            },
+            "incomplete_records_excluded": 0,
+            "loc_all": {
+              "denominator": 673,
+              "numerator": 632,
+              "rate": 0.9390787518573551
+            },
+            "loc_all_seed_percent": {
+              "count": 5,
+              "maximum": 96.72131147540983,
+              "mean": 93.92303347111046,
+              "median": 93.86503067484662,
+              "minimum": 92.3076923076923,
+              "sample_sd": 1.7388196968753258
+            },
+            "loc_any": {
+              "denominator": 832,
+              "numerator": 832,
+              "rate": 1.0
+            },
+            "loc_any_seed_percent": {
+              "count": 5,
+              "maximum": 100.0,
+              "mean": 100.0,
+              "median": 100.0,
+              "minimum": 100.0,
+              "sample_sd": 0.0
+            },
+            "paired_detection": {
+              "denominator": 1015,
+              "numerator": 832,
+              "rate": 0.819704433497537
+            },
+            "paired_detection_seed_percent": {
+              "count": 5,
+              "maximum": 90.0,
+              "mean": 81.9250351048824,
+              "median": 81.02564102564102,
+              "minimum": 74.03846153846155,
+              "sample_sd": 5.759309830555119
+            },
+            "paired_in_scope_detection": {
+              "denominator": 867,
+              "numerator": 832,
+              "rate": 0.9596309111880046
+            },
+            "paired_in_scope_detection_seed_percent": {
+              "count": 5,
+              "maximum": 97.76536312849163,
+              "mean": 96.08245973283758,
+              "median": 96.8944099378882,
+              "minimum": 93.10344827586206,
+              "sample_sd": 1.9429211048675217
+            }
+          },
+          "mqt": {
+            "all_faults_scope_failures": {
+              "denominator": 1015,
+              "numerator": 313,
+              "rate": 0.3083743842364532
+            },
+            "incomplete_records_excluded": 66,
+            "loc_all": {
+              "denominator": 606,
+              "numerator": 513,
+              "rate": 0.8465346534653465
+            },
+            "loc_all_seed_percent": {
+              "count": 5,
+              "maximum": 93.80530973451327,
+              "mean": 84.66260615102394,
+              "median": 82.0754716981132,
+              "minimum": 80.48780487804879,
+              "sample_sd": 5.578367953387502
+            },
+            "loc_any": {
+              "denominator": 707,
+              "numerator": 707,
+              "rate": 1.0
+            },
+            "loc_any_seed_percent": {
+              "count": 5,
+              "maximum": 100.0,
+              "mean": 100.0,
+              "median": 100.0,
+              "minimum": 100.0,
+              "sample_sd": 0.0
+            },
+            "paired_detection": {
+              "denominator": 1015,
+              "numerator": 707,
+              "rate": 0.696551724137931
+            },
+            "paired_detection_seed_percent": {
+              "count": 5,
+              "maximum": 75.71428571428571,
+              "mean": 69.65552843211692,
+              "median": 69.94818652849742,
+              "minimum": 62.980769230769226,
+              "sample_sd": 4.521744278224554
+            },
+            "paired_in_scope_detection": {
+              "denominator": 867,
+              "numerator": 707,
+              "rate": 0.8154555940023068
+            },
+            "paired_in_scope_detection_seed_percent": {
+              "count": 5,
+              "maximum": 83.85093167701864,
+              "mean": 81.72463086177956,
+              "median": 82.53012048192771,
+              "minimum": 78.32512315270937,
+              "sample_sd": 2.1594008990541416
+            }
+          },
+          "proq": {
+            "all_faults_scope_failures": {
+              "denominator": 1015,
+              "numerator": 313,
+              "rate": 0.3083743842364532
+            },
+            "incomplete_records_excluded": 0,
+            "loc_all": {
+              "denominator": 673,
+              "numerator": 633,
+              "rate": 0.9405646359583952
+            },
+            "loc_all_seed_percent": {
+              "count": 5,
+              "maximum": 96.72131147540983,
+              "mean": 94.04573285761352,
+              "median": 94.07407407407408,
+              "minimum": 92.3076923076923,
+              "sample_sd": 1.7552713085703193
+            },
+            "loc_any": {
+              "denominator": 832,
+              "numerator": 832,
+              "rate": 1.0
+            },
+            "loc_any_seed_percent": {
+              "count": 5,
+              "maximum": 100.0,
+              "mean": 100.0,
+              "median": 100.0,
+              "minimum": 100.0,
+              "sample_sd": 0.0
+            },
+            "paired_detection": {
+              "denominator": 1015,
+              "numerator": 832,
+              "rate": 0.819704433497537
+            },
+            "paired_detection_seed_percent": {
+              "count": 5,
+              "maximum": 90.0,
+              "mean": 81.9250351048824,
+              "median": 81.02564102564102,
+              "minimum": 74.03846153846155,
+              "sample_sd": 5.759309830555119
+            },
+            "paired_in_scope_detection": {
+              "denominator": 867,
+              "numerator": 832,
+              "rate": 0.9596309111880046
+            },
+            "paired_in_scope_detection_seed_percent": {
+              "count": 5,
+              "maximum": 97.76536312849163,
+              "mean": 96.08245973283758,
+              "median": 96.8944099378882,
+              "minimum": 93.10344827586206,
+              "sample_sd": 1.9429211048675217
+            }
+          },
+          "qmon": {
+            "all_faults_scope_failures": {
+              "denominator": 1015,
+              "numerator": 315,
+              "rate": 0.3103448275862069
+            },
+            "incomplete_records_excluded": 0,
+            "loc_all": {
+              "denominator": 645,
+              "numerator": 534,
+              "rate": 0.827906976744186
+            },
+            "loc_all_seed_percent": {
+              "count": 5,
+              "maximum": 90.82568807339449,
+              "mean": 82.72129138057629,
+              "median": 83.72093023255815,
+              "minimum": 72.41379310344827,
+              "sample_sd": 6.757183857374039
+            },
+            "loc_any": {
+              "denominator": 796,
+              "numerator": 794,
+              "rate": 0.9974874371859297
+            },
+            "loc_any_seed_percent": {
+              "count": 5,
+              "maximum": 100.0,
+              "mean": 99.75283446712018,
+              "median": 100.0,
+              "minimum": 99.31972789115646,
+              "sample_sd": 0.3413056233642564
+            },
+            "paired_detection": {
+              "denominator": 1015,
+              "numerator": 798,
+              "rate": 0.7862068965517242
+            },
+            "paired_detection_seed_percent": {
+              "count": 5,
+              "maximum": 85.71428571428571,
+              "mean": 78.58347315805729,
+              "median": 80.82901554404145,
+              "minimum": 71.15384615384616,
+              "sample_sd": 5.790616028111008
+            },
+            "paired_in_scope_detection": {
+              "denominator": 866,
+              "numerator": 796,
+              "rate": 0.9191685912240185
+            },
+            "paired_in_scope_detection_seed_percent": {
+              "count": 5,
+              "maximum": 96.27329192546584,
+              "mean": 92.06732426487605,
+              "median": 93.63057324840764,
+              "minimum": 87.34939759036145,
+              "sample_sd": 3.85483457429818
+            }
+          },
+          "statistical": {
+            "all_faults_scope_failures": {
+              "denominator": 1015,
+              "numerator": 313,
+              "rate": 0.3083743842364532
+            },
+            "incomplete_records_excluded": 0,
+            "loc_all": {
+              "denominator": 659,
+              "numerator": 604,
+              "rate": 0.9165402124430956
+            },
+            "loc_all_seed_percent": {
+              "count": 5,
+              "maximum": 97.36842105263158,
+              "mean": 91.69543211807692,
+              "median": 91.30434782608695,
+              "minimum": 85.47008547008546,
+              "sample_sd": 4.401525970205295
+            },
+            "loc_any": {
+              "denominator": 809,
+              "numerator": 807,
+              "rate": 0.9975278121137207
+            },
+            "loc_any_seed_percent": {
+              "count": 5,
+              "maximum": 100.0,
+              "mean": 99.75551580202743,
+              "median": 100.0,
+              "minimum": 99.35897435897436,
+              "sample_sd": 0.3354369571210113
+            },
+            "paired_detection": {
+              "denominator": 1015,
+              "numerator": 813,
+              "rate": 0.8009852216748768
+            },
+            "paired_detection_seed_percent": {
+              "count": 5,
+              "maximum": 86.66666666666667,
+              "mean": 80.06850378509773,
+              "median": 81.34715025906736,
+              "minimum": 72.59615384615384,
+              "sample_sd": 5.312766670254618
+            },
+            "paired_in_scope_detection": {
+              "denominator": 867,
+              "numerator": 809,
+              "rate": 0.9331026528258363
+            },
+            "paired_in_scope_detection_seed_percent": {
+              "count": 5,
+              "maximum": 96.8944099378882,
+              "mean": 93.46084221560572,
+              "median": 94.30379746835443,
+              "minimum": 89.65517241379311,
+              "sample_sd": 3.297672717746014
+            }
+          }
+        },
+        "non_output_equivalent": 1070,
+        "output_classified": 1190,
+        "output_equivalent": 120,
+        "record_errors": 0
+      },
+      "m3": {
+        "applicable": 1190,
+        "attempted": 1190,
+        "common_complete": 1118,
+        "common_complete_non_output_equivalent": 1033,
+        "executed": 1190,
+        "masked": 1,
+        "masking_errors": 0,
+        "methods": {
+          "liu": {
+            "all_faults_scope_failures": {
+              "denominator": 1033,
+              "numerator": 359,
+              "rate": 0.3475314617618587
+            },
+            "incomplete_records_excluded": 0,
+            "loc_all": {
+              "denominator": 655,
+              "numerator": 622,
+              "rate": 0.9496183206106871
+            },
+            "loc_all_seed_percent": {
+              "count": 5,
+              "maximum": 96.7479674796748,
+              "mean": 94.9706856187196,
+              "median": 95.58823529411765,
+              "minimum": 91.47286821705426,
+              "sample_sd": 2.072505839546559
+            },
+            "loc_any": {
+              "denominator": 893,
+              "numerator": 893,
+              "rate": 1.0
+            },
+            "loc_any_seed_percent": {
+              "count": 5,
+              "maximum": 100.0,
+              "mean": 100.0,
+              "median": 100.0,
+              "minimum": 100.0,
+              "sample_sd": 0.0
+            },
+            "paired_detection": {
+              "denominator": 1033,
+              "numerator": 893,
+              "rate": 0.8644724104549855
+            },
+            "paired_detection_seed_percent": {
+              "count": 5,
+              "maximum": 96.15384615384616,
+              "mean": 86.54055465471163,
+              "median": 86.40776699029125,
+              "minimum": 75.94339622641509,
+              "sample_sd": 7.395801132168223
+            },
+            "paired_in_scope_detection": {
+              "denominator": 917,
+              "numerator": 893,
+              "rate": 0.9738276990185387
+            },
+            "paired_in_scope_detection_seed_percent": {
+              "count": 5,
+              "maximum": 98.36065573770492,
+              "mean": 97.36955683339482,
+              "median": 97.57575757575758,
+              "minimum": 95.6043956043956,
+              "sample_sd": 1.0723100778424441
+            }
+          },
+          "mqt": {
+            "all_faults_scope_failures": {
+              "denominator": 1033,
+              "numerator": 359,
+              "rate": 0.3475314617618587
+            },
+            "incomplete_records_excluded": 72,
+            "loc_all": {
+              "denominator": 598,
+              "numerator": 486,
+              "rate": 0.8127090301003345
+            },
+            "loc_all_seed_percent": {
+              "count": 5,
+              "maximum": 92.24137931034483,
+              "mean": 81.33864446599313,
+              "median": 79.67479674796748,
+              "minimum": 76.66666666666667,
+              "sample_sd": 6.352049709308035
+            },
+            "loc_any": {
+              "denominator": 762,
+              "numerator": 762,
+              "rate": 1.0
+            },
+            "loc_any_seed_percent": {
+              "count": 5,
+              "maximum": 100.0,
+              "mean": 100.0,
+              "median": 100.0,
+              "minimum": 100.0,
+              "sample_sd": 0.0
+            },
+            "paired_detection": {
+              "denominator": 1033,
+              "numerator": 762,
+              "rate": 0.7376573088092934
+            },
+            "paired_detection_seed_percent": {
+              "count": 5,
+              "maximum": 81.25,
+              "mean": 73.87740408257768,
+              "median": 74.27184466019418,
+              "minimum": 64.62264150943396,
+              "sample_sd": 6.501588941458231
+            },
+            "paired_in_scope_detection": {
+              "denominator": 917,
+              "numerator": 762,
+              "rate": 0.8309705561613958
+            },
+            "paired_in_scope_detection_seed_percent": {
+              "count": 5,
+              "maximum": 83.60655737704919,
+              "mean": 83.1020284761847,
+              "median": 83.03030303030303,
+              "minimum": 82.5136612021858,
+              "sample_sd": 0.45952901034475174
+            }
+          },
+          "proq": {
+            "all_faults_scope_failures": {
+              "denominator": 1033,
+              "numerator": 359,
+              "rate": 0.3475314617618587
+            },
+            "incomplete_records_excluded": 0,
+            "loc_all": {
+              "denominator": 655,
+              "numerator": 622,
+              "rate": 0.9496183206106871
+            },
+            "loc_all_seed_percent": {
+              "count": 5,
+              "maximum": 96.7479674796748,
+              "mean": 94.9706856187196,
+              "median": 95.58823529411765,
+              "minimum": 91.47286821705426,
+              "sample_sd": 2.072505839546559
+            },
+            "loc_any": {
+              "denominator": 893,
+              "numerator": 893,
+              "rate": 1.0
+            },
+            "loc_any_seed_percent": {
+              "count": 5,
+              "maximum": 100.0,
+              "mean": 100.0,
+              "median": 100.0,
+              "minimum": 100.0,
+              "sample_sd": 0.0
+            },
+            "paired_detection": {
+              "denominator": 1033,
+              "numerator": 893,
+              "rate": 0.8644724104549855
+            },
+            "paired_detection_seed_percent": {
+              "count": 5,
+              "maximum": 96.15384615384616,
+              "mean": 86.54055465471163,
+              "median": 86.40776699029125,
+              "minimum": 75.94339622641509,
+              "sample_sd": 7.395801132168223
+            },
+            "paired_in_scope_detection": {
+              "denominator": 917,
+              "numerator": 893,
+              "rate": 0.9738276990185387
+            },
+            "paired_in_scope_detection_seed_percent": {
+              "count": 5,
+              "maximum": 98.36065573770492,
+              "mean": 97.36955683339482,
+              "median": 97.57575757575758,
+              "minimum": 95.6043956043956,
+              "sample_sd": 1.0723100778424441
+            }
+          },
+          "qmon": {
+            "all_faults_scope_failures": {
+              "denominator": 1033,
+              "numerator": 362,
+              "rate": 0.3504356243949661
+            },
+            "incomplete_records_excluded": 0,
+            "loc_all": {
+              "denominator": 641,
+              "numerator": 487,
+              "rate": 0.7597503900156006
+            },
+            "loc_all_seed_percent": {
+              "count": 5,
+              "maximum": 80.64516129032258,
+              "mean": 76.02799830644024,
+              "median": 76.66666666666667,
+              "minimum": 70.86614173228347,
+              "sample_sd": 4.359640063943637
+            },
+            "loc_any": {
+              "denominator": 874,
+              "numerator": 872,
+              "rate": 0.9977116704805492
+            },
+            "loc_any_seed_percent": {
+              "count": 5,
+              "maximum": 100.0,
+              "mean": 99.75507452625271,
+              "median": 100.0,
+              "minimum": 99.36708860759494,
+              "sample_sd": 0.33569412745467775
+            },
+            "paired_detection": {
+              "denominator": 1033,
+              "numerator": 874,
+              "rate": 0.846079380445305
+            },
+            "paired_detection_seed_percent": {
+              "count": 5,
+              "maximum": 91.82692307692307,
+              "mean": 84.6857031616209,
+              "median": 85.92233009708737,
+              "minimum": 74.52830188679245,
+              "sample_sd": 6.364214050578305
+            },
+            "paired_in_scope_detection": {
+              "denominator": 917,
+              "numerator": 874,
+              "rate": 0.9531079607415486
+            },
+            "paired_in_scope_detection_seed_percent": {
+              "count": 5,
+              "maximum": 97.81420765027322,
+              "mean": 95.35553774415877,
+              "median": 95.75757575757575,
+              "minimum": 92.85714285714286,
+              "sample_sd": 2.079680926910013
+            }
+          },
+          "statistical": {
+            "all_faults_scope_failures": {
+              "denominator": 1033,
+              "numerator": 359,
+              "rate": 0.3475314617618587
+            },
+            "incomplete_records_excluded": 0,
+            "loc_all": {
+              "denominator": 649,
+              "numerator": 587,
+              "rate": 0.9044684129429892
+            },
+            "loc_all_seed_percent": {
+              "count": 5,
+              "maximum": 93.7007874015748,
+              "mean": 90.51576430186243,
+              "median": 91.85185185185185,
+              "minimum": 86.04651162790698,
+              "sample_sd": 3.4895832705467997
+            },
+            "loc_any": {
+              "denominator": 879,
+              "numerator": 876,
+              "rate": 0.9965870307167235
+            },
+            "loc_any_seed_percent": {
+              "count": 5,
+              "maximum": 100.0,
+              "mean": 99.64435859089399,
+              "median": 99.43502824858757,
+              "minimum": 99.375,
+              "sample_sd": 0.3253593328095662
+            },
+            "paired_detection": {
+              "denominator": 1033,
+              "numerator": 881,
+              "rate": 0.8528557599225557
+            },
+            "paired_detection_seed_percent": {
+              "count": 5,
+              "maximum": 92.78846153846155,
+              "mean": 85.35801921897331,
+              "median": 85.92233009708737,
+              "minimum": 75.94339622641509,
+              "sample_sd": 6.124662291249042
+            },
+            "paired_in_scope_detection": {
+              "denominator": 917,
+              "numerator": 879,
+              "rate": 0.9585605234460196
+            },
+            "paired_in_scope_detection_seed_percent": {
+              "count": 5,
+              "maximum": 97.81420765027322,
+              "mean": 95.90393052784566,
+              "median": 96.72131147540983,
+              "minimum": 93.4065934065934,
+              "sample_sd": 1.8282275314987664
+            }
+          }
+        },
+        "non_output_equivalent": 1092,
+        "output_classified": 1190,
+        "output_equivalent": 98,
+        "record_errors": 0
+      }
+    }
+  }
+}

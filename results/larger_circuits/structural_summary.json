@@ -1,0 +1,138 @@
+{
+  "schema": "qmon-larger-circuit-structural-summary-v1",
+  "source": {
+    "records": "larger_circuits_144.jsonl",
+    "records_sha256": "11b099dbad0df637fcf7b97c1b7096bc85177ea5fde7f8702cb69e34cf47084f",
+    "plot_data": "larger_circuits_144_plot.csv",
+    "plot_data_sha256": "f342c7984ac7c75e1b73dd23826b802e8a224ef6678f3fc2780f4f6a406fed1c"
+  },
+  "population": {
+    "circuits": 144,
+    "families": 27,
+    "hash_distinct_circuits": 138,
+    "actual_qubit_range": [
+      15,
+      50
+    ],
+    "candidate_selection_complete": 144,
+    "later_instrumentation_complete": 139,
+    "later_instrumentation_timeout": 5
+  },
+  "candidate_selection": {
+    "selected_locations": 568697,
+    "selected_groups": 446678,
+    "time_seconds": {
+      "median": 0.13,
+      "percentile_75": 0.604,
+      "maximum": 809.24295583
+    },
+    "peak_memory_gib": {
+      "median": 0.172,
+      "maximum": 24.16
+    },
+    "maximum_observed_bond_dimension": {
+      "median": 2,
+      "percentile_75": 14,
+      "maximum": 2048
+    }
+  },
+  "structural_planning": {
+    "packing_procedure": "deterministic first-fit decreasing followed, for at most 120 groups, by one feasibility ILP for one fewer batch",
+    "percentile_definition": "nearest-rank; for 144 circuits, P75 is the 108th sorted value",
+    "operation_multiplier": {
+      "formula": "(B*m + G_replay + 2*M) / m",
+      "m": "number of original one- or two-qubit unitary instructions; measurements, resets, barriers, delays, snapshots, and save directives are excluded",
+      "B": "planned batch count",
+      "G_replay": "total replayed source-gate executions over all batches",
+      "M": "number of deployed monitor events",
+      "monitor_event_cost": "one measurement plus one reset"
+    },
+    "reported_rounded_values": [
+      {
+        "qmax": 60,
+        "fully_deployable": 118,
+        "fully_deployable_percent": 81.94,
+        "selected_group_coverage_percent": 37.89,
+        "selected_location_coverage_percent": 37.74,
+        "batch_count": {
+          "mean": 797.08,
+          "median": 6,
+          "percentile_75": 85
+        },
+        "operation_multiplier": {
+          "mean": 1193.81,
+          "median": 8.33,
+          "percentile_75": 161.16
+        }
+      },
+      {
+        "qmax": 70,
+        "fully_deployable": 118,
+        "fully_deployable_percent": 81.94,
+        "selected_group_coverage_percent": 41.88,
+        "selected_location_coverage_percent": 42.41,
+        "batch_count": {
+          "mean": 761.98,
+          "median": 6,
+          "percentile_75": 85
+        },
+        "operation_multiplier": {
+          "mean": 1189.91,
+          "median": 11.5,
+          "percentile_75": 185.09
+        }
+      },
+      {
+        "qmax": 80,
+        "fully_deployable": 133,
+        "fully_deployable_percent": 92.36,
+        "selected_group_coverage_percent": 68.26,
+        "selected_location_coverage_percent": 69.09,
+        "batch_count": {
+          "mean": 1529.53,
+          "median": 6,
+          "percentile_75": 121
+        },
+        "operation_multiplier": {
+          "mean": 2305.31,
+          "median": 16.26,
+          "percentile_75": 209.16
+        }
+      },
+      {
+        "qmax": 90,
+        "fully_deployable": 133,
+        "fully_deployable_percent": 92.36,
+        "selected_group_coverage_percent": 68.51,
+        "selected_location_coverage_percent": 69.43,
+        "batch_count": {
+          "mean": 1299.02,
+          "median": 5.5,
+          "percentile_75": 97
+        },
+        "operation_multiplier": {
+          "mean": 2077.16,
+          "median": 15.58,
+          "percentile_75": 214.33
+        }
+      },
+      {
+        "qmax": 100,
+        "fully_deployable": 144,
+        "fully_deployable_percent": 100.0,
+        "selected_group_coverage_percent": 100.0,
+        "selected_location_coverage_percent": 100.0,
+        "batch_count": {
+          "mean": 2163.0,
+          "median": 5,
+          "percentile_75": 156
+        },
+        "operation_multiplier": {
+          "mean": 3289.12,
+          "median": 15.58,
+          "percentile_75": 286.92
+        }
+      }
+    ]
+  }
+}

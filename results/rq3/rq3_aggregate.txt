@@ -1,0 +1,56 @@
+RQ3 result summary
+==================
+
+Population
+----------
+- Fixed mutation manifest: 3,570 records (238 circuits, five seeds, three
+  mutations per circuit and seed).
+- Complete non-output-equivalent mutants used for detection: 2,860.
+- Candidate-covered mutants: 2,217; deployed-checkpoint-covered mutants:
+  2,206; deployment gaps: 11.
+- Correct circuits used for false alarms: 238, complete for every method.
+
+Detection results
+-----------------
+Rates are the unweighted mean +/- sample standard deviation of the five
+per-seed rates. Parenthesized values are pooled counts.
+
+Method                         All mutants       Candidate-covered    Localization precision    False alarms
+Batched QMon                   62.4 +/- 5.4%     80.0 +/- 3.9%        0.522 +/- 0.126           0.8% (2/238)
+                               (1,782/2,860)     (1,774/2,217)
+Independent-checkpoint QMon    67.2 +/- 4.5%     86.4 +/- 1.6%        0.496 +/- 0.127           0.8% (2/238)
+                               (1,921/2,860)     (1,915/2,217)
+Statistical assertion          67.4 +/- 4.4%     86.7 +/- 1.6%        0.494 +/- 0.126           0.0% (0/238)
+                               (1,928/2,860)     (1,924/2,217)
+Projection assertion           71.1 +/- 4.2%     91.6 +/- 1.0%        0.500 +/- 0.130           0.0% (0/238)
+                               (2,031/2,860)     (2,031/2,217)
+Dynamic ancilla                71.3 +/- 4.4%     91.9 +/- 0.8%        0.501 +/- 0.131           0.0% (0/238)
+                               (2,036/2,860)     (2,036/2,217)
+MQT debugger (combined flag)   59.2 +/- 6.2%     76.1 +/- 4.0%        0.476 +/- 0.122           not measured
+                               (1,688/2,860)     (1,688/2,217)
+
+The MQT combined flags comprise 534 evaluated state mismatches and 1,154
+unevaluable or refusal outcomes. Applying the same five-seed summary to each
+category gives 18.7 +/- 6.8% state mismatches, 40.4 +/- 6.6% refusals, and
+59.2 +/- 6.2% combined flags. The pooled count 1,688/2,860 is 59.0%; it is not
+the reporting method used for the table percentage.
+
+Planned full-scan counts per circuit
+------------------------------------
+The 75th percentile uses the nearest-rank definition: the 179th sorted value
+for 238 circuits. These are plan counts, not realized early-exit counts.
+`Checkpoint reads` includes eligible standard final pre-measurement reads,
+counted once; those reads use existing terminal measurements and add no batch.
+
+Plan                         Counting unit       Mean    Median    P75    Maximum
+Batched QMon                 Batch runs          30.0       1       14       853
+Independent-checkpoint QMon  Checkpoint reads    84.3      21       80     1,626
+Separate-run assertions      Circuit runs        92.1      21       89     1,626
+
+QMon misses
+-----------
+QMon detects 1,782 and misses 1,078 of the 2,860 mutants. Of the misses, 635
+have no downstream monitorable checkpoint, 11 have a monitorable checkpoint
+that is not deployed under Qmax=24, and 432 have at least one deployed
+checkpoint but produce no QMon flag. Among all misses, 345 are detected by at
+least one baseline and 87 are missed by every evaluated method.
