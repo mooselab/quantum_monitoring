@@ -22,24 +22,22 @@ the reported analyses are included.
 
 ```text
 quantum_circuits/                 310 analyzed QASM circuits
-reconstruction/
-  src/                            analysis and baseline implementations
-  tests/                          unit and integration tests
-  protocols/                      experiment and validation protocols
-  inputs/
-    certified_circuits.txt        RQ1/RQ2 circuit list
-    rq3_circuits.txt              RQ3 circuit list
-    rq3_single_error_manifest.json
+src/                              analysis and baseline implementations
+tests/                            unit and integration tests
+protocols/                        experiment and validation protocols
+inputs/
+  certified_circuits.txt          RQ1/RQ2 circuit list
+  rq3_circuits.txt                RQ3 circuit list
+  rq3_single_error_manifest.json
                                   fixed RQ3 mutations
-  results/
-    SHA256SUMS                    checksums for every retained result file
-    core/                         RQ1, RQ2, Qmax, and multi-fault summaries
-    rq1/                          additional unfinished-location retry results
-    rq3/                          complete RQ3 records and summaries
-    larger_circuits/              144 larger-circuit records
-    figures/                      paper figures and plotting metadata
-requirements.txt                  direct dependencies
-requirements-lock.txt             complete environment lock
+results/
+  SHA256SUMS                      checksums for every retained result file
+  core/                           RQ1, RQ2, Qmax, and multi-fault summaries
+  rq1/                            additional unfinished-location retry results
+  rq3/                            complete RQ3 records and summaries
+  larger_circuits/                144 larger-circuit records
+  figures/                        paper figures and plotting metadata
+requirements.txt                  complete dependencies
 ```
 
 ## Main Modules
