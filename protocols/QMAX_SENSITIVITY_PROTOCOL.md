@@ -58,5 +58,4 @@ quantities. Its full validation mode recomputes candidate selection, causal
 cones, group feasibility, packing validity, and monitored-circuit structure.
 It does not repeat the optional time-limited ILP check.
 
-Use `PYTHONPATH=src python src/qmax_sensitivity.py --help` from
-`reconstruction/` for the available commands.
+Use `PYTHONPATH=src python src/qmax_sensitivity.py --help` for the available commands.

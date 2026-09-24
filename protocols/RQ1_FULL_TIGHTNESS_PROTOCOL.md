@@ -50,7 +50,7 @@ The compact numerical result is under `rq1` in
 `results/figures/figure_metadata.json` records the plotted count and source
 checksums.
 
-Run the focused tests from `reconstruction/` with:
+Run the focused tests with:
 
 ```bash
 PYTHONPATH=src python -m unittest -v tests/test_rq1_full_tightness.py

@@ -78,7 +78,7 @@ model output. `results/core/coverage.csv` contains the published input rows;
 the larger JSON input used for the original validation is not included in the
 compact package.
 
-Run the tests from `reconstruction/` with:
+Run the tests with:
 
 ```bash
 PYTHONPATH=src python -m unittest -v tests/test_rq2_regression.py

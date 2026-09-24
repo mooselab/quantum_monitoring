@@ -1,4 +1,4 @@
-"""Exact channel simulation for QMon reconstruction circuits.
+"""Exact channel simulation for QMon instrumented circuits.
 
 Mid-circuit ``measure; reset`` pairs are evaluated as a weighted mixture of
 statevector branches.  A certified-separable read converges to one quantum

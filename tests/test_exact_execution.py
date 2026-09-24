@@ -2,7 +2,7 @@
 Validate exact_execution.run_reconstructed_exact against Aer qasm simulator
 on reconstructed circuits small enough for Aer to finish quickly.
 
-Run from reconstruction/:
+Run from the project root:
     PYTHONPATH=src python -u tests/test_exact_execution.py
 """
 import sys
@@ -88,7 +88,7 @@ def _build_partial_circuit(qc, key, selected_nodes):
     return {key: operation_list} if operation_list else {}
 
 
-def _prepare_reconstruction(key, qc, selection, qmax):
+def _prepare_instrumentation(key, qc, selection, qmax):
     """Return ``(qc, operation_list, constraint)`` for one exact circuit."""
     if qc is None:
         qc = QuantumCircuit.from_qasm_file(quantum_path + key)
@@ -127,9 +127,9 @@ def _prepare_reconstruction(key, qc, selection, qmax):
     return qc, operation_list, constraint
 
 
-def build_reconstruction(key, qc=None, *, selection=DEFAULT_SELECTION,
-                         qmax=DEFAULT_QMAX):
-    """Build one circuit-matched QMon reconstruction subset.
+def build_instrumented_circuit(key, qc=None, *, selection=DEFAULT_SELECTION,
+                              qmax=DEFAULT_QMAX):
+    """Build one circuit-matched QMon instrumented subset.
 
     By default, separability is reconsidered after every gate (``nolock``), so a
     qubit that later disentangles can become monitorable again, with the RQ3
@@ -138,14 +138,14 @@ def build_reconstruction(key, qc=None, *, selection=DEFAULT_SELECTION,
 
     This compatibility helper uses ``solve_qmon_for_circuit`` to select ONE
     within-budget subset. It is not the full-coverage batched protocol. Use
-    :func:`build_reconstruction_batches` when every feasible node must be
+    :func:`build_instrumented_batches` when every feasible node must be
     partitioned and executed as in the main RQ3 experiment.
 
     ``selection="lock"`` explicitly requests the conservative legacy selector
     that permanently retires a qubit after its first entangling gate. It is kept
     only for controlled comparisons and is not the experiment default.
     """
-    qc, operation_list, constraint = _prepare_reconstruction(
+    qc, operation_list, constraint = _prepare_instrumentation(
         key, qc, selection, qmax)
     if key not in operation_list or len(constraint) == 1:
         return qc, qc.copy()
@@ -153,9 +153,9 @@ def build_reconstruction(key, qc=None, *, selection=DEFAULT_SELECTION,
     return qc, generate_monitoring_circuit(qc, key, operation_list, 10000000, ans)
 
 
-def build_reconstruction_batches(key, qc=None, *,
-                                 selection=DEFAULT_SELECTION,
-                                 qmax=DEFAULT_QMAX):
+def build_instrumented_batches(key, qc=None, *,
+                              selection=DEFAULT_SELECTION,
+                              qmax=DEFAULT_QMAX):
     """Build the main-RQ3 full-coverage batch partition for one exact circuit.
 
     Feasible gate nodes are partitioned with ``partition_nodes`` and every batch
@@ -167,7 +167,7 @@ def build_reconstruction_batches(key, qc=None, *,
     ``circuit``, ``nodes`` (gate indices), ``cost`` (extra qubits), and
     ``monitor_events`` (gate-qubit reads generated in that batch).
     """
-    qc, operation_list, constraint = _prepare_reconstruction(
+    qc, operation_list, constraint = _prepare_instrumentation(
         key, qc, selection, qmax)
     batches, infeasible = partition_nodes(constraint, qmax)
     executions = []
@@ -255,7 +255,7 @@ def check_reconverging_path_deduplicates():
     print("Reconverging-path deduplication passed.", flush=True)
 
 
-def check_batched_reconstruction_partitions():
+def check_batched_instrumentation_partitions():
     """A circuit-matched plan must emit every partition as a separate run."""
     qc = QuantumCircuit(6, 4)
     for offset in (0, 3):
@@ -272,15 +272,19 @@ def check_batched_reconstruction_partitions():
     qc.measure(3, 2)
     qc.measure(4, 3)
 
-    _, executions, metadata = build_reconstruction_batches(
-        "synthetic_two_dj", qc=qc, qmax=8)
-    assert metadata["selection"] == "nolock"
-    assert metadata["batch_count"] == len(executions) == 2
-    assert metadata["feasible_gate_nodes"] == sum(
-        len(execution["nodes"]) for execution in executions)
-    assert all(execution["circuit"].num_qubits <= 8
-               for execution in executions)
-    print("Batched reconstruction partitioning passed.", flush=True)
+    # Two groups each need one extra qubit; a capacity of one forces two batches.
+    for qmax, expected_batches in ((7, 2), (8, 1)):
+        _, executions, metadata = build_instrumented_batches(
+            "synthetic_two_dj", qc=qc, qmax=qmax)
+        assert metadata["selection"] == "nolock"
+        assert metadata["batch_count"] == len(executions) == expected_batches
+        nodes = [node for execution in executions for node in execution["nodes"]]
+        assert len(nodes) == len(set(nodes)) == 12
+        assert metadata["candidate_gate_nodes"] == metadata["feasible_gate_nodes"] == 12
+        assert metadata["infeasible_gate_nodes"] == ()
+        assert all(execution["circuit"].num_qubits <= qmax
+                   for execution in executions)
+    print("Batched instrumentation partitioning passed.", flush=True)
 
 
 def _joint_counter(columns, order):
@@ -627,7 +631,7 @@ class ExactChannelAndEmitterTests(unittest.TestCase):
 
 def main():
     check_reconverging_path_deduplicates()
-    check_batched_reconstruction_partitions()
+    check_batched_instrumentation_partitions()
     shots = 32768   # mid-measure bits are now retained per-event, growing the
     # joint support; more shots keep two-sample TVD noise well under threshold
     n_validated = 0
@@ -638,11 +642,11 @@ def main():
                 'qft_indep_qiskit_3.qasm', 'twolocalrandom_indep_qiskit_3.qasm',
                 'grover-v-chain_indep_qiskit_3.qasm',
                 'qaoa_indep_qiskit_6.qasm']:
-        qc, new_qc = build_reconstruction(key)
+        qc, new_qc = build_instrumented_circuit(key)
         print(f'{key}: reconstructed {len(new_qc.data)} gates, '
               f'{new_qc.num_qubits} qubits', flush=True)
         if new_qc.num_qubits > 14:
-            print('  SKIP Aer reference (reconstruction too large for '
+            print('  SKIP Aer reference (instrumented circuit too large for '
                   'trajectory simulation in reasonable time)', flush=True)
             continue
 

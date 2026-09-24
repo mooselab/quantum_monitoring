@@ -80,7 +80,7 @@ per-record and summary commands. The retained reported values are in
 `results/figures/fig_scalability_mps.pdf` and PNG; its metadata are in
 `results/figures/figure_metadata.json`.
 
-Run focused tests from `reconstruction/` with:
+Run focused tests with:
 
 ```bash
 QMON_MILP_SOLVER=cbc PYTHONPATH=src python -m unittest -v \

@@ -39,10 +39,9 @@ from utilities import generate_monitoring_circuit
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
-RECONSTRUCTION_DIR = SCRIPT_DIR.parent
-WORKSPACE_DIR = RECONSTRUCTION_DIR.parent
-DEFAULT_MANIFEST = RECONSTRUCTION_DIR / "inputs" / "certified_circuits.txt"
-DEFAULT_QASM_DIR = WORKSPACE_DIR / "quantum_circuits"
+PROJECT_ROOT = SCRIPT_DIR.parent
+DEFAULT_MANIFEST = PROJECT_ROOT / "inputs" / "certified_circuits.txt"
+DEFAULT_QASM_DIR = PROJECT_ROOT / "quantum_circuits"
 
 EXPECTED_CIRCUITS = 310
 EXPECTED_MANIFEST_SHA256 = (

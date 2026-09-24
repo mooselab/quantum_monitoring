@@ -4,7 +4,7 @@ This module deliberately does not reuse ``scalability_study.py`` artifacts.
 It defines a new, exhaustive attempt frame, records every terminal outcome,
 and treats Qmax=24 as an invariant of the operational experiment.
 
-Run from ``reconstruction/``:
+Run from the project root:
 
     PYTHONPATH=src python src/scalability_v2.py run --smoke \
         --output results/scalability_v2_smoke.jsonl
@@ -47,8 +47,7 @@ from typing import Any, Callable, Iterable, Mapping, Sequence
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
-RECONSTRUCTION_DIR = SCRIPT_DIR.parent
-WORKSPACE_DIR = RECONSTRUCTION_DIR.parent
+PROJECT_ROOT = SCRIPT_DIR.parent
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
@@ -337,8 +336,8 @@ TRANSPILE_BASIS = (
     "rzz",
 )
 
-DEFAULT_MANIFEST = RECONSTRUCTION_DIR / "inputs" / "certified_circuits.txt"
-DEFAULT_QASM_DIR = WORKSPACE_DIR / "quantum_circuits"
+DEFAULT_MANIFEST = PROJECT_ROOT / "inputs" / "certified_circuits.txt"
+DEFAULT_QASM_DIR = PROJECT_ROOT / "quantum_circuits"
 SOURCE_FILES = (
     SCRIPT_DIR / "scalability_v2.py",
     SCRIPT_DIR / "batch_partition.py",

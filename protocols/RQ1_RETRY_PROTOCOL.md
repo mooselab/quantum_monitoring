@@ -30,7 +30,7 @@ simulation resource limits, not a change to the deployment Qmax. A worker
 writes each completed location immediately. If its task times out, remaining
 requested locations retain an explicit timeout outcome.
 
-From `reconstruction/`, a task can be run with an unused output filename:
+A task can be run with an unused output filename:
 
 ```bash
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 PYTHONPATH=src \

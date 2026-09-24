@@ -1,8 +1,8 @@
 """Focused tests for the final RQ1/RQ2 rerun path.
 
-Run from ``reconstruction/`` with::
+Run with::
 
-    python -m unittest -v test_rq1_rq2_publication.py
+    PYTHONPATH=src python -m unittest discover -s tests -p test_rq1_rq2_publication.py -v
 """
 
 from __future__ import annotations

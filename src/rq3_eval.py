@@ -344,13 +344,24 @@ def validate_qmon_mechanism(keys):
     """Confirm QMon's per-node read (the exact marginal we use) equals what its
     ACTUAL reconstructed circuit measures mid-circuit, i.e. the exact-marginal
     shortcut is faithful to measure+reset+replay, not a bypass. Builds the
-    reconstruction and runs run_reconstructed_exact, comparing each mid-circuit
-    measurement's p1 to the marginal at that node."""
-    from test_exact_execution import build_reconstruction
+    instrumented circuit and runs run_reconstructed_exact, comparing each
+    mid-circuit measurement's p1 to the marginal at that node."""
+    import importlib.util
+
+    helper_path = (
+        Path(__file__).resolve().parents[1] / "tests" / "test_exact_execution.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "qmon_exact_execution_checks", helper_path
+    )
+    if spec is None or spec.loader is None:
+        raise ImportError(f"cannot load circuit validation helpers from {helper_path}")
+    helpers = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(helpers)
     from exact_execution import run_reconstructed_exact
     print("VALIDATION: QMon exact-marginal vs reconstructed-circuit mid-measurement")
     for key in keys:
-        qc, new_qc = build_reconstruction(key)
+        qc, new_qc = helpers.build_instrumented_circuit(key)
         _, mids, viol = run_reconstructed_exact(new_qc, shots=8192, seed=2025)
         nodes = monitored_nodes(qc)
         rho = marginals(qc, nodes)

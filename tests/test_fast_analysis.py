@@ -2,8 +2,8 @@
 Equivalence and timing test: analyze_per_gate (original, O(m^2 * 2^n))
 vs analyze_per_gate_fast (incremental evolution, O(m * 2^n)).
 
-Run from the reconstruction/ directory:
-    python test_fast_analysis.py
+Run from the project root:
+    PYTHONPATH=src python tests/test_fast_analysis.py
 """
 import time
 import contextlib

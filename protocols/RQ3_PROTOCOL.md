@@ -83,7 +83,7 @@ separate-run assertion methods. With 238 circuits, nearest-rank P75 is the
 values are stored in `rq3_aggregate.json` and `rq3_aggregate.txt`; the miss
 analysis and MQT outcome decomposition are stored beside them.
 
-From `reconstruction/`, aggregate the complete files with:
+Aggregate the complete files with:
 
 ```bash
 QMON_MILP_SOLVER=gurobi python rq3_realexec_eval.py --aggregate \

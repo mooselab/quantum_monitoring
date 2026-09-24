@@ -46,7 +46,7 @@ are marked sparse. No between-stratum hypothesis tests are performed.
 ## Output
 
 The retained result is `results/rq3/rq3_miss_analysis.json`, derived from
-`results/rq3/rq3_mutant.pkl`. Recompute it from `reconstruction/` with:
+`results/rq3/rq3_mutant.pkl`. Recompute it with:
 
 ```bash
 PYTHONPATH=src python src/rq3_miss_analysis.py \

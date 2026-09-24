@@ -29,12 +29,11 @@ from qiskit import ClassicalRegister, QuantumCircuit, QuantumRegister, qasm2
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
-RECONSTRUCTION_DIR = SCRIPT_DIR.parent
-WORKSPACE_DIR = RECONSTRUCTION_DIR.parent
-CIRCUIT_DIR = WORKSPACE_DIR / "quantum_circuits"
-CANONICAL_KEYFILE = RECONSTRUCTION_DIR / "inputs" / "rq3_circuits.txt"
+PROJECT_ROOT = SCRIPT_DIR.parent
+CIRCUIT_DIR = PROJECT_ROOT / "quantum_circuits"
+CANONICAL_KEYFILE = PROJECT_ROOT / "inputs" / "rq3_circuits.txt"
 DEFAULT_MANIFEST = (
-    RECONSTRUCTION_DIR / "inputs" / "rq3_single_error_manifest.json"
+    PROJECT_ROOT / "inputs" / "rq3_single_error_manifest.json"
 )
 
 SCHEMA = "qmon-rq3-single-error-manifest-v1"

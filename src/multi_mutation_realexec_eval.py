@@ -90,11 +90,10 @@ import numpy as np
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
-RECONSTRUCTION_DIR = SCRIPT_DIR.parent
-WORKSPACE_DIR = RECONSTRUCTION_DIR.parent
-CIRCUIT_DIR = WORKSPACE_DIR / "quantum_circuits"
+PROJECT_ROOT = SCRIPT_DIR.parent
+CIRCUIT_DIR = PROJECT_ROOT / "quantum_circuits"
 if str(SCRIPT_DIR) not in sys.path:
-    # Existing reconstruction modules use sibling imports and are also
+    # Existing source modules use sibling imports and are also
     # directly executable.  Adding their directory supports both invocation
     # styles without modifying those modules.
     sys.path.insert(0, str(SCRIPT_DIR))
@@ -154,7 +153,7 @@ SEEDS = (1, 2, 3, 4, 5)
 OUTPUT_EQ_L1 = 1e-9
 DEFAULT_OUTPUT = SCRIPT_DIR / "multimut_realexec_records.pkl"
 LEGACY_OUTPUT_NAME = "multimut_records.pkl"
-CANONICAL_KEYFILE = RECONSTRUCTION_DIR / "inputs" / "rq3_circuits.txt"
+CANONICAL_KEYFILE = PROJECT_ROOT / "inputs" / "rq3_circuits.txt"
 SMOKE_KEYS = ("dj_indep_qiskit_3.qasm",)
 CANONICAL_QMAX = 24
 _CANONICAL_MANIFEST = None

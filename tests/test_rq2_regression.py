@@ -1,8 +1,8 @@
 """Synthetic and robustness tests for the RQ2 regression analysis.
 
-Run from ``reconstruction/`` with::
+Run with::
 
-    python -m unittest -v test_rq2_regression.py
+    PYTHONPATH=src python -m unittest discover -s tests -p test_rq2_regression.py -v
 
 No coverage experiment or QASM execution is performed.
 """

@@ -20,7 +20,7 @@ import pulp
 from batch_partition import solve_problem
 
 quantum_path = str(
-    Path(__file__).resolve().parent.parent.parent / "quantum_circuits"
+    Path(__file__).resolve().parent.parent / "quantum_circuits"
 ) + "/"
 
 

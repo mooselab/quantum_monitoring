@@ -1,5 +1,5 @@
 """
-MPS-based monitorable-node selection and structural reconstruction-overhead
+MPS-based monitorable-node selection and structural instrumentation-overhead
 counting, for scalability analysis on circuits too large for statevector
 (>~20 qubits).
 
@@ -12,7 +12,7 @@ Two ideas make 30-50 qubit analysis feasible without executing anything:
    separable from the rest iff det(rho_q) <= tol -- the same criterion the
    statevector path uses, since residual == det(rho_q).
 
-2. Reconstruction overhead (extra qubits / extra gates to monitor a node)
+2. Instrumentation overhead (extra qubits / extra gates to monitor a node)
    is the node's backward causal cone -- a pure DAG property, computed by
    backward reachability, no simulation at all.
 """
@@ -78,7 +78,7 @@ def causal_cone(qc, gate_index, qubit):
     qubits those gates touch. Pure DAG reachability, no simulation.
 
     Returns (cone_gate_indices: set, cone_qubits: set). The number of
-    EXTRA qubits a reconstruction needs for this node is
+    EXTRA qubits needed to replay this node is
     len(cone_qubits) - 1 (all cone qubits except the monitored one), and
     the number of EXTRA replayed gates is len(cone_gate_indices).
     """
@@ -100,7 +100,7 @@ def causal_cone(qc, gate_index, qubit):
 
 def overhead_for_nodes(qc, nodes):
     """
-    Structural reconstruction overhead to monitor every (gate, qubit) in
+    Structural instrumentation overhead to monitor every (gate, qubit) in
     `nodes` (dict gate_index -> [qubits]); no execution.
 
     Returns dict with totals and per-node lists. Extra qubits are summed

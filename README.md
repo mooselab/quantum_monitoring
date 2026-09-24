@@ -61,7 +61,7 @@ requirements.txt                  complete dependencies
 | `src/qmax_sensitivity.py`, `src/rq2_from_qmax.py` | Evaluate and summarize the RQ2 `Qmax` sweep. |
 | `src/scalability_v2.py`, `src/larger_circuit_structural_sweep.py` | Analyze MPS selection and structural overhead on the 144 larger circuits. |
 
-The Markdown files under `reconstruction/protocols/` give the exact protocol
+The Markdown files under `protocols/` give the exact protocol
 for each reported experiment.
 
 ## Environment
@@ -78,8 +78,6 @@ pip install -r requirements.txt
 final runs. PuLP constructs the packing problem. Set
 `QMON_MILP_SOLVER=gurobi` to reproduce the stored deployment plans; CBC is
 sufficient for the test suite and small examples.
-
-All commands below are run from `reconstruction/`.
 
 ## Tests
 

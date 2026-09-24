@@ -1,11 +1,7 @@
 """Focused invariants for multi_mutation_realexec_eval.
 
-Run from the workspace root with:
-    PYTHONPATH=reconstruction/src python -m unittest \
-        reconstruction/tests/test_multi_mutation_realexec.py
-
-Or from reconstruction/ with:
-    PYTHONPATH=src python -m unittest tests/test_multi_mutation_realexec.py
+Run from the project root:
+    PYTHONPATH=src python -m unittest discover -s tests -p test_multi_mutation_realexec.py
 """
 
 import sys
