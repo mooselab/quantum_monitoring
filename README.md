@@ -1,7 +1,6 @@
 # QMon Replication Package
 
-This repository accompanies *QMon: Monitoring the Execution of Quantum
-Circuits with Mid-Circuit Measurement and Reset*. It contains the analyzed circuits, the research implementation, focused tests, and the result files used by the paper.
+This repository accompanies # [QMon: Monitoring the Execution of Quantum Circuits with Mid-Circuit Measurement and Reset](https://arxiv.org/abs/2512.13422). It contains the analyzed circuits, the research implementation, focused tests, and the result files used by the paper.
 
 ## Data Sets
 
