@@ -20,24 +20,28 @@ the reported analyses are included.
 
 ## Repository Layout
 
+Run all commands below from the directory containing this README,
+`requirements.txt`, and `src/`. The source, tests, inputs, and results are
+direct children of this project root. Default input paths are resolved from
+the source files, not from a parent directory.
+
 ```text
 quantum_circuits/                 310 analyzed QASM circuits
-src/                              analysis and baseline implementations
-tests/                            unit and integration tests
-protocols/                        experiment and validation protocols
+src/                             analysis and baseline implementations
+tests/                           unit and integration tests
+protocols/                       experiment and validation protocols
 inputs/
   certified_circuits.txt          RQ1/RQ2 circuit list
   rq3_circuits.txt                RQ3 circuit list
-  rq3_single_error_manifest.json
-                                  fixed RQ3 mutations
+  rq3_single_error_manifest.json  fixed RQ3 mutations
+  rq1_retry_targets.json          targets for unfinished-location retries
 results/
-  SHA256SUMS                      checksums for every retained result file
-  core/                           RQ1, RQ2, Qmax, and multi-fault summaries
-  rq1/                            additional unfinished-location retry results
-  rq3/                            complete RQ3 records and summaries
+  SHA256SUMS                     checksums for the listed result files
+  core/                          RQ1, RQ2, Qmax, and multi-fault summaries
+  rq3/                           complete RQ3 records and summaries
   larger_circuits/                144 larger-circuit records
-  figures/                        paper figures and plotting metadata
-requirements.txt                  complete dependencies
+  figures/                       paper figures and plotting metadata
+requirements.txt                 pinned experiment dependencies
 ```
 
 ## Main Modules
@@ -71,13 +75,14 @@ The final environment used Python 3.12.13. Create a clean environment with:
 ```bash
 conda create -n qmon2 python=3.12 -y
 conda activate qmon2
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
-`requirements-lock.txt` records the complete Linux environment used for the
-final runs. PuLP constructs the packing problem. Set
-`QMON_MILP_SOLVER=gurobi` to reproduce the stored deployment plans; CBC is
-sufficient for the test suite and small examples.
+`requirements.txt` pins the packages from the final Linux x86_64 environment.
+PuLP constructs the packing problem. Set `QMON_MILP_SOLVER=gurobi` and provide
+a valid Gurobi license to reproduce the stored deployment plans; CBC is
+sufficient for the test suite and small examples. These modules use sibling
+imports, so the commands set `PYTHONPATH=src`.
 
 ## Tests
 
@@ -88,7 +93,9 @@ QMON_MILP_SOLVER=cbc PYTHONPATH=src \
 
 The tests cover circuit construction, replay, batch planning, RQ1 and RQ2
 calculations, mutation identity, all baseline interfaces, RQ3 aggregation,
-miss analysis, and the 144-circuit structural sweep.
+miss analysis, and the 144-circuit structural sweep. They also check input
+paths after copying the project to a different directory and starting it
+from the project root, `src/`, or an external working directory.
 
 ## Planning Procedure
 
@@ -110,20 +117,23 @@ same FFD plus one-step ILP procedure.
 RQ2 row for each of the 310 circuits, and
 `results/core/rq2_regression.json` contains the fitted regression results.
 
-The principal RQ1 and RQ2 programs are:
+Inspect the principal RQ1 and RQ2 command-line options without starting an
+experiment:
 
 ```bash
-PYTHONPATH=src python src/rq1_certificate_check.py
+PYTHONPATH=src python src/rq1_certificate_check.py --help
+PYTHONPATH=src python src/rq1_full_tightness.py --help
+PYTHONPATH=src python src/rq1_retry.py --help
 PYTHONPATH=src python src/qmax_sensitivity.py --help
 PYTHONPATH=src python src/rq2_from_qmax.py --help
 PYTHONPATH=src python src/rq2_regression.py --help
 ```
 
 The additional RQ1 retry list in `inputs/rq1_retry_targets.json` contains
-11,136 unfinished locations from 48 circuits. One location has completed in
-the 2026-09-06 local pilot, leaving 11,135 awaiting retry; the accepted
-summary has not been replaced. See `protocols/RQ1_RETRY_PROTOCOL.md` for
-resource limits, provenance, and the exact remaining task scope.
+11,136 historically unfinished locations from 48 circuits. See
+`protocols/RQ1_RETRY_PROTOCOL.md` for resource limits and the historical pilot
+result. The pilot output file described there is not included in this
+checkout; the retry list is not a record of completed retries.
 
 ### RQ3
 
@@ -131,6 +141,10 @@ resource limits, provenance, and the exact remaining task scope.
 `results/rq3/rq3_falsealarm.pkl` contains all 238 unmutated circuits. Each file
 contains QMon, analytical per-checkpoint QMon, statistical assertion,
 projection assertion, dynamic ancilla, and MQT results.
+
+The saved table values can be read directly in
+`results/rq3/rq3_aggregate.txt` or `results/rq3/rq3_aggregate.json`, without
+running the simulations or a solver.
 
 Regenerate the RQ3 table values with:
 
@@ -144,13 +158,16 @@ This command validates every stored deployment plan before aggregation and can
 take substantial time. CBC may choose a different number of batches for a
 large circuit and therefore must not be used to validate these stored files.
 
-Regenerate the miss analysis and MQT outcome counts with:
+Regenerate the miss analysis and MQT outcome counts into `outputs/rq3/`,
+leaving the supplied result files unchanged. The programs create the output
+directory when needed:
 
 ```bash
-PYTHONPATH=src python src/rq3_miss_analysis.py \
-  results/rq3/rq3_mutant.pkl results/rq3/rq3_miss_analysis.json
+QMON_MILP_SOLVER=gurobi PYTHONPATH=src \
+  python src/rq3_miss_analysis.py \
+  results/rq3/rq3_mutant.pkl outputs/rq3/rq3_miss_analysis.json
 PYTHONPATH=src python src/mqt_diagnostics.py \
-  results/rq3/rq3_mutant.pkl results/rq3/mqt_diagnostics.json
+  results/rq3/rq3_mutant.pkl outputs/rq3/mqt_diagnostics.json
 ```
 
 `results/rq3/rq3_deployed_miss_diagnosis.json` contains the exact
