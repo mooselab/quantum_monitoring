@@ -7,12 +7,12 @@ Circuits with Mid-Circuit Measurement and Reset*. It contains the analyzed circu
 
 - `quantum_circuits/` contains exactly the 310 QASM circuits analyzed in RQ1
   and RQ2. Their names are listed in
-  `reconstruction/inputs/certified_circuits.txt`.
-- `reconstruction/inputs/rq3_circuits.txt` lists the 238-circuit RQ3 subset.
-- `reconstruction/inputs/rq3_single_error_manifest.json` fixes the 3,570 RQ3
+  `inputs/certified_circuits.txt`.
+- `inputs/rq3_circuits.txt` lists the 238-circuit RQ3 subset.
+- `inputs/rq3_single_error_manifest.json` fixes the 3,570 RQ3
   single-gate mutations: 238 circuits, five seeds, and three mutations per
   circuit and seed.
-- `reconstruction/results/larger_circuits/` contains exactly the 144 retained
+- `results/larger_circuits/` contains exactly the 144 retained
   larger-circuit records used for the 15 to 50 qubit scalability analysis.
 
 Only the circuits, analysis code, tests, and result files needed to reproduce
